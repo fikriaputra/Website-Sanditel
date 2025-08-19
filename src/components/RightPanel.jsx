@@ -6,11 +6,12 @@ const RightPanel = () => {
       </div>
 
       <div className="text-center">
-       <img
+     <img
   src="/Key_Advantages_Of_Inventory.png"
   alt="Illustration"
   className="mx-auto w-full max-w-[250px] lg:max-w-sm mb-4"
 />
+
         <h1 className="text-xl lg:text-2xl font-bold">Manajemen Inventory Barang</h1>
         <p className="mt-3 text-xs lg:text-sm text-gray-300">
           Kelola, pantau, dan kontrol inventory barang <br className="hidden lg:block" />
