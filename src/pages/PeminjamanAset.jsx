@@ -1,10 +1,12 @@
-// src/pages/PeminjamanAset.jsx
 import MainLayout from "../layouts/MainLayout";
 import Table from "../components/Table";
 import { useState } from "react";
-import { Printer } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Printer, Plus, CopyPlus } from "lucide-react"; // ⬅️ tambahkan ikon
 
 export default function PeminjamanAset() {
+  const navigate = useNavigate();
+
   const [peminjamanAset, setPeminjamanAset] = useState([
     {
       number: 1,
@@ -35,44 +37,44 @@ export default function PeminjamanAset() {
     },
     {
       number: 4,
-      barang: "Printer Canon LBP6030",
-      pamina: "Biro Keuangan",
-      tglPinjam: "16-07-2025",
-      tglKembali: "28-07-2025",
-      jumlah: 1,
-      sisaStok: 2,
+      barang: "Kursi Kantor Ergonomic",
+      pamina: "Divisi HRD",
+      tglPinjam: "18-07-2025",
+      tglKembali: "01-08-2025",
+      jumlah: 5,
+      sisaStok: 10,
     },
     {
       number: 5,
-      barang: "Switch Cisco 24 Port",
-      pamina: "Bagian Jaringan",
-      tglPinjam: "17-07-2025",
-      tglKembali: "27-07-2025",
+      barang: "Meja Rapat Kayu Jati",
+      pamina: "Divisi Keuangan",
+      tglPinjam: "20-07-2025",
+      tglKembali: "05-08-2025",
       jumlah: 3,
-      sisaStok: 0,
+      sisaStok: 2,
     },
     {
       number: 6,
-      barang: "Monitor LG 24 Inch",
-      pamina: "Biro Hukum",
-      tglPinjam: "18-07-2025",
-      tglKembali: "29-07-2025",
-      jumlah: 2,
-      sisaStok: 5,
+      barang: "Printer Laser HP MFP",
+      pamina: "Divisi Pemasaran",
+      tglPinjam: "22-07-2025",
+      tglKembali: "06-08-2025",
+      jumlah: 1,
+      sisaStok: 4,
     },
     {
       number: 7,
-      barang: "Kamera DSLR Canon EOS 200D",
-      pamina: "Bagian Dokumentasi",
-      tglPinjam: "19-07-2025",
-      tglKembali: "01-08-2025",
-      jumlah: 1,
-      sisaStok: 1,
+      barang: "Whiteboard Magnetik",
+      pamina: "Divisi Riset",
+      tglPinjam: "25-07-2025",
+      tglKembali: "10-08-2025",
+      jumlah: 2,
+      sisaStok: 3,
     },
   ]);
 
   const handleTambah = () => {
-    alert("Tambah peminjaman baru");
+    navigate("/add-peminjaman-aset");
   };
 
   const handleTambahMultiple = () => {
@@ -108,7 +110,7 @@ export default function PeminjamanAset() {
               onClick={handleTambah}
               className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded shadow transition"
             >
-              + Tambah
+              <Plus size={18} /> Tambah
             </button>
 
             {/* Peminjaman Multiple */}
@@ -116,7 +118,7 @@ export default function PeminjamanAset() {
               onClick={handleTambahMultiple}
               className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded shadow transition"
             >
-              + Peminjaman Multiple
+              <CopyPlus size={18} /> Peminjaman Multiple
             </button>
           </div>
         </div>
@@ -127,7 +129,7 @@ export default function PeminjamanAset() {
             headers={[
               "Number",
               "Barang",
-              "Pamina",
+              "Peminjam",
               "Tanggal Pinjam",
               "Tanggal Kembali",
               "Jumlah",

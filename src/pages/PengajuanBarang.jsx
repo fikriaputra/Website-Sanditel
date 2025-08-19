@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Hook untuk navigasi
 import MainLayout from "../layouts/MainLayout";
 import PageHeader from "../components/PageHeader";
 import Table from "../components/Table";
 import TableRow from "../components/TableRowPB";
 
 export default function PengajuanBarang() {
+  const navigate = useNavigate(); // Hook untuk navigasi
+
   const [data, setData] = useState([
   { date: "2025-08-10", number: "SUB-20250810-001", status: "Pending" },
   { date: "2025-08-09", number: "SUB-20250809-002", status: "Completed" },
@@ -31,7 +34,7 @@ export default function PengajuanBarang() {
         <PageHeader
           title="Daftar Pengajuan Barang"
           buttonLabel="Tambah Pengajuan"
-          onButtonClick={() => alert("Tambah Barang")}
+          onButtonClick={() =>  navigate("/add-pengajuan-barang")}
         />
           <Table
             headers={[

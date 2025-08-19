@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Hook untuk navigasi
 import MainLayout from "../layouts/MainLayout";
 import PageHeader from "../components/PageHeader";
 import Table from "../components/Table";
@@ -6,6 +7,8 @@ import TableRow from "../components/TableRowDA";
 import { Filter, Barcode, Plus } from "lucide-react";
 
 export default function DataAset() {
+  const navigate = useNavigate(); // Hook untuk navigasi
+
   const [assets, setAssets] = useState([
   { number: 1, name: "Laptop Dell", brandCode: "Dell-LT-001", category: "Electronics", status: "Active", barcodeLog: "2025-08-01" },
   { number: 2, name: "Projector Epson", brandCode: "Epson-PR-002", category: "Electronics", status: "Inactive", barcodeLog: "2025-07-25" },
@@ -49,7 +52,7 @@ export default function DataAset() {
           <h2 className="font-bold text-lg">Daftar Data Aset</h2>
           <div className="flex gap-2">
             <button
-              onClick={() => alert("Tambah aset baru")}
+              onClick={() => navigate("/add-data-aset")}
               className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
             >
               <Plus size={18} /> Add Asset

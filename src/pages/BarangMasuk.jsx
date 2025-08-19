@@ -1,24 +1,26 @@
-// src/pages/BarangKeluar.jsx
+// src/pages/BarangMasuk.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Table from "../components/Table";
 import TableRow from "../components/TableRowBM";
 import { Plus, Printer, Pencil } from "lucide-react";
 
 export default function BarangMasuk() {
-  const [barangKeluar] = useState([
-  { no: 1, noTransaksi: "T-BK-2508010001", tglMasuk: "01-08-2025", supplier: "PT Asia", namaBarang: "AC", jumlahMasuk: "20", user: "Kevin" },
-  { no: 2, noTransaksi: "T-BK-2508010002", tglMasuk: "01-08-2025", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "15", user: "Sarah" },
-  { no: 3, noTransaksi: "T-BK-2508020003", tglMasuk: "02-08-2025", supplier: "PT Sinar Jaya", namaBarang: "Printer", jumlahMasuk: "10", user: "Andi" },
-  { no: 4, noTransaksi: "T-BK-2508020004", tglMasuk: "02-08-2025", supplier: "PT Maju Mundur", namaBarang: "Mouse Wireless", jumlahMasuk: "50", user: "Dewi" },
-  { no: 5, noTransaksi: "T-BK-2508030005", tglMasuk: "03-08-2025", supplier: "PT Cahaya", namaBarang: "Meja Kantor", jumlahMasuk: "8", user: "Rudi" },
-  { no: 6, noTransaksi: "T-BK-2508030006", tglMasuk: "03-08-2025", supplier: "PT Teknologi Nusantara", namaBarang: "Proyektor", jumlahMasuk: "5", user: "Budi" },
-  { no: 7, noTransaksi: "T-BK-2508040007", tglMasuk: "04-08-2025", supplier: "PT Elektronik Jaya", namaBarang: "TV LED", jumlahMasuk: "12", user: "Sinta" },
-  { no: 8, noTransaksi: "T-BK-2508040008", tglMasuk: "04-08-2025", supplier: "PT Sukses Makmur", namaBarang: "Kursi Kantor", jumlahMasuk: "30", user: "Ahmad" },
-  { no: 9, noTransaksi: "T-BK-2508050009", tglMasuk: "05-08-2025", supplier: "PT OfficeMart", namaBarang: "Whiteboard", jumlahMasuk: "7", user: "Lina" },
-  { no: 10, noTransaksi: "T-BK-2508050010", tglMasuk: "05-08-2025", supplier: "PT Komputerindo", namaBarang: "Keyboard Mechanical", jumlahMasuk: "25", user: "Hadi" },
-]);
+  const navigate = useNavigate();
 
+  const [barangMasuk] = useState([
+    { no: 1, noTransaksi: "T-BK-2508010001", tglMasuk: "01-08-2025", supplier: "PT Asia", namaBarang: "AC", jumlahMasuk: "20", user: "Kevin" },
+    { no: 2, noTransaksi: "T-BK-2508010002", tglMasuk: "01-08-2025", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "15", user: "Sarah" },
+    { no: 3, noTransaksi: "T-BK-2508020003", tglMasuk: "02-08-2025", supplier: "PT Sinar Jaya", namaBarang: "Printer", jumlahMasuk: "10", user: "Andi" },
+    { no: 4, noTransaksi: "T-BK-2508020004", tglMasuk: "02-08-2025", supplier: "PT Maju Mundur", namaBarang: "Mouse Wireless", jumlahMasuk: "50", user: "Dewi" },
+    { no: 5, noTransaksi: "T-BK-2508030005", tglMasuk: "03-08-2025", supplier: "PT Cahaya", namaBarang: "Meja Kantor", jumlahMasuk: "8", user: "Rudi" },
+    { no: 6, noTransaksi: "T-BK-2508030006", tglMasuk: "03-08-2025", supplier: "PT Teknologi Nusantara", namaBarang: "Proyektor", jumlahMasuk: "5", user: "Budi" },
+    { no: 7, noTransaksi: "T-BK-2508040007", tglMasuk: "04-08-2025", supplier: "PT Elektronik Jaya", namaBarang: "TV LED", jumlahMasuk: "12", user: "Sinta" },
+    { no: 8, noTransaksi: "T-BK-2508040008", tglMasuk: "04-08-2025", supplier: "PT Sukses Makmur", namaBarang: "Kursi Kantor", jumlahMasuk: "30", user: "Ahmad" },
+    { no: 9, noTransaksi: "T-BK-2508050009", tglMasuk: "05-08-2025", supplier: "PT OfficeMart", namaBarang: "Whiteboard", jumlahMasuk: "7", user: "Lina" },
+    { no: 10, noTransaksi: "T-BK-2508050010", tglMasuk: "05-08-2025", supplier: "PT Komputerindo", namaBarang: "Keyboard Mechanical", jumlahMasuk: "25", user: "Hadi" },
+  ]);
 
   return (
     <MainLayout>
@@ -30,13 +32,14 @@ export default function BarangMasuk() {
             <button
               onClick={() => alert("Cetak data")}
               className="flex items-center gap-2 px-3 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-700 shadow-sm transition-colors justify-center"
-               title="Print Data"
+              title="Print Data"
             >
               <Printer size={20} />
               <span className="hidden sm:inline">Cetak</span>
             </button>
             <button
-              onClick={() => alert("Tambah data barang keluar")}
+            onClick={() => navigate("/add-barang-masuk")}
+
               className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
             >
               <Plus size={18} /> Tambah
@@ -58,7 +61,7 @@ export default function BarangMasuk() {
               "Aksi",
             ]}
           >
-            {barangKeluar.map((item) => (
+            {barangMasuk.map((item) => (
               <TableRow
                 key={item.no}
                 item={item}

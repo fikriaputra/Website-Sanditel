@@ -1,11 +1,14 @@
 // src/pages/BarangKeluar.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ tambahkan ini
 import MainLayout from "../layouts/MainLayout";
 import Table from "../components/Table";
 import TableRow from "../components/TableRowBK";
 import { Plus, Printer, Pencil } from "lucide-react";
 
 export default function BarangKeluar() {
+ const navigate = useNavigate(); // ✅ inisialisasi hook
+
   const [barangKeluar] = useState([
   { no: 1, noTransaksi: "T-BK-2508010001", tglKeluar: "01-08-2025", namaBarang: "Laptop", namaPenerima: "Advin", divisi: "IT", totalKeluar: "5 Unit", petugas: "Administrator" },
   { no: 2, noTransaksi: "T-BK-2508010002", tglKeluar: "01-08-2025", namaBarang: "Printer", namaPenerima: "Budi", divisi: "Keuangan", totalKeluar: "2 Unit", petugas: "Dewi" },
@@ -36,7 +39,7 @@ export default function BarangKeluar() {
               <span className="hidden sm:inline">Cetak</span>
             </button>
             <button
-              onClick={() => alert("Tambah data barang keluar")}
+              onClick={() => navigate("/add-barang-keluar")}
               className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
             >
               <Plus size={18} /> Tambah

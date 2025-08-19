@@ -3,19 +3,21 @@ import MainLayout from "../layouts/MainLayout";
 import Table from "../components/Table";
 import TableRowDA from "../components/TableRowDA";
 import { Printer, Plus } from "lucide-react";
+import { useNavigate } from "react-router-dom"; // <--- import navigate
 import "../index.css"; // pastikan style scrollbar di-load
 
 export default function DataBarang() {
-  const dataBarang = [
-  { Number: 1, ID: 1, Nama: "Laptop", Jenis: "Elektronik", Stok: 98, Satuan: "Unit", Harga: "Rp 10.000.000" },
-  { Number: 2, ID: 2, Nama: "Projector", Jenis: "Elektronik", Stok: 12, Satuan: "Unit", Harga: "Rp 7.500.000" },
-  { Number: 3, ID: 3, Nama: "Office Chair", Jenis: "Furniture", Stok: 21, Satuan: "Pcs", Harga: "Rp 1.200.000" },
-  { Number: 4, ID: 4, Nama: "Desk", Jenis: "Furniture", Stok: 23, Satuan: "Pcs", Harga: "Rp 2.500.000" },
-  { Number: 5, ID: 5, Nama: "Printer", Jenis: "Elektronik", Stok: 13, Satuan: "Unit", Harga: "Rp 3.000.000" },
-  { Number: 6, ID: 6, Nama: "Whiteboard", Jenis: "Perlengkapan Kantor", Stok: 15, Satuan: "Pcs", Harga: "Rp 750.000" },
-  { Number: 7, ID: 7, Nama: "Mouse Wireless", Jenis: "Aksesoris", Stok: 50, Satuan: "Pcs", Harga: "Rp 250.000" },
-];
+  const navigate = useNavigate(); // <--- hook navigate
 
+  const dataBarang = [
+    { Number: 1, ID: 1, Nama: "Laptop", Jenis: "Elektronik", Stok: 98, Satuan: "Unit", Harga: "Rp 10.000.000" },
+    { Number: 2, ID: 2, Nama: "Projector", Jenis: "Elektronik", Stok: 12, Satuan: "Unit", Harga: "Rp 7.500.000" },
+    { Number: 3, ID: 3, Nama: "Office Chair", Jenis: "Furniture", Stok: 21, Satuan: "Pcs", Harga: "Rp 1.200.000" },
+    { Number: 4, ID: 4, Nama: "Desk", Jenis: "Furniture", Stok: 23, Satuan: "Pcs", Harga: "Rp 2.500.000" },
+    { Number: 5, ID: 5, Nama: "Printer", Jenis: "Elektronik", Stok: 13, Satuan: "Unit", Harga: "Rp 3.000.000" },
+    { Number: 6, ID: 6, Nama: "Whiteboard", Jenis: "Perlengkapan Kantor", Stok: 15, Satuan: "Pcs", Harga: "Rp 750.000" },
+    { Number: 7, ID: 7, Nama: "Mouse Wireless", Jenis: "Aksesoris", Stok: 50, Satuan: "Pcs", Harga: "Rp 250.000" },
+  ];
 
   const headers = [
     "Number",
@@ -29,7 +31,7 @@ export default function DataBarang() {
   ];
 
   const handleTambah = () => {
-    console.log("Tambah data barang");
+    navigate("/add-data-barang"); // <--- pindah ke halaman AddDataBarang
   };
 
   const handlePrint = () => {
@@ -52,13 +54,13 @@ export default function DataBarang() {
           <h2 className="font-bold text-lg sm:text-xl">Daftar Data Barang</h2>
           <div className="flex items-center gap-2 flex-wrap">
             <button
-  onClick={handlePrint}
-  className="flex items-center gap-2 px-3 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-700 shadow-sm transition-colors justify-center"
-  title="Print Data"
->
-  <Printer size={20} />
-  <span className="hidden sm:inline">Cetak</span>
-</button>
+              onClick={handlePrint}
+              className="flex items-center gap-2 px-3 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-700 shadow-sm transition-colors justify-center"
+              title="Print Data"
+            >
+              <Printer size={20} />
+              <span className="hidden sm:inline">Cetak</span>
+            </button>
 
             {/* Tombol Tambah */}
             <button

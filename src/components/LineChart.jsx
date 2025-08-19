@@ -12,20 +12,29 @@ import {
 
 const lineData = {
   2024: [
-    { name: "Jan", masuk: 50, keluar: 15 },
-    { name: "Feb", masuk: 30, keluar: 25 },
-    { name: "Mar", masuk: 65, keluar: 30 },
-    { name: "Apr", masuk: 80, keluar: 40 },
-    { name: "Mei", masuk: 100, keluar: 50 },
+    { name: "Jan", masuk: 15, keluar: 25 },
+    { name: "Feb", masuk: 25, keluar: 30 },
+    { name: "Mar", masuk: 50, keluar: 40 },
+    { name: "Apr", masuk: 70, keluar: 35 },
+    { name: "Mei", masuk: 60, keluar: 80 },
+    { name: "Jun", masuk: 90, keluar: 55 },
+    { name: "Jul", masuk: 45, keluar: 60 },
+    { name: "Agu", masuk: 75, keluar: 70 },
   ],
   2025: [
-    { name: "Jan", masuk: 10, keluar: 50 },
-    { name: "Feb", masuk: 35, keluar: 18 },
-    { name: "Mar", masuk: 40, keluar: 20 },
-    { name: "Apr", masuk: 55, keluar: 30 },
-    { name: "Mei", masuk: 65, keluar: 35 },
+    { name: "Jan", masuk: 20, keluar: 40 },
+    { name: "Feb", masuk: 30, keluar: 35 },
+    { name: "Mar", masuk: 45, keluar: 25 },
+    { name: "Apr", masuk: 65, keluar: 30 },
+    { name: "Mei", masuk: 70, keluar: 50 },
+    { name: "Jun", masuk: 85, keluar: 45 },
+    { name: "Jul", masuk: 60, keluar: 55 },
+    { name: "Agu", masuk: 95, keluar: 65 },
   ],
 };
+
+
+
 
 export default function LineChartComponent() {
   const years = Object.keys(lineData);
