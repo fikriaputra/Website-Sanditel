@@ -34,56 +34,55 @@ export default function Dashboard() {
 
   return (
     <>
-   <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-gray-100">
+        <Navbar />
+        <Sidebar />
 
-    <Navbar/>
-      <Sidebar />
+        {/* Tambahkan padding-top supaya konten tidak ketiban navbar */}
+        <div className="p-4 space-y-4 lg:ml-64 pt-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <StatsCard
+              title="Total Data Barang"
+              value="102"
+              bgColor="linear-gradient(135deg, #94F9F0 0%, #66E4D7 100%)"
+              icon={Boxes}
+            />
+            <StatsCard
+              title="Total Data Aset"
+              value="70"
+              bgColor="linear-gradient(135deg, #C4D9F9 0%, #B3CBF8 100%)"
+              icon={PackageCheck}
+            />
+            <StatsCard
+              title="Total Stok Barang"
+              value="100"
+              bgColor="linear-gradient(135deg, #FAD0D9 0%, #F5B6C3 100%)"
+              icon={Warehouse}
+            />
+            <StatsCard
+              title="Total Pengguna"
+              value="17"
+              bgColor="linear-gradient(135deg, #CFC9F9 0%, #AFA8F9 100%)"
+              icon={Users}
+            />
+          </div>
 
-      <div className="p-4 space-y-4 lg:ml-64"> {/* kasih margin supaya nggak ketutup sidebar */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+            <LineChart />
+            <PieChart />
+          </div>
 
-<StatsCard
-  title="Total Data Barang"
-  value="102"
-  bgColor="linear-gradient(135deg, #94F9F0 0%, #66E4D7 100%)"
-  icon={Boxes}
-/>
-  <StatsCard
-    title="Total Data Aset"
-    value="70"
-    bgColor="linear-gradient(135deg, #C4D9F9 0%, #B3CBF8 100%)"
-    icon={PackageCheck}
-  />
-  <StatsCard
-    title="Total Stok Barang"
-    value="100"
-    bgColor="linear-gradient(135deg, #FAD0D9 0%, #F5B6C3 100%)"
-    icon={Warehouse}
-  />
-  <StatsCard
-    title="Total Pengguna"
-    value="17"
-    bgColor="linear-gradient(135deg, #CFC9F9 0%, #AFA8F9 100%)"
-    icon={Users}
-  />
-</div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-          <LineChart />
-          <PieChart />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch w-full">
+            <div className="overflow-x-auto">
+              <TableTransaksi title="Transaksi Barang Terakhir" data={transaksiTerakhir} />
+            </div>
+            <div className="overflow-x-auto">
+              <TableStok title="Stok Barang" data={stokMinimum} />
+            </div>
+          </div>
         </div>
-
-       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch w-full">
-  <div className="overflow-x-auto">
-    <TableTransaksi title="Transaksi Barang Terakhir" data={transaksiTerakhir} />
-  </div>
-  <div className="overflow-x-auto">
-    <TableStok title="Stok Barang" data={stokMinimum} />
-  </div>
-</div>
-</div>
-
       </div>
     </>
   );
 }
+

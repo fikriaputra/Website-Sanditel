@@ -105,7 +105,7 @@ export default function Table({ headers, children }) {
 
       {/* Table wrapper for horizontal scroll */}
       <div className="table-container rounded-lg border border-gray-200">
-        <table className="min-w-full border-collapse bg-white">
+       <table className="min-w-full border-collapse bg-white min-w-[1100px]">
           <thead>
             <tr className="bg-blue-500">
               {headers.map((header, idx) => (

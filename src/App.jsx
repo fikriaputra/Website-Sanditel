@@ -6,6 +6,10 @@ import Dashboard from "./pages/Dashboard";
 import PengajuanBarang from "./pages/PengajuanBarang";
 import DataAset from "./pages/DataAset"; // <-- tambahkan import baru
 import DataBarang from "./pages/DataBarang";
+import BarangKeluar from "./pages/BarangKeluar";
+import BarangMasuk from "./pages/BarangMasuk";
+import PeminjamanAset from "./pages/PeminjamanAset";
+import StokOpname from "./pages/StokOpname";
 
 function AnimatedPage({ children, direction = 1 }) {
   return (
@@ -32,6 +36,10 @@ export default function App() {
           <Route path="/pengajuan-barang" element={<AnimatedPage><PengajuanBarang /></AnimatedPage>} />
           <Route path="/data-aset" element={<AnimatedPage><DataAset /></AnimatedPage>} /> {/* <-- arahkan ke DataAset */}
           <Route path="/data-barang" element={<AnimatedPage><DataBarang /></AnimatedPage>} /> {/* <-- arahkan ke DataAset */}
+          <Route path="/barang-keluar" element={<AnimatedPage><BarangKeluar /></AnimatedPage>} /> {/* <-- arahkan ke BarangMasuk */}
+          <Route path="/barang-masuk" element={<AnimatedPage><BarangMasuk /></AnimatedPage>} /> {/* <-- arahkan ke BarangMasuk */}
+          <Route path="/peminjaman-aset" element={<AnimatedPage><PeminjamanAset /></AnimatedPage>} /> {/* <-- arahkan ke BarangMasuk */}
+          <Route path="/stok-opname" element={<AnimatedPage><StokOpname /></AnimatedPage>} /> {/* <-- arahkan ke BarangMasuk */}
         </Routes>
       </AnimatePresence>
     </Router>

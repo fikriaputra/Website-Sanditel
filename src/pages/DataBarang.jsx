@@ -48,14 +48,14 @@ export default function DataBarang() {
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-3">
           <h2 className="font-bold text-lg sm:text-xl">Daftar Data Barang</h2>
           <div className="flex items-center gap-2 flex-wrap">
-            {/* Tombol Print */}
             <button
-              onClick={handlePrint}
-              className="px-3 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-700 shadow-sm transition-colors flex items-center justify-center"
-              title="Print Data"
-            >
-              <Printer size={20} />
-            </button>
+  onClick={handlePrint}
+  className="flex items-center gap-2 px-3 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-700 shadow-sm transition-colors justify-center"
+  title="Print Data"
+>
+  <Printer size={20} />
+  <span className="hidden sm:inline">Cetak</span>
+</button>
 
             {/* Tombol Tambah */}
             <button
