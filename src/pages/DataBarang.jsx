@@ -7,12 +7,15 @@ import "../index.css"; // pastikan style scrollbar di-load
 
 export default function DataBarang() {
   const dataBarang = [
-    { Number: 1, ID: 1, Nama: "Laptop", Jenis: "Alat", Stok: 98, Satuan: "Pcs", Harga: "Rp 1.000.000" },
-    { Number: 2, ID: 2, Nama: "Projector", Jenis: "Alat", Stok: 12, Satuan: "Pcs", Harga: "Rp 200.000" },
-    { Number: 3, ID: 3, Nama: "Office Chair", Jenis: "Alat", Stok: 21, Satuan: "Pcs", Harga: "Rp 200.000" },
-    { Number: 4, ID: 4, Nama: "Desk", Jenis: "Alat", Stok: 23, Satuan: "Bungkus", Harga: "Rp 200.000" },
-    { Number: 5, ID: 5, Nama: "Printer", Jenis: "Alat", Stok: 13, Satuan: "Pcs", Harga: "Rp 200.000" },
-  ];
+  { Number: 1, ID: 1, Nama: "Laptop", Jenis: "Elektronik", Stok: 98, Satuan: "Unit", Harga: "Rp 10.000.000" },
+  { Number: 2, ID: 2, Nama: "Projector", Jenis: "Elektronik", Stok: 12, Satuan: "Unit", Harga: "Rp 7.500.000" },
+  { Number: 3, ID: 3, Nama: "Office Chair", Jenis: "Furniture", Stok: 21, Satuan: "Pcs", Harga: "Rp 1.200.000" },
+  { Number: 4, ID: 4, Nama: "Desk", Jenis: "Furniture", Stok: 23, Satuan: "Pcs", Harga: "Rp 2.500.000" },
+  { Number: 5, ID: 5, Nama: "Printer", Jenis: "Elektronik", Stok: 13, Satuan: "Unit", Harga: "Rp 3.000.000" },
+  { Number: 6, ID: 6, Nama: "Whiteboard", Jenis: "Perlengkapan Kantor", Stok: 15, Satuan: "Pcs", Harga: "Rp 750.000" },
+  { Number: 7, ID: 7, Nama: "Mouse Wireless", Jenis: "Aksesoris", Stok: 50, Satuan: "Pcs", Harga: "Rp 250.000" },
+];
+
 
   const headers = [
     "Number",

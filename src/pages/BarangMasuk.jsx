@@ -7,21 +7,18 @@ import { Plus, Printer, Pencil } from "lucide-react";
 
 export default function BarangMasuk() {
   const [barangKeluar] = useState([
-    { no: 1, noTransaksi: "T-BK-2411130009", tglMasuk: "13-02-2024", supplier: "PT Asia", namaBarang: "AC", jumlahMasuk: "100", user: "Kevin"},
-    { no: 2, noTransaksi: "T-BK-2411130008", tglMasuk: "13-02-2024", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "50", user: "Sarah"},
-    { no: 2, noTransaksi: "T-BK-2411130008", tglMasuk: "13-02-2024", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "50", user: "Sarah"},
-    { no: 2, noTransaksi: "T-BK-2411130008", tglMasuk: "13-02-2024", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "50", user: "Sarah"},
-    { no: 2, noTransaksi: "T-BK-2411130008", tglMasuk: "13-02-2024", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "50", user: "Sarah"},
-    { no: 2, noTransaksi: "T-BK-2411130008", tglMasuk: "13-02-2024", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "50", user: "Sarah"},
-    { no: 2, noTransaksi: "T-BK-2411130008", tglMasuk: "13-02-2024", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "50", user: "Sarah"},
-    { no: 2, noTransaksi: "T-BK-2411130008", tglMasuk: "13-02-2024", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "50", user: "Sarah"},
-    { no: 2, noTransaksi: "T-BK-2411130008", tglMasuk: "13-02-2024", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "50", user: "Sarah"},
-    { no: 2, noTransaksi: "T-BK-2411130008", tglMasuk: "13-02-2024", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "50", user: "Sarah"},
-    { no: 2, noTransaksi: "T-BK-2411130008", tglMasuk: "13-02-2024", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "50", user: "Sarah"},
-    { no: 2, noTransaksi: "T-BK-2411130008", tglMasuk: "13-02-2024", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "50", user: "Sarah"},
-    { no: 2, noTransaksi: "T-BK-2411130008", tglMasuk: "13-02-2024", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "50", user: "Sarah"},
-    { no: 2, noTransaksi: "T-BK-2411130008", tglMasuk: "13-02-2024", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "50", user: "Sarah"},
-  ]);
+  { no: 1, noTransaksi: "T-BK-2508010001", tglMasuk: "01-08-2025", supplier: "PT Asia", namaBarang: "AC", jumlahMasuk: "20", user: "Kevin" },
+  { no: 2, noTransaksi: "T-BK-2508010002", tglMasuk: "01-08-2025", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "15", user: "Sarah" },
+  { no: 3, noTransaksi: "T-BK-2508020003", tglMasuk: "02-08-2025", supplier: "PT Sinar Jaya", namaBarang: "Printer", jumlahMasuk: "10", user: "Andi" },
+  { no: 4, noTransaksi: "T-BK-2508020004", tglMasuk: "02-08-2025", supplier: "PT Maju Mundur", namaBarang: "Mouse Wireless", jumlahMasuk: "50", user: "Dewi" },
+  { no: 5, noTransaksi: "T-BK-2508030005", tglMasuk: "03-08-2025", supplier: "PT Cahaya", namaBarang: "Meja Kantor", jumlahMasuk: "8", user: "Rudi" },
+  { no: 6, noTransaksi: "T-BK-2508030006", tglMasuk: "03-08-2025", supplier: "PT Teknologi Nusantara", namaBarang: "Proyektor", jumlahMasuk: "5", user: "Budi" },
+  { no: 7, noTransaksi: "T-BK-2508040007", tglMasuk: "04-08-2025", supplier: "PT Elektronik Jaya", namaBarang: "TV LED", jumlahMasuk: "12", user: "Sinta" },
+  { no: 8, noTransaksi: "T-BK-2508040008", tglMasuk: "04-08-2025", supplier: "PT Sukses Makmur", namaBarang: "Kursi Kantor", jumlahMasuk: "30", user: "Ahmad" },
+  { no: 9, noTransaksi: "T-BK-2508050009", tglMasuk: "05-08-2025", supplier: "PT OfficeMart", namaBarang: "Whiteboard", jumlahMasuk: "7", user: "Lina" },
+  { no: 10, noTransaksi: "T-BK-2508050010", tglMasuk: "05-08-2025", supplier: "PT Komputerindo", namaBarang: "Keyboard Mechanical", jumlahMasuk: "25", user: "Hadi" },
+]);
+
 
   return (
     <MainLayout>

@@ -7,20 +7,18 @@ import { Filter, Barcode, Plus } from "lucide-react";
 
 export default function DataAset() {
   const [assets, setAssets] = useState([
-    { number: 1, name: "Laptop", brandCode: "BrandX-123", category: "Electronics", status: "Active", barcodeLog: "2023-08-15" },
-    { number: 2, name: "Projector", brandCode: "BrandY-456", category: "Electronics", status: "Inactive", barcodeLog: "2023-07-22" },
-    { number: 3, name: "Office Chair", brandCode: "BrandZ-789", category: "Furniture", status: "Active", barcodeLog: "2023-09-01" },
-    { number: 4, name: "Desk", brandCode: "BrandA-012", category: "Furniture", status: "Active", barcodeLog: "2023-08-20" },
-    { number: 5, name: "Printer", brandCode: "BrandB-345", category: "Electronics", status: "Active", barcodeLog: "2023-07-10" },
-    { number: 6, name: "Scanner", brandCode: "BrandC-678", category: "Electronics", status: "Inactive", barcodeLog: "2023-06-25" },
-    { number: 7, name: "Conference Table", brandCode: "BrandD-901", category: "Furniture", status: "Active", barcodeLog: "2023-09-05" },
-    { number: 7, name: "Conference Table", brandCode: "BrandD-901", category: "Furniture", status: "Active", barcodeLog: "2023-09-05" },
-    { number: 7, name: "Conference Table", brandCode: "BrandD-901", category: "Furniture", status: "Active", barcodeLog: "2023-09-05" },
-    { number: 7, name: "Conference Table", brandCode: "BrandD-901", category: "Furniture", status: "Active", barcodeLog: "2023-09-05" },
-    { number: 7, name: "Conference Table", brandCode: "BrandD-901", category: "Furniture", status: "Active", barcodeLog: "2023-09-05" },
-    { number: 7, name: "Conference Table", brandCode: "BrandD-901", category: "Furniture", status: "Active", barcodeLog: "2023-09-05" },
-    
-  ]);
+  { number: 1, name: "Laptop Dell", brandCode: "Dell-LT-001", category: "Electronics", status: "Active", barcodeLog: "2025-08-01" },
+  { number: 2, name: "Projector Epson", brandCode: "Epson-PR-002", category: "Electronics", status: "Inactive", barcodeLog: "2025-07-25" },
+  { number: 3, name: "Office Chair Ergo", brandCode: "Ergo-CH-003", category: "Furniture", status: "Active", barcodeLog: "2025-07-20" },
+  { number: 4, name: "Meeting Desk", brandCode: "IKEA-DS-004", category: "Furniture", status: "Active", barcodeLog: "2025-08-02" },
+  { number: 5, name: "Printer HP", brandCode: "HP-PR-005", category: "Electronics", status: "Active", barcodeLog: "2025-07-15" },
+  { number: 6, name: "Scanner Canon", brandCode: "Canon-SC-006", category: "Electronics", status: "Inactive", barcodeLog: "2025-07-10" },
+  { number: 7, name: "Conference Table", brandCode: "IKEA-TB-007", category: "Furniture", status: "Active", barcodeLog: "2025-08-05" },
+  { number: 8, name: "Whiteboard", brandCode: "WB-008", category: "Furniture", status: "Active", barcodeLog: "2025-08-03" },
+  { number: 9, name: "Air Conditioner", brandCode: "LG-AC-009", category: "Electronics", status: "Inactive", barcodeLog: "2025-07-30" },
+  { number: 10, name: "CCTV Camera", brandCode: "Hikvision-CC-010", category: "Electronics", status: "Active", barcodeLog: "2025-08-04" },
+]);
+
 
   const [searchTerm, setSearchTerm] = useState("");
   const [sortCategory, setSortCategory] = useState(null);

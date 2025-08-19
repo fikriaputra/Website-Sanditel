@@ -6,20 +6,18 @@ import TableRow from "../components/TableRowPB";
 
 export default function PengajuanBarang() {
   const [data, setData] = useState([
-    { date: "2024-07-26", number: "SUB-20240726-001", status: "Pending" },
-    { date: "2024-07-25", number: "SUB-20240725-002", status: "Completed" },
-    { date: "2024-07-24", number: "SUB-20240724-003", status: "Rejected" },
-    { date: "2024-07-23", number: "SUB-20240723-004", status: "Completed" },
-    { date: "2024-07-22", number: "SUB-20240722-005", status: "Pending" },
-    { date: "2024-07-22", number: "SUB-20240722-006", status: "Pending" },
-    { date: "2024-07-22", number: "SUB-20240722-007", status: "Pending" },
-    { date: "2024-07-22", number: "SUB-20240722-008", status: "Pending" },
-    { date: "2024-07-22", number: "SUB-20240722-009", status: "Pending" },
-    { date: "2024-07-22", number: "SUB-20240722-010", status: "Pending" },
-    { date: "2024-07-22", number: "SUB-20240722-011", status: "Pending" },
-    { date: "2024-07-22", number: "SUB-20240722-012", status: "Pending" },
-    { date: "2024-07-22", number: "SUB-20240722-013", status: "Pending" },
-  ]);
+  { date: "2025-08-10", number: "SUB-20250810-001", status: "Pending" },
+  { date: "2025-08-09", number: "SUB-20250809-002", status: "Completed" },
+  { date: "2025-08-08", number: "SUB-20250808-003", status: "Rejected" },
+  { date: "2025-08-07", number: "SUB-20250807-004", status: "Pending" },
+  { date: "2025-08-06", number: "SUB-20250806-005", status: "Completed" },
+  { date: "2025-08-05", number: "SUB-20250805-006", status: "Pending" },
+  { date: "2025-08-04", number: "SUB-20250804-007", status: "Rejected" },
+  { date: "2025-08-03", number: "SUB-20250803-008", status: "Completed" },
+  { date: "2025-08-02", number: "SUB-20250802-009", status: "Pending" },
+  { date: "2025-08-01", number: "SUB-20250801-010", status: "Pending" },
+]);
+
 
   const handleDelete = (index) => {
     if (window.confirm("Yakin ingin menghapus data ini?")) {

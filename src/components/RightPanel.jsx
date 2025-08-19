@@ -7,7 +7,7 @@ const RightPanel = () => {
 
       <div className="text-center">
      <img
-  src="/Key_Advantages_Of_Inventory.png"
+  src="public\Key_Advantages_Of_Inventory_Management_Systems_in_Ecommerce_Management-removebg-preview.png"
   alt="Illustration"
   className="mx-auto w-full max-w-[250px] lg:max-w-sm mb-4"
 />

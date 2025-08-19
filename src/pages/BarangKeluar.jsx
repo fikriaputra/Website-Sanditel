@@ -7,18 +7,18 @@ import { Plus, Printer, Pencil } from "lucide-react";
 
 export default function BarangKeluar() {
   const [barangKeluar] = useState([
-    { no: 1, noTransaksi: "T-BK-2411130009", tglKeluar: "13-02-2024", namaBarang: "Buku", namaPenerima: "Advin", divisi: "CCTV", totalKeluar: "20 Pcs", petugas: "Administrator" },
-    { no: 2, noTransaksi: "T-BK-2411130008", tglKeluar: "13-02-2024", namaBarang: "Lakban", namaPenerima: "Advin", divisi: "CCTV", totalKeluar: "30 Pcs", petugas: "Administrator" },
-    { no: 2, noTransaksi: "T-BK-2411130008", tglKeluar: "13-02-2024", namaBarang: "Lakban", namaPenerima: "Advin", divisi: "CCTV", totalKeluar: "30 Pcs", petugas: "Administrator" },
-    { no: 2, noTransaksi: "T-BK-2411130008", tglKeluar: "13-02-2024", namaBarang: "Lakban", namaPenerima: "Advin", divisi: "CCTV", totalKeluar: "30 Pcs", petugas: "Administrator" },
-    { no: 2, noTransaksi: "T-BK-2411130008", tglKeluar: "13-02-2024", namaBarang: "Lakban", namaPenerima: "Advin", divisi: "CCTV", totalKeluar: "30 Pcs", petugas: "Administrator" },
-    { no: 2, noTransaksi: "T-BK-2411130008", tglKeluar: "13-02-2024", namaBarang: "Lakban", namaPenerima: "Advin", divisi: "CCTV", totalKeluar: "30 Pcs", petugas: "Administrator" },
-    { no: 2, noTransaksi: "T-BK-2411130008", tglKeluar: "13-02-2024", namaBarang: "Lakban", namaPenerima: "Advin", divisi: "CCTV", totalKeluar: "30 Pcs", petugas: "Administrator" },
-    { no: 2, noTransaksi: "T-BK-2411130008", tglKeluar: "13-02-2024", namaBarang: "Lakban", namaPenerima: "Advin", divisi: "CCTV", totalKeluar: "30 Pcs", petugas: "Administrator" },
-    { no: 2, noTransaksi: "T-BK-2411130008", tglKeluar: "13-02-2024", namaBarang: "Lakban", namaPenerima: "Advin", divisi: "CCTV", totalKeluar: "30 Pcs", petugas: "Administrator" },
-    { no: 2, noTransaksi: "T-BK-2411130008", tglKeluar: "13-02-2024", namaBarang: "Lakban", namaPenerima: "Advin", divisi: "CCTV", totalKeluar: "30 Pcs", petugas: "Administrator" },
-    { no: 2, noTransaksi: "T-BK-2411130008", tglKeluar: "13-02-2024", namaBarang: "Lakban", namaPenerima: "Advin", divisi: "CCTV", totalKeluar: "30 Pcs", petugas: "Administrator" },
-  ]);
+  { no: 1, noTransaksi: "T-BK-2508010001", tglKeluar: "01-08-2025", namaBarang: "Laptop", namaPenerima: "Advin", divisi: "IT", totalKeluar: "5 Unit", petugas: "Administrator" },
+  { no: 2, noTransaksi: "T-BK-2508010002", tglKeluar: "01-08-2025", namaBarang: "Printer", namaPenerima: "Budi", divisi: "Keuangan", totalKeluar: "2 Unit", petugas: "Dewi" },
+  { no: 3, noTransaksi: "T-BK-2508020003", tglKeluar: "02-08-2025", namaBarang: "Kursi Kantor", namaPenerima: "Citra", divisi: "HRD", totalKeluar: "10 Pcs", petugas: "Rudi" },
+  { no: 4, noTransaksi: "T-BK-2508020004", tglKeluar: "02-08-2025", namaBarang: "Meja Kantor", namaPenerima: "Dani", divisi: "Operasional", totalKeluar: "4 Pcs", petugas: "Sinta" },
+  { no: 5, noTransaksi: "T-BK-2508030005", tglKeluar: "03-08-2025", namaBarang: "Proyektor", namaPenerima: "Eka", divisi: "Marketing", totalKeluar: "1 Unit", petugas: "Bima" },
+  { no: 6, noTransaksi: "T-BK-2508030006", tglKeluar: "03-08-2025", namaBarang: "Whiteboard", namaPenerima: "Fajar", divisi: "Training", totalKeluar: "3 Pcs", petugas: "Kevin" },
+  { no: 7, noTransaksi: "T-BK-2508040007", tglKeluar: "04-08-2025", namaBarang: "Mouse Wireless", namaPenerima: "Gina", divisi: "IT", totalKeluar: "15 Pcs", petugas: "Sarah" },
+  { no: 8, noTransaksi: "T-BK-2508040008", tglKeluar: "04-08-2025", namaBarang: "Keyboard Mechanical", namaPenerima: "Hendra", divisi: "Design", totalKeluar: "7 Pcs", petugas: "Andi" },
+  { no: 9, noTransaksi: "T-BK-2508050009", tglKeluar: "05-08-2025", namaBarang: "Router", namaPenerima: "Indra", divisi: "Network", totalKeluar: "2 Unit", petugas: "Lina" },
+  { no: 10, noTransaksi: "T-BK-2508050010", tglKeluar: "05-08-2025", namaBarang: "Harddisk Eksternal", namaPenerima: "Joko", divisi: "R&D", totalKeluar: "6 Unit", petugas: "Hadi" },
+]);
+
 
   return (
     <MainLayout>
