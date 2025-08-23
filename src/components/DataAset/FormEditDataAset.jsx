@@ -32,7 +32,7 @@ export default function FormEditDataAset({ initialData, onSubmit, onCancel }) {
       className="bg-white p-6 sm:p-8 rounded-lg shadow-md w-full max-w-2xl"
     >
       <h2 className="text-2xl font-bold mb-6 text-center sm:text-left">
-        Form Edit Asset
+        Form Edit Data Aset
       </h2>
 
       {/* Nama Barang */}
@@ -43,6 +43,7 @@ export default function FormEditDataAset({ initialData, onSubmit, onCancel }) {
           name="namaBarang"
           value={formData.namaBarang}
           onChange={handleChange}
+          placeholder="Masukkan nama aset"
           className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
@@ -55,6 +56,7 @@ export default function FormEditDataAset({ initialData, onSubmit, onCancel }) {
           name="merkType"
           value={formData.merkType}
           onChange={handleChange}
+          placeholder="Masukkan merk/type aset"
           className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
@@ -84,6 +86,7 @@ export default function FormEditDataAset({ initialData, onSubmit, onCancel }) {
           name="jumlah"
           value={formData.jumlah}
           onChange={handleChange}
+          placeholder="Masukkan jumlah aset"
           className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
@@ -108,15 +111,15 @@ export default function FormEditDataAset({ initialData, onSubmit, onCancel }) {
         <button
           type="button"
           onClick={onCancel}
-          className="w-full sm:w-auto px-4 py-2 bg-gray-200 text-black rounded-md hover:bg-gray-300 text-center"
+          className="w-full sm:w-auto px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition"
         >
           Kembali
         </button>
         <button
           type="submit"
-          className="w-full sm:w-auto px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 text-center"
+          className="w-full sm:w-auto px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
         >
-          Update
+          Simpan
         </button>
       </div>
     </form>

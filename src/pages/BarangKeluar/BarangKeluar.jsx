@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layouts/MainLayout";
 import Table from "../../components/DataBarang/Table";
 import TableRowBK from "../../components/BarangKeluar/TableRowBK";
-import { Plus, Printer, Pencil, Trash } from "lucide-react";
+import { Plus, Printer, Pencil, Trash2 } from "lucide-react";
 
 export default function BarangKeluar() {
   const navigate = useNavigate();
@@ -157,7 +157,7 @@ export default function BarangKeluar() {
                     onClick={() => handleDelete(item.no)}
                     className="flex items-center gap-1 px-3 py-1 bg-red-100 hover:bg-red-200 text-red-700 rounded text-sm"
                   >
-                    <Trash size={14} /> Hapus
+                    <Trash2 size={14} /> Hapus
                   </button>
                 </div>
               </div>

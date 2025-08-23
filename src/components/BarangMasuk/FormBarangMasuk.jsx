@@ -51,12 +51,12 @@ export default function FormBarangMasuk({ initialData, onSubmit, onCancel }) {
 
       {/* Input Fields */}
       {[
-        { label: "No Transaksi", name: "noTransaksi", type: "text", readOnly: true },
-        { label: "Tanggal Masuk", name: "tglMasuk", type: "date" },
-        { label: "Supplier", name: "supplier", type: "text" },
-        { label: "Nama Barang", name: "namaBarang", type: "text" },
-        { label: "Jumlah Masuk", name: "jumlahMasuk", type: "number" },
-        { label: "User", name: "user", type: "text" },
+        { label: "No Transaksi", name: "noTransaksi", type: "text", readOnly: true, placeholder: "Nomor transaksi otomatis" },
+        { label: "Tanggal Masuk", name: "tglMasuk", type: "date", placeholder: "Pilih tanggal masuk" },
+        { label: "Supplier", name: "supplier", type: "text", placeholder: "Masukkan nama supplier" },
+        { label: "Nama Barang", name: "namaBarang", type: "text", placeholder: "Masukkan nama barang" },
+        { label: "Jumlah Masuk", name: "jumlahMasuk", type: "number", placeholder: "Masukkan jumlah masuk" },
+        { label: "User", name: "user", type: "text", placeholder: "Masukkan nama user" },
       ].map((field) => (
         <div key={field.name} className="flex flex-col">
           <label className="text-sm font-medium mb-1">{field.label}</label>
@@ -66,6 +66,7 @@ export default function FormBarangMasuk({ initialData, onSubmit, onCancel }) {
             value={formData[field.name] || ""}
             onChange={handleChange}
             readOnly={field.readOnly}
+            placeholder={field.placeholder}
             required={!field.readOnly}
             className={`w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
               field.readOnly ? "bg-gray-100 text-gray-500 cursor-not-allowed" : ""
@@ -96,7 +97,7 @@ export default function FormBarangMasuk({ initialData, onSubmit, onCancel }) {
             type="submit"
             className="w-full sm:w-auto px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
           >
-            Simpan
+            Kirim
           </button>
         </div>
       </div>

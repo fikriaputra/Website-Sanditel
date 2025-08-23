@@ -71,7 +71,7 @@ export default function FormDataBarang({ onSubmit, onCancel, initialData, hideRe
           name="namaBarang"
           value={formData.namaBarang}
           onChange={handleChange}
-          placeholder="Nama Barang..."
+          placeholder="Nama Barang"
           className="w-full border rounded-lg px-3 py-2 text-sm sm:text-base"
         />
       </div>
@@ -121,7 +121,7 @@ export default function FormDataBarang({ onSubmit, onCancel, initialData, hideRe
           name="stok"
           value={formData.stok}
           onChange={handleChange}
-          placeholder="Masukkan jumlah stok..."
+          placeholder="Masukkan jumlah stok"
           className="w-full border rounded-lg px-3 py-2 text-sm sm:text-base"
         />
       </div>
@@ -151,7 +151,7 @@ export default function FormDataBarang({ onSubmit, onCancel, initialData, hideRe
             type="submit"
              className="w-full sm:w-auto px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
           >
-            Simpan
+            Kirim
           </button>
         </div>
       </div>

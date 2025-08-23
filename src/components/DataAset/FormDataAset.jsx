@@ -3,7 +3,6 @@ import { useState } from "react";
 
 export default function FormDataAset({ onSubmit, onCancel }) {
   const [formData, setFormData] = useState({
-    number: "",
     assetName: "",
     brandCode: "",
     category: "",
@@ -18,7 +17,6 @@ export default function FormDataAset({ onSubmit, onCancel }) {
 
   const handleReset = () => {
     setFormData({
-      number: "",
       assetName: "",
       brandCode: "",
       category: "",
@@ -41,48 +39,35 @@ export default function FormDataAset({ onSubmit, onCancel }) {
         Form Tambah Data Aset
       </h2>
 
-      {/* Number */}
-      <div className="mb-4">
-        <label className="block font-medium mb-1">Number</label>
-        <input
-          type="number"
-          name="number"
-          value={formData.number}
-          onChange={handleChange}
-          placeholder="Masukkan nomor urut..."
-          className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        />
-      </div>
-
       {/* Asset Name */}
       <div className="mb-4">
-        <label className="block font-medium mb-1">Asset Name</label>
+        <label className="block font-medium mb-1">Nama Aset</label>
         <input
           type="text"
           name="assetName"
           value={formData.assetName}
           onChange={handleChange}
-          placeholder="Masukkan nama aset..."
+          placeholder="Masukkan nama aset"
           className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
       {/* Brand/Code */}
       <div className="mb-4">
-        <label className="block font-medium mb-1">Brand/Code</label>
+        <label className="block font-medium mb-1">Merk/Kode</label>
         <input
           type="text"
           name="brandCode"
           value={formData.brandCode}
           onChange={handleChange}
-          placeholder="Masukkan brand atau kode..."
+          placeholder="Masukkan brand atau kode"
           className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
       {/* Category */}
       <div className="mb-4">
-        <label className="block font-medium mb-1">Category</label>
+        <label className="block font-medium mb-1">Kategori</label>
         <select
           name="category"
           value={formData.category}
@@ -112,7 +97,7 @@ export default function FormDataAset({ onSubmit, onCancel }) {
 
       {/* Barcode Update Log */}
       <div className="mb-6">
-        <label className="block font-medium mb-1">Barcode Update Log</label>
+        <label className="block font-medium mb-1">Log Pembaruan Barcode</label>
         <input
           type="date"
           name="barcodeUpdateLog"
@@ -127,7 +112,7 @@ export default function FormDataAset({ onSubmit, onCancel }) {
         <button
           type="button"
           onClick={handleReset}
-          className="w-full sm:w-auto px-4 py-2 bg-gray-100 rounded-md hover:bg-gray-200 text-center"
+          className="w-full sm:w-auto px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition"
         >
           Reset
         </button>
@@ -136,13 +121,13 @@ export default function FormDataAset({ onSubmit, onCancel }) {
           <button
             type="button"
             onClick={onCancel}
-            className="w-full sm:w-auto px-4 py-2 bg-gray-200 text-black rounded-md hover:bg-gray-300 text-center"
+           className="w-full sm:w-auto px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition"
           >
             Kembali
           </button>
           <button
             type="submit"
-            className="w-full sm:w-auto px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 text-center"
+            className="w-full sm:w-auto px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
           >
             Simpan
           </button>

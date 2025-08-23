@@ -23,13 +23,13 @@ export default function FormEditBarangKeluar({ onSubmit, onCancel, initialData }
 
       {/* Input Fields */}
       {[
-        { label: "No Transaksi", name: "noTransaksi", type: "text", readOnly: true },
-        { label: "Tanggal Keluar", name: "tglKeluar", type: "date" },
-        { label: "Nama Barang", name: "namaBarang", type: "text" },
-        { label: "Nama Penerima", name: "namaPenerima", type: "text" },
-        { label: "Divisi", name: "divisi", type: "text" },
-        { label: "Total Keluar", name: "totalKeluar", type: "number" },
-        { label: "Petugas", name: "petugas", type: "text" },
+        { label: "No Transaksi", name: "noTransaksi", type: "text", readOnly: true, placeholder: "Nomor transaksi otomatis" },
+        { label: "Tanggal Keluar", name: "tglKeluar", type: "date", placeholder: "Pilih tanggal keluar" },
+        { label: "Nama Barang", name: "namaBarang", type: "text", placeholder: "Masukkan nama barang" },
+        { label: "Nama Penerima", name: "namaPenerima", type: "text", placeholder: "Masukkan nama penerima" },
+        { label: "Divisi", name: "divisi", type: "text", placeholder: "Masukkan divisi penerima" },
+        { label: "Total Keluar", name: "totalKeluar", type: "number", placeholder: "Masukkan jumlah keluar" },
+        { label: "Petugas", name: "petugas", type: "text", placeholder: "Masukkan nama petugas" },
       ].map((field) => (
         <div key={field.name} className="flex flex-col">
           <label className="text-sm font-medium mb-1">{field.label}</label>
@@ -40,6 +40,7 @@ export default function FormEditBarangKeluar({ onSubmit, onCancel, initialData }
             onChange={handleChange}
             readOnly={field.readOnly}
             required={!field.readOnly}
+            placeholder={field.placeholder}
             className={`w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
               field.readOnly ? "bg-gray-100 text-gray-500 cursor-not-allowed" : ""
             }`}

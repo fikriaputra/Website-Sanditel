@@ -3,7 +3,7 @@ import MainLayout from "../../layouts/MainLayout";
 import Table from "../../components/DataBarang/Table";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Printer, Plus, CopyPlus, Pencil, Trash } from "lucide-react";
+import { Printer, Plus, CopyPlus } from "lucide-react";
 
 export default function PeminjamanAset() {
   const navigate = useNavigate();
@@ -99,7 +99,7 @@ export default function PeminjamanAset() {
           {/* Tombol Aksi */}
           <div className="flex flex-wrap gap-2">
             <button
-              onClick={() => alert("Cetak data")}
+              onClick={handlePrint}
               className="flex items-center gap-2 px-3 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-700 shadow-sm transition-colors justify-center"
               title="Print Data"
             >
@@ -148,55 +148,53 @@ export default function PeminjamanAset() {
         </div>
 
         {/* 📱 Card View untuk HP */}
-        {/* 📱 Card View untuk HP */}
-<div className="block sm:hidden space-y-3">
-  {filteredData.map((item, idx) => (
-    <div
-      key={idx}
-      className="border rounded-lg shadow-sm p-3 bg-gray-50"
-    >
-      {/* Header Card: Nama Barang + Number di kanan */}
-      <div className="flex justify-between items-center mb-1">
-        <div className="font-bold text-gray-800">{item.barang}</div>
-        <span className="text-sm text-gray-500">#{item.number}</span>
-      </div>
+        <div className="block sm:hidden space-y-3">
+          {filteredData.map((item, idx) => (
+            <div
+              key={idx}
+              className="border rounded-lg shadow-sm p-3 bg-gray-50"
+            >
+              {/* Header Card: Nama Barang + Number di kanan */}
+              <div className="flex justify-between items-center mb-1">
+                <div className="font-bold text-gray-800">{item.barang}</div>
+                <span className="text-sm text-gray-500">#{item.number}</span>
+              </div>
 
-      <div className="text-sm text-gray-600">Peminjam: {item.pamina}</div>
-      <div className="text-sm text-gray-600">Tgl Pinjam: {item.tglPinjam}</div>
-      <div className="text-sm text-gray-600">Tgl Kembali: {item.tglKembali}</div>
-      <div className="text-sm text-gray-600">Jumlah: {item.jumlah}</div>
-      <div className="text-sm text-gray-600">
-        Sisa Stok:{" "}
-        <span
-          className={`px-2 py-0.5 rounded text-xs font-semibold ${
-            item.sisaStok > 0
-              ? "bg-green-100 text-green-700"
-              : "bg-red-100 text-red-700"
-          }`}
-        >
-          {item.sisaStok > 0 ? "Tersedia" : "Habis"}
-        </span>
-      </div>
+              <div className="text-sm text-gray-600">Peminjam: {item.pamina}</div>
+              <div className="text-sm text-gray-600">Tgl Pinjam: {item.tglPinjam}</div>
+              <div className="text-sm text-gray-600">Tgl Kembali: {item.tglKembali}</div>
+              <div className="text-sm text-gray-600">Jumlah: {item.jumlah}</div>
+              <div className="text-sm text-gray-600">
+                Sisa Stok:{" "}
+                <span
+                  className={`px-2 py-0.5 rounded text-xs font-semibold ${
+                    item.sisaStok > 0
+                      ? "bg-green-100 text-green-700"
+                      : "bg-red-100 text-red-700"
+                  }`}
+                >
+                  {item.sisaStok}
+                </span>
+              </div>
 
-      <div className="mt-2">
-        <button
-          onClick={() => handleKembalikan(idx)}
-          className="w-full bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded shadow text-sm"
-        >
-          Kembalikan
-        </button>
-      </div>
-    </div>
-  ))}
-</div>
-
+              <div className="mt-2">
+                <button
+                  onClick={() => handleKembalikan(idx)}
+                  className="w-full bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded shadow text-sm"
+                >
+                  Kembalikan
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
 
         {/* 💻 Tabel View untuk Laptop */}
         <div className="hidden sm:block overflow-x-auto">
           <Table
             headers={[
-              "Number",
-              "Barang",
+              "No",
+              "Nama Barang",
               "Peminjam",
               "Tanggal Pinjam",
               "Tanggal Kembali",
@@ -236,7 +234,7 @@ export default function PeminjamanAset() {
                         : "bg-red-100 text-red-700"
                     }`}
                   >
-                    {item.sisaStok > 0 ? "Tersedia" : "Habis"}
+                    {item.sisaStok}
                   </span>
                 </td>
                 <td className="p-3">

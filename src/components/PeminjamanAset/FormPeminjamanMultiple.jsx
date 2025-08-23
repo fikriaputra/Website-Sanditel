@@ -3,7 +3,6 @@ import { Plus } from "lucide-react";
 
 export default function FormPeminjamanMultiple({ onSubmit, onCancel }) {
   const [formData, setFormData] = useState({
-    number: "",
     peminjam: "",
     tanggalPinjam: "",
     tanggalKembali: "",
@@ -57,18 +56,6 @@ export default function FormPeminjamanMultiple({ onSubmit, onCancel }) {
 
       {/* Input umum */}
       <div className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium mb-1">Number</label>
-          <input
-            type="number"
-            name="number"
-            value={formData.number}
-            onChange={handleChange}
-            className="w-full border rounded-lg px-3 py-2"
-            placeholder="Nomor urut..."
-          />
-        </div>
-
         <div>
           <label className="block text-sm font-medium mb-1">Peminjam</label>
           <input
@@ -188,17 +175,17 @@ export default function FormPeminjamanMultiple({ onSubmit, onCancel }) {
           <button
             type="button"
             onClick={handleAddBarang}
-            className="flex items-center justify-center gap-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+             className="flex items-center justify-center gap-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
           >
             <Plus size={18} />
-            Tambah Barang
+            Tambah Peminjaman
           </button>
 
           <button
             type="submit"
             className="w-full sm:w-auto px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
           >
-            Simpan Peminjaman
+            Kirim Peminjaman
           </button>
         </div>
       </div>

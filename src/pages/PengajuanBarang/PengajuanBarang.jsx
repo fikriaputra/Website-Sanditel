@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layouts/MainLayout";
 import Table from "../../components/DataBarang/Table";
 import TableRowPB from "../../components/PengajuanBarang/TableRowPB";
-import { Plus, Eye, Trash2, Check } from "lucide-react";
+import { Plus, Eye, Trash2, Check, Printer } from "lucide-react";
 
 export default function PengajuanBarang() {
   const navigate = useNavigate();
@@ -32,6 +32,10 @@ export default function PengajuanBarang() {
     }
   };
 
+  const handlePrint = () => {
+    window.print(); // bisa diganti sesuai kebutuhan
+  };
+
   return (
     <MainLayout>
       <div className="bg-white rounded-lg shadow p-4">
@@ -39,12 +43,23 @@ export default function PengajuanBarang() {
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-3">
           <h2 className="font-bold text-lg">Daftar Pengajuan Barang</h2>
           <div className="flex gap-2 flex-wrap">
+            {/* Tombol Cetak */}
+            <button
+              onClick={handlePrint}
+              className="flex items-center gap-2 px-3 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-700 shadow-sm transition-colors justify-center"
+            
+            >
+              <Printer size={18} />
+              <span className="hidden sm:inline">Cetak</span>
+            </button>
+
+            {/* Tombol Tambah */}
             <button
               onClick={() => navigate("/add-pengajuan-barang")}
               className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded shadow transition-transform hover:scale-105"
             >
               <Plus size={18} />
-              <span className="hidden sm:inline">Tambah Pengajuan</span>
+              <span className="hidden sm:inline">Tambah</span>
             </button>
           </div>
         </div>
@@ -134,6 +149,13 @@ export default function PengajuanBarang() {
                       <Check size={14} /> <span>Approve</span>
                     </button>
                   )}
+                  {/* Tombol Print (Mobile hanya icon) */}
+                  <button
+                    onClick={handlePrint}
+                    className="flex items-center justify-center px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded text-sm"
+                  >
+                    <Printer size={14} />
+                  </button>
                 </div>
               </div>
             ))
@@ -148,10 +170,10 @@ export default function PengajuanBarang() {
         <div className="hidden sm:block overflow-x-auto">
           <Table
             headers={[
-              "Submission Date",
-              "Submission Number",
-              "Submission Status",
-              "Actions",
+              "Tanggal Pengajuan",
+              "Nomor Pengajuan",
+              "Status Pengajuan",
+              "Aksi",
             ]}
           >
             {filteredData.length > 0 ? (

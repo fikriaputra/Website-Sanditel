@@ -3,7 +3,7 @@ import { useState, useMemo } from "react";
 import MainLayout from "../../layouts/MainLayout";
 import Table from "../../components/DataBarang/Table";
 import TableRowDB from "../../components/DataBarang/TableRowDB";
-import { Printer, Plus, Pencil, Trash } from "lucide-react";
+import { Printer, Plus, Pencil, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import "../../index.css";
 
@@ -21,7 +21,7 @@ export default function DataBarang() {
     { Number: 7, NamaBarang: "Mouse Wireless", JenisBarang: "Aksesoris", Stok: 50, Satuan: "Pcs" },
   ]);
 
-  const headers = ["Number", "Nama Barang", "Jenis Barang", "Stok", "Satuan", "Aksi"];
+  const headers = ["No", "Nama Barang", "Jenis Barang", "Stok", "Satuan", "Aksi"];
 
   const filteredData = useMemo(() => {
     return dataBarang.filter((barang) =>
@@ -116,7 +116,7 @@ export default function DataBarang() {
                     onClick={() => handleDelete(item)}
                     className="flex items-center gap-1 px-3 py-1 bg-red-100 hover:bg-red-200 text-red-700 rounded text-sm"
                   >
-                    <Trash size={14} /> Hapus
+                    <Trash2 size={14} /> Hapus
                   </button>
                 </div>
               </div>

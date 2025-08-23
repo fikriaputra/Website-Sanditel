@@ -44,6 +44,13 @@ export default function DataAset() {
     return filtered;
   }, [assets, searchTerm, sortCategory]);
 
+  // Hapus aset dari state
+  const handleDelete = (number) => {
+    if (window.confirm("Yakin ingin menghapus aset ini?")) {
+      setAssets((prev) => prev.filter((item) => item.number !== number));
+    }
+  };
+
   return (
     <MainLayout>
       <div className="bg-white rounded-lg shadow p-4">
@@ -52,37 +59,37 @@ export default function DataAset() {
           <h2 className="font-bold text-lg">Daftar Data Aset</h2>
 
           {/* Buttons */}
-<div className="flex gap-2 flex-wrap">
-  {/* Add Asset */}
-  <button
-    onClick={() => navigate("/add-data-aset")}
-    className="flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white p-2 rounded"
-    title="Add Asset"
-  >
-    <Plus size={18} />
-    <span className="hidden sm:inline ml-1">Add Asset</span> {/* Hanya muncul di desktop */}
-  </button>
+          <div className="flex gap-2 flex-wrap">
+            {/* Add Asset */}
+            <button
+              onClick={() => navigate("/add-data-aset")}
+              className="flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white p-2 rounded"
+              title="Add Asset"
+            >
+              <Plus size={18} />
+              <span className="hidden sm:inline ml-1">Tambah</span>
+            </button>
 
-  {/* Sort */}
-  <button
-    onClick={() => setSortCategory(sortCategory ? null : "Electronics")}
-    className="flex items-center justify-center bg-gray-500 hover:bg-gray-600 text-white p-2 rounded"
-    title="Sort by Category"
-  >
-    <Filter size={18} />
-    <span className="hidden sm:inline ml-1">Sort By Kategori</span> {/* Hanya muncul di desktop */}
-  </button>
+            {/* Sort */}
+            <button
+              onClick={() => setSortCategory(sortCategory ? null : "Electronics")}
+              className="flex items-center justify-center bg-gray-500 hover:bg-gray-600 text-white p-2 rounded"
+              title="Sort by Category"
+            >
+              <Filter size={18} />
+              <span className="hidden sm:inline ml-1">Sort By Kategori</span>
+            </button>
 
-  {/* Scan Barcode */}
-  <button
-    onClick={() => navigate("/stok-opname")}
-    className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white p-2 rounded"
-    title="Scan Barcode"
-  >
-    <Barcode size={18} />
-    <span className="hidden sm:inline ml-1">Scan Barcode</span> {/* Hanya muncul di desktop */}
-  </button>
-</div>
+            {/* Scan Barcode */}
+            <button
+              onClick={() => navigate("/stok-opname")}
+              className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white p-2 rounded"
+              title="Scan Barcode"
+            >
+              <Barcode size={18} />
+              <span className="hidden sm:inline ml-1">Scan Barcode</span>
+            </button>
+          </div>
         </div>
 
         {/* Search Bar Mobile */}
@@ -110,86 +117,79 @@ export default function DataAset() {
         </div>
 
         {/* Mobile Card View */}
-<div className="sm:hidden space-y-3">
-  {filteredAssets.length > 0 ? (
-    filteredAssets.map((item) => (
-      <div
-        key={item.number}
-        className="border rounded-lg p-3 shadow-sm bg-gray-50 flex flex-col gap-2"
-      >
-        <div className="flex justify-between items-center">
-          <h3 className="font-semibold text-gray-800">{item.name}</h3>
-          <span className={getStatusBadge(item.status)}>{item.status}</span>
+        <div className="sm:hidden space-y-3">
+          {filteredAssets.length > 0 ? (
+            filteredAssets.map((item) => (
+              <div
+                key={item.number}
+                className="border rounded-lg p-3 shadow-sm bg-gray-50 flex flex-col gap-2"
+              >
+                <div className="flex justify-between items-center">
+                  <h3 className="font-semibold text-gray-800">{item.name}</h3>
+                  <span className={getStatusBadge(item.status)}>{item.status}</span>
+                </div>
+                <p className="text-sm text-gray-600">
+                  <span className="font-medium">Merk/Kode:</span> {item.brandCode}
+                </p>
+                <p className="text-sm text-gray-600">
+                  <span className="font-medium">Kategori:</span> {item.category}
+                </p>
+                <p className="text-sm text-gray-600">
+                  <span className="font-medium">Barcode Log:</span> {item.barcodeLog}
+                </p>
+
+                {/* Action buttons */}
+                <div className="flex gap-2 mt-2">
+                  <button
+                    onClick={() => navigate(`/edit-data-aset/${item.number}`)}
+                    className="flex items-center gap-1 px-3 py-1 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 rounded text-sm"
+                  >
+                    <Pencil size={14} /> Edit
+                  </button>
+                  <button
+                    onClick={() =>
+                      alert(`Cek barcode untuk ${item.name} - Kode: ${item.brandCode}`)
+                    }
+                    className="flex items-center gap-1 px-3 py-1 bg-green-100 hover:bg-green-200 text-green-700 rounded text-sm"
+                  >
+                    <QrCode size={14} /> Barcode
+                  </button>
+                  <button
+                    onClick={() => handleDelete(item.number)}
+                    className="flex items-center gap-1 px-3 py-1 bg-red-100 hover:bg-red-200 text-red-700 rounded text-sm"
+                  >
+                    <Trash2 size={14} /> Hapus
+                  </button>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="text-center py-4 text-gray-500 italic">
+              Data Kosong Tidak Tersedia
+            </p>
+          )}
         </div>
-        <p className="text-sm text-gray-600">
-          <span className="font-medium">Brand/Code:</span> {item.brandCode}
-        </p>
-        <p className="text-sm text-gray-600">
-          <span className="font-medium">Category:</span> {item.category}
-        </p>
-        <p className="text-sm text-gray-600">
-          <span className="font-medium">Barcode Log:</span> {item.barcodeLog}
-        </p>
-
-        {/* Action buttons */}
-        <div className="flex gap-2 mt-2">
-          <button
-            onClick={() => navigate(`/edit-data-aset/${item.number}`)}
-            className="flex items-center gap-1 px-3 py-1 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 rounded text-sm"
-          >
-            <Pencil size={14} /> Edit
-          </button>
-          <button
-            onClick={() =>
-              alert(`Cek barcode untuk ${item.name} - Kode: ${item.brandCode}`)
-            }
-            className="flex items-center gap-1 px-3 py-1 bg-green-100 hover:bg-green-200 text-green-700 rounded text-sm"
-          >
-            <QrCode size={14} /> Barcode
-          </button>
-          <button
-            onClick={() => alert(`Hapus aset ${item.name}`)}
-            className="flex items-center gap-1 px-3 py-1 bg-red-100 hover:bg-red-200 text-red-700 rounded text-sm"
-          >
-            <Trash2 size={14} /> Hapus
-          </button>
-        </div>
-      </div>
-    ))
-  ) : (
-    <p className="text-center py-4 text-gray-500 italic">Data Kosong Tidak Tersedia</p>
-  )}
-</div>
-
-
 
         {/* Desktop Table */}
         <div className="hidden sm:block overflow-x-auto">
           <Table
             headers={[
-              "Number",
-              "Asset Name",
-              "Brand/Code",
-              "Category",
+              "No",
+              "Nama Aset",
+              "Merk/Kode",
+              "Kategori",
               "Status",
-              "Barcode Update Log",
-              "Actions",
+              "Log Pembaruan Barcode",
+              "Aksi",
             ]}
           >
             {filteredAssets.length > 0 ? (
               filteredAssets.map((item) => (
                 <TableRowDA
                   key={item.number}
-                  item={{
-                    ...item,
-                    status: (
-                      <span className={getStatusBadge(item.status)}>
-                        {item.status}
-                      </span>
-                    ),
-                  }}
+                  item={item}
                   onEdit={() => navigate(`/edit-data-aset/${item.number}`)}
-                  onDelete={() => alert(`Hapus aset ${item.name}`)}
+                  onDelete={() => handleDelete(item.number)}
                   onCheckBarcode={() =>
                     alert(`Cek barcode untuk ${item.name} - Kode: ${item.brandCode}`)
                   }
@@ -197,8 +197,8 @@ export default function DataAset() {
               ))
             ) : (
               <tr>
-                <td colSpan="7" className="text-center p-4 text-gray-500">
-                  Tidak ada data
+                <td colSpan="7" className="text-center p-4 text-gray-500 italic">
+                  Data Kosong Tidak Tersedia
                 </td>
               </tr>
             )}

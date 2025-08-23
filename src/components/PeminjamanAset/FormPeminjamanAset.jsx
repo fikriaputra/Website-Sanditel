@@ -2,7 +2,6 @@ import { useState } from "react";
 
 export default function FormPeminjamanAset({ onSubmit, onCancel }) {
   const [formData, setFormData] = useState({
-    number: "",
     barang: "",
     peminjam: "",
     tanggalPinjam: "",
@@ -18,7 +17,6 @@ export default function FormPeminjamanAset({ onSubmit, onCancel }) {
 
   const handleReset = () => {
     setFormData({
-      number: "",
       barang: "",
       peminjam: "",
       tanggalPinjam: "",
@@ -42,25 +40,10 @@ export default function FormPeminjamanAset({ onSubmit, onCancel }) {
         Form Peminjaman Aset
       </h2>
 
-      {/* Number */}
-      <div className="mb-4">
-        <label className="block font-medium mb-1 text-sm sm:text-base">
-          Number
-        </label>
-        <input
-          type="number"
-          name="number"
-          value={formData.number}
-          onChange={handleChange}
-          placeholder="Nomor urut..."
-          className="w-full border rounded-lg px-3 py-2 text-sm sm:text-base"
-        />
-      </div>
-
       {/* Barang */}
       <div className="mb-4">
         <label className="block font-medium mb-1 text-sm sm:text-base">
-          Barang
+          Nama Barang
         </label>
         <input
           type="text"
@@ -150,7 +133,7 @@ export default function FormPeminjamanAset({ onSubmit, onCancel }) {
         <button
           type="button"
           onClick={handleReset}
-          className="px-4 py-2 bg-gray-100 rounded-md hover:bg-gray-200 text-sm sm:text-base"
+          className="w-full sm:w-auto px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition"
         >
           Reset
         </button>
@@ -159,15 +142,15 @@ export default function FormPeminjamanAset({ onSubmit, onCancel }) {
           <button
             type="button"
             onClick={onCancel}
-            className="px-4 py-2 bg-gray-200 text-black rounded-md hover:bg-gray-300 text-sm sm:text-base"
+            className="w-full sm:w-auto px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition"
           >
             Kembali
           </button>
           <button
             type="submit"
-            className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 text-sm sm:text-base"
+            className="w-full sm:w-auto px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
           >
-            Simpan
+            Kirim
           </button>
         </div>
       </div>
