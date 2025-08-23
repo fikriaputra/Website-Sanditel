@@ -7,6 +7,7 @@ export default function FormPengajuanBarang({ onSubmit, onCancel }) {
     tanggalPengajuan: "",
     noPengajuan: "12082025/VIII/PAMBMD/2025",
     barang: [{ namaBarang: "", merkKode: "", jumlah: "", jenis: "" }],
+    suratPengajuan: null, // ⬅️ tambahkan di sini
   });
 
   const handleBarangChange = (index, e) => {
@@ -32,19 +33,35 @@ export default function FormPengajuanBarang({ onSubmit, onCancel }) {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, files } = e.target;
+
+    if (name === "suratPengajuan") {
+      setFormData((prev) => ({ ...prev, suratPengajuan: files[0] })); // ambil file pertama
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
+
+    // kalau perlu upload via FormData ke API
+    const payload = new FormData();
+    payload.append("tanggalPengajuan", formData.tanggalPengajuan);
+    payload.append("noPengajuan", formData.noPengajuan);
+    payload.append("barang", JSON.stringify(formData.barang));
+    if (formData.suratPengajuan) {
+      payload.append("suratPengajuan", formData.suratPengajuan);
+    }
+
+    onSubmit(payload);
   };
 
   return (
     <form
       onSubmit={handleSubmit}
       className="bg-white p-6 sm:p-8 rounded-lg shadow-md w-full max-w-2xl mx-auto space-y-4"
+      encType="multipart/form-data" // ⬅️ wajib untuk file upload
     >
       <h2 className="text-xl sm:text-2xl font-bold">
         Form Tambah Pengajuan Barang
@@ -77,6 +94,25 @@ export default function FormPengajuanBarang({ onSubmit, onCancel }) {
             className="w-full border rounded-lg px-3 py-2 bg-gray-100 text-gray-500"
           />
         </div>
+      </div>
+
+      {/* Upload Surat Pengajuan */}
+      <div>
+        <label className="block text-sm font-medium mb-1">
+          Upload Surat Pengajuan
+        </label>
+        <input
+          type="file"
+          name="suratPengajuan"
+          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+          onChange={handleChange}
+          className="w-full border rounded-lg px-3 py-2"
+        />
+        {formData.suratPengajuan && (
+          <p className="text-sm text-gray-600 mt-1">
+            File terpilih: <span className="font-medium">{formData.suratPengajuan.name}</span>
+          </p>
+        )}
       </div>
 
       {/* Daftar Barang */}
