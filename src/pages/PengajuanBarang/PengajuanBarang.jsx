@@ -149,13 +149,6 @@ export default function PengajuanBarang() {
                       <Check size={14} /> <span>Approve</span>
                     </button>
                   )}
-                  {/* Tombol Print (Mobile hanya icon) */}
-                  <button
-                    onClick={handlePrint}
-                    className="flex items-center justify-center px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded text-sm"
-                  >
-                    <Printer size={14} />
-                  </button>
                 </div>
               </div>
             ))
