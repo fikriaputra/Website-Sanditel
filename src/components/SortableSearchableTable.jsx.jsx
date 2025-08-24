@@ -17,15 +17,19 @@ export default function SortableSearchableTable({ columns, data, renderRow }) {
   // Sorting
   const sortedData = useMemo(() => {
     if (!sortConfig.key) return filteredData;
+
     return [...filteredData].sort((a, b) => {
-      if (a[sortConfig.key] < b[sortConfig.key])
+      if (a[sortConfig.key] < b[sortConfig.key]) {
         return sortConfig.direction === "asc" ? -1 : 1;
-      if (a[sortConfig.key] > b[sortConfig.key])
+      }
+      if (a[sortConfig.key] > b[sortConfig.key]) {
         return sortConfig.direction === "asc" ? 1 : -1;
+      }
       return 0;
     });
   }, [filteredData, sortConfig]);
 
+  // Request sort
   const requestSort = (key) => {
     let direction = "asc";
     if (sortConfig.key === key && sortConfig.direction === "asc") {
@@ -41,7 +45,7 @@ export default function SortableSearchableTable({ columns, data, renderRow }) {
         <input
           type="text"
           placeholder="Cari..."
-          className="border px-3 py-2 rounded w-full sm:w-64"
+          className="w-full sm:w-64 border px-3 py-2 rounded"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -55,7 +59,9 @@ export default function SortableSearchableTable({ columns, data, renderRow }) {
               {columns.map((col) => (
                 <th
                   key={col.accessor}
-                  className="p-3 text-left cursor-pointer select-none"
+                  className={`p-3 text-left ${
+                    col.sortable ? "cursor-pointer select-none" : ""
+                  }`}
                   onClick={() => col.sortable && requestSort(col.accessor)}
                 >
                   {col.title}
@@ -65,7 +71,10 @@ export default function SortableSearchableTable({ columns, data, renderRow }) {
               ))}
             </tr>
           </thead>
-          <tbody>{sortedData.map((row, idx) => renderRow(row, idx))}</tbody>
+
+          <tbody>
+            {sortedData.map((row, idx) => renderRow(row, idx))}
+          </tbody>
         </table>
       </div>
     </div>

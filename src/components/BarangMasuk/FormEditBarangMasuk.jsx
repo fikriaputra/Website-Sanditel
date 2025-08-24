@@ -14,6 +14,46 @@ export default function FormEditBarangMasuk({ onSubmit, onCancel, initialData })
     onSubmit(formData);
   };
 
+  const fields = [
+    {
+      label: "No Transaksi",
+      name: "noTransaksi",
+      type: "text",
+      readOnly: true,
+      placeholder: "Otomatis terisi",
+    },
+    {
+      label: "Tanggal Masuk",
+      name: "tglMasuk",
+      type: "date",
+      placeholder: "Pilih tanggal masuk",
+    },
+    {
+      label: "Supplier",
+      name: "supplier",
+      type: "text",
+      placeholder: "Masukkan nama supplier",
+    },
+    {
+      label: "Nama Barang",
+      name: "namaBarang",
+      type: "text",
+      placeholder: "Masukkan nama barang",
+    },
+    {
+      label: "Jumlah Masuk",
+      name: "jumlahMasuk",
+      type: "number",
+      placeholder: "Masukkan jumlah masuk",
+    },
+    {
+      label: "User",
+      name: "user",
+      type: "text",
+      placeholder: "Masukkan nama user",
+    },
+  ];
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -22,14 +62,7 @@ export default function FormEditBarangMasuk({ onSubmit, onCancel, initialData })
       <h2 className="text-xl sm:text-2xl font-bold mb-4">Edit Barang Masuk</h2>
 
       {/* Input Fields */}
-      {[
-        { label: "No Transaksi", name: "noTransaksi", type: "text", readOnly: true, placeholder: "Otomatis terisi" },
-        { label: "Tanggal Masuk", name: "tglMasuk", type: "date", placeholder: "Pilih tanggal masuk" },
-        { label: "Supplier", name: "supplier", type: "text", placeholder: "Masukkan nama supplier" },
-        { label: "Nama Barang", name: "namaBarang", type: "text", placeholder: "Masukkan nama barang" },
-        { label: "Jumlah Masuk", name: "jumlahMasuk", type: "number", placeholder: "Masukkan jumlah masuk" },
-        { label: "User", name: "user", type: "text", placeholder: "Masukkan nama user" },
-      ].map((field) => (
+      {fields.map((field) => (
         <div key={field.name} className="flex flex-col">
           <label className="text-sm font-medium mb-1">{field.label}</label>
           <input
@@ -41,7 +74,9 @@ export default function FormEditBarangMasuk({ onSubmit, onCancel, initialData })
             readOnly={field.readOnly}
             required={!field.readOnly}
             className={`w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
-              field.readOnly ? "bg-gray-100 text-gray-500 cursor-not-allowed" : ""
+              field.readOnly
+                ? "bg-gray-100 text-gray-500 cursor-not-allowed"
+                : ""
             }`}
           />
         </div>

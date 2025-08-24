@@ -31,16 +31,17 @@ export default function EditBarangKeluar() {
     },
   ];
 
-  const selectedBarang = dummyData.find((item) => item.no.toString() === id) || {
-    no: id,
-    noTransaksi: "",
-    tglKeluar: "",
-    namaBarang: "",
-    namaPenerima: "",
-    divisi: "",
-    totalKeluar: "",
-    petugas: "",
-  };
+  const selectedBarang =
+    dummyData.find((item) => item.no.toString() === id) || {
+      no: id,
+      noTransaksi: "",
+      tglKeluar: "",
+      namaBarang: "",
+      namaPenerima: "",
+      divisi: "",
+      totalKeluar: "",
+      petugas: "",
+    };
 
   const handleSubmit = (updatedData) => {
     console.log("Data hasil edit:", updatedData);
@@ -57,9 +58,9 @@ export default function EditBarangKeluar() {
     <MainLayout>
       <div className="flex justify-center items-start p-6">
         <FormEditBarangKeluar
+          initialData={selectedBarang}
           onSubmit={handleSubmit}
           onCancel={handleCancel}
-          initialData={selectedBarang}
         />
       </div>
     </MainLayout>

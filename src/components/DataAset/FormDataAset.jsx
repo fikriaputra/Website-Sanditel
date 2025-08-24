@@ -12,7 +12,10 @@ export default function FormDataAset({ onSubmit, onCancel }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleReset = () => {
@@ -48,7 +51,8 @@ export default function FormDataAset({ onSubmit, onCancel }) {
           value={formData.assetName}
           onChange={handleChange}
           placeholder="Masukkan nama aset"
-          className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full border rounded-lg px-3 py-2 
+                     focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
@@ -61,7 +65,8 @@ export default function FormDataAset({ onSubmit, onCancel }) {
           value={formData.brandCode}
           onChange={handleChange}
           placeholder="Masukkan brand atau kode"
-          className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full border rounded-lg px-3 py-2 
+                     focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
@@ -72,7 +77,8 @@ export default function FormDataAset({ onSubmit, onCancel }) {
           name="category"
           value={formData.category}
           onChange={handleChange}
-          className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full border rounded-lg px-3 py-2 
+                     focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="">Pilih kategori...</option>
           <option value="Electronics">Electronics</option>
@@ -88,7 +94,8 @@ export default function FormDataAset({ onSubmit, onCancel }) {
           name="status"
           value={formData.status}
           onChange={handleChange}
-          className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full border rounded-lg px-3 py-2 
+                     focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="Active">Active</option>
           <option value="Inactive">Inactive</option>
@@ -103,16 +110,18 @@ export default function FormDataAset({ onSubmit, onCancel }) {
           name="barcodeUpdateLog"
           value={formData.barcodeUpdateLog}
           onChange={handleChange}
-          className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full border rounded-lg px-3 py-2 
+                     focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
-      {/* Tombol: Reset + Kembali + Simpan */}
+      {/* Tombol Aksi */}
       <div className="flex flex-col sm:flex-row justify-between gap-2">
         <button
           type="button"
           onClick={handleReset}
-          className="w-full sm:w-auto px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition"
+          className="w-full sm:w-auto px-4 py-2 bg-gray-100 rounded-lg 
+                     hover:bg-gray-200 transition"
         >
           Reset
         </button>
@@ -121,13 +130,16 @@ export default function FormDataAset({ onSubmit, onCancel }) {
           <button
             type="button"
             onClick={onCancel}
-           className="w-full sm:w-auto px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition"
+            className="w-full sm:w-auto px-4 py-2 bg-gray-300 text-gray-700 
+                       rounded-lg hover:bg-gray-400 transition"
           >
             Kembali
           </button>
+
           <button
             type="submit"
-            className="w-full sm:w-auto px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
+            className="w-full sm:w-auto px-4 py-2 bg-indigo-600 text-white 
+                       rounded-lg hover:bg-indigo-700 transition"
           >
             Simpan
           </button>

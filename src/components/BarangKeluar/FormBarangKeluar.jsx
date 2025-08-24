@@ -16,7 +16,7 @@ export default function FormBarangKeluar({ initialData, onSubmit, onCancel }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
@@ -41,11 +41,17 @@ export default function FormBarangKeluar({ initialData, onSubmit, onCancel }) {
       onSubmit={handleSubmit}
       className="bg-white p-6 sm:p-8 rounded-lg shadow-md w-full max-w-2xl mx-auto space-y-4"
     >
-      <h2 className="text-xl sm:text-2xl font-bold">Form Tambah Barang Keluar</h2>
+      <h2 className="text-xl sm:text-2xl font-bold">
+        Form Tambah Barang Keluar
+      </h2>
 
+      {/* Input Fields */}
       <div className="space-y-4">
+        {/* No Transaksi */}
         <div>
-          <label className="block text-sm font-medium mb-1">No Transaksi</label>
+          <label className="block text-sm font-medium mb-1">
+            No Transaksi
+          </label>
           <input
             type="text"
             name="noTransaksi"
@@ -55,8 +61,11 @@ export default function FormBarangKeluar({ initialData, onSubmit, onCancel }) {
           />
         </div>
 
+        {/* Tanggal Keluar */}
         <div>
-          <label className="block text-sm font-medium mb-1">Tanggal Keluar</label>
+          <label className="block text-sm font-medium mb-1">
+            Tanggal Keluar
+          </label>
           <input
             type="date"
             name="tglKeluar"
@@ -66,8 +75,11 @@ export default function FormBarangKeluar({ initialData, onSubmit, onCancel }) {
           />
         </div>
 
+        {/* Nama Barang */}
         <div>
-          <label className="block text-sm font-medium mb-1">Nama Barang</label>
+          <label className="block text-sm font-medium mb-1">
+            Nama Barang
+          </label>
           <input
             type="text"
             name="namaBarang"
@@ -78,8 +90,11 @@ export default function FormBarangKeluar({ initialData, onSubmit, onCancel }) {
           />
         </div>
 
+        {/* Nama Penerima */}
         <div>
-          <label className="block text-sm font-medium mb-1">Nama Penerima</label>
+          <label className="block text-sm font-medium mb-1">
+            Nama Penerima
+          </label>
           <input
             type="text"
             name="namaPenerima"
@@ -90,8 +105,11 @@ export default function FormBarangKeluar({ initialData, onSubmit, onCancel }) {
           />
         </div>
 
+        {/* Divisi */}
         <div>
-          <label className="block text-sm font-medium mb-1">Divisi</label>
+          <label className="block text-sm font-medium mb-1">
+            Divisi
+          </label>
           <input
             type="text"
             name="divisi"
@@ -102,10 +120,13 @@ export default function FormBarangKeluar({ initialData, onSubmit, onCancel }) {
           />
         </div>
 
+        {/* Total Keluar */}
         <div>
-          <label className="block text-sm font-medium mb-1">Total Keluar</label>
+          <label className="block text-sm font-medium mb-1">
+            Total Keluar
+          </label>
           <input
-            type="text"
+            type="number"
             name="totalKeluar"
             value={formData.totalKeluar}
             onChange={handleChange}
@@ -114,8 +135,11 @@ export default function FormBarangKeluar({ initialData, onSubmit, onCancel }) {
           />
         </div>
 
+        {/* Petugas */}
         <div>
-          <label className="block text-sm font-medium mb-1">Petugas</label>
+          <label className="block text-sm font-medium mb-1">
+            Petugas
+          </label>
           <input
             type="text"
             name="petugas"

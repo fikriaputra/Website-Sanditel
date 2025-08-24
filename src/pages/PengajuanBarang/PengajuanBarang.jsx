@@ -1,10 +1,11 @@
 // src/pages/PengajuanBarang.jsx
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import { Plus, Eye, Trash2, Check, Printer } from "lucide-react";
+
 import MainLayout from "../../layouts/MainLayout";
 import Table from "../../components/DataBarang/Table";
 import TableRowPB from "../../components/PengajuanBarang/TableRowPB";
-import { Plus, Eye, Trash2, Check, Printer } from "lucide-react";
 
 export default function PengajuanBarang() {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ export default function PengajuanBarang() {
   };
 
   const handlePrint = () => {
-    window.print(); // bisa diganti sesuai kebutuhan
+    window.print(); // sementara masih pakai print browser
   };
 
   return (
@@ -42,12 +43,12 @@ export default function PengajuanBarang() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-3">
           <h2 className="font-bold text-lg">Daftar Pengajuan Barang</h2>
+
           <div className="flex gap-2 flex-wrap">
             {/* Tombol Cetak */}
             <button
               onClick={handlePrint}
               className="flex items-center gap-2 px-3 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-700 shadow-sm transition-colors justify-center"
-            
             >
               <Printer size={18} />
               <span className="hidden sm:inline">Cetak</span>
@@ -64,7 +65,7 @@ export default function PengajuanBarang() {
           </div>
         </div>
 
-        {/* Search untuk Mobile */}
+        {/* Search (Mobile) */}
         <div className="sm:hidden mb-4 relative">
           <input
             type="text"
@@ -97,11 +98,10 @@ export default function PengajuanBarang() {
                 className="border rounded-lg p-3 shadow-sm bg-gray-50 flex flex-col gap-2"
               >
                 <div className="flex justify-between items-center">
-                  <h3 className="font-semibold text-gray-800">
-                    {item.number}
-                  </h3>
+                  <h3 className="font-semibold text-gray-800">{item.number}</h3>
                   <span className="text-sm text-gray-500">{item.date}</span>
                 </div>
+
                 <p className="text-sm">
                   Status:{" "}
                   <span
@@ -117,7 +117,7 @@ export default function PengajuanBarang() {
                   </span>
                 </p>
 
-                {/* Actions dengan Icon */}
+                {/* Actions (Mobile) */}
                 <div className="flex gap-2 mt-2">
                   <button
                     onClick={() => alert(`Lihat detail ${item.number}`)}
@@ -125,12 +125,14 @@ export default function PengajuanBarang() {
                   >
                     <Eye size={14} /> <span>Lihat</span>
                   </button>
+
                   <button
                     onClick={() => handleDelete(idx)}
                     className="flex items-center gap-1 px-3 py-1 bg-red-100 hover:bg-red-200 text-red-700 rounded text-sm"
                   >
                     <Trash2 size={14} /> <span>Hapus</span>
                   </button>
+
                   {item.status === "Pending" && (
                     <button
                       onClick={() =>
@@ -195,7 +197,7 @@ export default function PengajuanBarang() {
                   colSpan={4}
                   className="text-center py-4 text-gray-500 italic"
                 >
-                  Tidak ada data
+                  Tidak ada data tersedia
                 </td>
               </tr>
             )}

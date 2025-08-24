@@ -10,6 +10,7 @@ import {
   Legend,
 } from "recharts";
 
+// Dummy data line chart
 const lineData = {
   2024: [
     { name: "Jan", masuk: 15, keluar: 25 },
@@ -33,9 +34,6 @@ const lineData = {
   ],
 };
 
-
-
-
 export default function LineChartComponent() {
   const years = Object.keys(lineData);
   const [year, setYear] = useState("2025");
@@ -43,13 +41,16 @@ export default function LineChartComponent() {
 
   return (
     <div className="bg-white p-3 sm:p-4 rounded-lg shadow">
-  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
-    <h3 className="font-bold text-sm sm:text-base">Total Transaksi ({year})</h3>
-    <select
-      value={year}
-      onChange={(e) => setYear(e.target.value)}
-      className="border rounded px-2 py-1 text-xs sm:text-sm"
-    >
+      {/* Header dengan judul & dropdown tahun */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+        <h3 className="font-bold text-sm sm:text-base">
+          Total Transaksi ({year})
+        </h3>
+        <select
+          value={year}
+          onChange={(e) => setYear(e.target.value)}
+          className="border rounded px-2 py-1 text-xs sm:text-sm"
+        >
           {years.map((y) => (
             <option key={y} value={y}>
               {y}
@@ -58,7 +59,8 @@ export default function LineChartComponent() {
         </select>
       </div>
 
-        <ResponsiveContainer width="100%" height={220}>
+      {/* Line chart */}
+      <ResponsiveContainer width="100%" height={220}>
         <LC data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />

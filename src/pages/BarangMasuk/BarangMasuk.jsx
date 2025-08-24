@@ -11,26 +11,79 @@ export default function BarangMasuk() {
 
   const [search, setSearch] = useState("");
   const [barangMasuk, setBarangMasuk] = useState([
-    { no: 1, noTransaksi: "T-BK-2508010001", tglMasuk: "2025-08-01", supplier: "PT Asia", namaBarang: "AC", jumlahMasuk: "20", user: "Kevin" },
-    { no: 2, noTransaksi: "T-BK-2508010002", tglMasuk: "2025-08-01", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: "15", user: "Sarah" },
-    { no: 3, noTransaksi: "T-BK-2508020003", tglMasuk: "2025-08-02", supplier: "PT Sinar Jaya", namaBarang: "Printer", jumlahMasuk: "10", user: "Andi" },
-    { no: 4, noTransaksi: "T-BK-2508020004", tglMasuk: "2025-08-02", supplier: "PT Maju Mundur", namaBarang: "Mouse Wireless", jumlahMasuk: "50", user: "Dewi" },
-    { no: 5, noTransaksi: "T-BK-2508030005", tglMasuk: "2025-08-02", supplier: "PT Cahaya", namaBarang: "Meja Kantor", jumlahMasuk: "8", user: "Rudi" },
-    { no: 6, noTransaksi: "T-BK-2508030006", tglMasuk: "2025-08-03", supplier: "PT Teknologi Nusantara", namaBarang: "Proyektor", jumlahMasuk: "5", user: "Budi" },
-    { no: 7, noTransaksi: "T-BK-2508040007", tglMasuk: "2025-08-04", supplier: "PT Elektronik Jaya", namaBarang: "TV LED", jumlahMasuk: "12", user: "Sinta" },
+    {
+      no: 1,
+      noTransaksi: "T-BK-2508010001",
+      tglMasuk: "2025-08-01",
+      supplier: "PT Asia",
+      namaBarang: "AC",
+      jumlahMasuk: "20",
+      user: "Kevin",
+    },
+    {
+      no: 2,
+      noTransaksi: "T-BK-2508010002",
+      tglMasuk: "2025-08-01",
+      supplier: "PT Indo",
+      namaBarang: "Laptop",
+      jumlahMasuk: "15",
+      user: "Sarah",
+    },
+    {
+      no: 3,
+      noTransaksi: "T-BK-2508020003",
+      tglMasuk: "2025-08-02",
+      supplier: "PT Sinar Jaya",
+      namaBarang: "Printer",
+      jumlahMasuk: "10",
+      user: "Andi",
+    },
+    {
+      no: 4,
+      noTransaksi: "T-BK-2508020004",
+      tglMasuk: "2025-08-02",
+      supplier: "PT Maju Mundur",
+      namaBarang: "Mouse Wireless",
+      jumlahMasuk: "50",
+      user: "Dewi",
+    },
+    {
+      no: 5,
+      noTransaksi: "T-BK-2508030005",
+      tglMasuk: "2025-08-02",
+      supplier: "PT Cahaya",
+      namaBarang: "Meja Kantor",
+      jumlahMasuk: "8",
+      user: "Rudi",
+    },
+    {
+      no: 6,
+      noTransaksi: "T-BK-2508030006",
+      tglMasuk: "2025-08-03",
+      supplier: "PT Teknologi Nusantara",
+      namaBarang: "Proyektor",
+      jumlahMasuk: "5",
+      user: "Budi",
+    },
+    {
+      no: 7,
+      noTransaksi: "T-BK-2508040007",
+      tglMasuk: "2025-08-04",
+      supplier: "PT Elektronik Jaya",
+      namaBarang: "TV LED",
+      jumlahMasuk: "12",
+      user: "Sinta",
+    },
   ]);
 
-  // filter berdasarkan pencarian
+  // Filter berdasarkan pencarian
   const filteredData = useMemo(() => {
     return barangMasuk.filter((item) =>
-      Object.values(item)
-        .join(" ")
-        .toLowerCase()
-        .includes(search.toLowerCase())
+      Object.values(item).join(" ").toLowerCase().includes(search.toLowerCase())
     );
   }, [barangMasuk, search]);
 
-  // fungsi hapus
+  // Fungsi hapus
   const handleDelete = (no) => {
     const confirmDelete = window.confirm("Yakin ingin menghapus data ini?");
     if (confirmDelete) {
@@ -44,6 +97,7 @@ export default function BarangMasuk() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-3">
           <h2 className="font-bold text-lg">Riwayat Barang Masuk</h2>
+
           <div className="flex gap-2 flex-wrap">
             <button
               onClick={() => alert("Cetak data")}
@@ -53,11 +107,13 @@ export default function BarangMasuk() {
               <Printer size={18} />
               <span className="hidden sm:inline">Cetak</span>
             </button>
+
             <button
               onClick={() => navigate("/add-barang-masuk")}
               className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded shadow transition-transform hover:scale-105"
             >
-              <Plus size={18} /> <span className="hidden sm:inline">Tambah</span>
+              <Plus size={18} />
+              <span className="hidden sm:inline">Tambah</span>
             </button>
           </div>
         </div>
@@ -100,17 +156,22 @@ export default function BarangMasuk() {
                   </h3>
                   <span className="text-sm text-gray-500">#{item.no}</span>
                 </div>
+
                 <p className="text-sm text-gray-600">
-                  No Transaksi: <span className="font-medium">{item.noTransaksi}</span>
+                  No Transaksi:{" "}
+                  <span className="font-medium">{item.noTransaksi}</span>
                 </p>
                 <p className="text-sm text-gray-600">
-                  Tgl Masuk: <span className="font-medium">{item.tglMasuk}</span>
+                  Tgl Masuk:{" "}
+                  <span className="font-medium">{item.tglMasuk}</span>
                 </p>
                 <p className="text-sm text-gray-600">
-                  Supplier: <span className="font-medium">{item.supplier}</span>
+                  Supplier:{" "}
+                  <span className="font-medium">{item.supplier}</span>
                 </p>
                 <p className="text-sm text-gray-600">
-                  Jumlah: <span className="font-medium">{item.jumlahMasuk}</span>
+                  Jumlah:{" "}
+                  <span className="font-medium">{item.jumlahMasuk}</span>
                 </p>
                 <p className="text-sm text-gray-600">
                   User: <span className="font-medium">{item.user}</span>
@@ -158,7 +219,7 @@ export default function BarangMasuk() {
                 <TableRowBM
                   key={item.no}
                   item={item}
-                  onEdit={() => navigate(`/edit-barang-masuk/${item.no}`)} 
+                  onEdit={() => navigate(`/edit-barang-masuk/${item.no}`)}
                   onDelete={() => handleDelete(item.no)}
                   editIcon={<Pencil size={16} />}
                 />

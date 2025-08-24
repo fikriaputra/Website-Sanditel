@@ -10,7 +10,7 @@ export default function FormDataBarang({ onSubmit, onCancel, initialData, hideRe
     stok: "",
   });
 
-  // isi form jika initialData ada (untuk edit)
+  // Isi form jika ada data awal (edit)
   useEffect(() => {
     if (initialData) {
       setFormData(initialData);
@@ -24,7 +24,7 @@ export default function FormDataBarang({ onSubmit, onCancel, initialData, hideRe
 
   const handleReset = () => {
     if (initialData) {
-      setFormData(initialData); // reset ke data awal edit
+      setFormData(initialData); // reset ke data awal
     } else {
       setFormData({
         idBarang: "B000008",
@@ -128,7 +128,6 @@ export default function FormDataBarang({ onSubmit, onCancel, initialData, hideRe
 
       {/* Tombol */}
       <div className="flex flex-col sm:flex-row justify-between gap-2 sm:gap-0">
-        {/* Tombol Reset hanya tampil kalau hideReset = false */}
         {!hideReset && (
           <button
             type="button"
@@ -149,7 +148,7 @@ export default function FormDataBarang({ onSubmit, onCancel, initialData, hideRe
           </button>
           <button
             type="submit"
-             className="w-full sm:w-auto px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
+            className="w-full sm:w-auto px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
           >
             Simpan
           </button>

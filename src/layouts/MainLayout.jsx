@@ -13,7 +13,7 @@ export default function MainLayout({ children }) {
       {/* Main Content */}
       <div className="flex flex-col flex-1 overflow-hidden 
                       transition-all duration-300
-                      lg:ml-64"> {/* 👉 ini penting biar konten geser saat sidebar fixed */}
+                      lg:ml-64">
         {/* Navbar */}
         <Navbar toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
 

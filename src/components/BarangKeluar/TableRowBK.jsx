@@ -19,6 +19,7 @@ export default function TableRowBK({ item, onEdit, onDelete, editIcon }) {
 
       {(onEdit || onDelete) && (
         <td className="p-3 flex gap-2">
+          {/* Tombol Edit */}
           {onEdit && (
             <button
               onClick={onEdit}
@@ -28,6 +29,8 @@ export default function TableRowBK({ item, onEdit, onDelete, editIcon }) {
               {editIcon || <Pencil size={16} />}
             </button>
           )}
+
+          {/* Tombol Delete */}
           {onDelete && (
             <button
               onClick={onDelete}

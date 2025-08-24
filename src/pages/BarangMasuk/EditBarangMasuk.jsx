@@ -7,13 +7,53 @@ export default function EditBarangMasuk() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // data dummy sementara
+  // Data dummy sementara
   const dummyData = [
-    { id: "1", noTransaksi: "T-BM-2508010001", tglMasuk: "2025-08-01", supplier: "PT Asia", namaBarang: "AC", jumlahMasuk: 20, user: "Kevin" },
-    { id: "2", noTransaksi: "T-BM-2508010002", tglMasuk: "2025-08-01", supplier: "PT Indo", namaBarang: "Laptop", jumlahMasuk: 15, user: "Sarah" },
-    { id: "3", noTransaksi: "T-BM-2508020003", tglMasuk: "2025-08-02", supplier: "PT Sinar Jaya", namaBarang: "Printer", jumlahMasuk: 10, user: "Andi" },
-    { id: "4", noTransaksi: "T-BM-2508020004", tglMasuk: "2025-08-02", supplier: "PT Maju Mundur", namaBarang: "Mouse Wireless", jumlahMasuk: 50, user: "Dewi" },
-    { id: "5", noTransaksi: "T-BM-2508030005", tglMasuk: "2025-08-03", supplier: "PT Cahaya", namaBarang: "Meja Kantor", jumlahMasuk: 8, user: "Rudi" },
+    {
+      id: "1",
+      noTransaksi: "T-BM-2508010001",
+      tglMasuk: "2025-08-01",
+      supplier: "PT Asia",
+      namaBarang: "AC",
+      jumlahMasuk: 20,
+      user: "Kevin",
+    },
+    {
+      id: "2",
+      noTransaksi: "T-BM-2508010002",
+      tglMasuk: "2025-08-01",
+      supplier: "PT Indo",
+      namaBarang: "Laptop",
+      jumlahMasuk: 15,
+      user: "Sarah",
+    },
+    {
+      id: "3",
+      noTransaksi: "T-BM-2508020003",
+      tglMasuk: "2025-08-02",
+      supplier: "PT Sinar Jaya",
+      namaBarang: "Printer",
+      jumlahMasuk: 10,
+      user: "Andi",
+    },
+    {
+      id: "4",
+      noTransaksi: "T-BM-2508020004",
+      tglMasuk: "2025-08-02",
+      supplier: "PT Maju Mundur",
+      namaBarang: "Mouse Wireless",
+      jumlahMasuk: 50,
+      user: "Dewi",
+    },
+    {
+      id: "5",
+      noTransaksi: "T-BM-2508030005",
+      tglMasuk: "2025-08-03",
+      supplier: "PT Cahaya",
+      namaBarang: "Meja Kantor",
+      jumlahMasuk: 8,
+      user: "Rudi",
+    },
   ];
 
   const selectedBarang = dummyData.find((item) => item.id === id) || null;
@@ -21,7 +61,7 @@ export default function EditBarangMasuk() {
   const handleSubmit = (updatedData) => {
     console.log("Data hasil edit:", updatedData);
     alert("Data Barang Masuk berhasil diperbarui!");
-    // TODO: simpan ke backend / state global
+    // TODO: Simpan ke backend atau state global
     navigate("/barang-masuk");
   };
 

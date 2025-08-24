@@ -18,10 +18,14 @@ export default function TableRowPB({ item, onView, onDelete, onApprove }) {
   return (
     <tr className="border-b hover:bg-gray-50 transition-colors">
       {/* Date */}
-      <td className="p-3 text-sm text-gray-600 font-medium">{item.date}</td>
+      <td className="p-3 text-sm text-gray-600 font-medium">
+        {item.date}
+      </td>
 
       {/* Submission Number */}
-      <td className="p-3 text-sm font-semibold text-gray-800">{item.number}</td>
+      <td className="p-3 text-sm font-semibold text-gray-800">
+        {item.number}
+      </td>
 
       {/* Status */}
       <td className="p-3 text-sm">
@@ -32,6 +36,7 @@ export default function TableRowPB({ item, onView, onDelete, onApprove }) {
 
       {/* Actions */}
       <td className="p-3 flex gap-2">
+        {/* View */}
         {onView && (
           <button
             onClick={onView}
@@ -41,6 +46,8 @@ export default function TableRowPB({ item, onView, onDelete, onApprove }) {
             <Eye size={16} />
           </button>
         )}
+
+        {/* Delete */}
         {onDelete && (
           <button
             onClick={onDelete}
@@ -51,7 +58,7 @@ export default function TableRowPB({ item, onView, onDelete, onApprove }) {
           </button>
         )}
 
-        {/* Tampilkan ceklis hanya jika status Pending */}
+        {/* Approve (hanya muncul jika status Pending) */}
         {item.status.toLowerCase() === "pending" && onApprove && (
           <button
             onClick={onApprove}

@@ -4,7 +4,11 @@ import FormPengajuanBarang from "../../components/PengajuanBarang/FormPengajuanB
 export default function AddPengajuanBarang() {
   const handleSubmit = (data) => {
     console.log("Pengajuan Barang:", data);
-    alert("Pengajuan Barang berhasil disimpan!");
+    alert("Pengajuan Barang berhasil dikirim!");
+  };
+
+  const handleCancel = () => {
+    window.history.back();
   };
 
   return (
@@ -12,7 +16,7 @@ export default function AddPengajuanBarang() {
       <div className="flex justify-center items-start p-6">
         <FormPengajuanBarang
           onSubmit={handleSubmit}
-          onCancel={() => window.history.back()}
+          onCancel={handleCancel}
         />
       </div>
     </MainLayout>

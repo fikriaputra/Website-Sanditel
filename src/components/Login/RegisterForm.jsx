@@ -16,11 +16,20 @@ const RegisterForm = ({ onRegister, loading, error, message, goLogin }) => {
   };
 
   const handleSubmit = () => {
-    if (!form.email || !form.username || !form.contact || !form.password || !form.confirmPassword) {
+    if (
+      !form.email ||
+      !form.username ||
+      !form.contact ||
+      !form.password ||
+      !form.confirmPassword
+    ) {
       return onRegister({ error: "Semua field wajib diisi !!" });
     }
+
     if (form.password !== form.confirmPassword) {
-      return onRegister({ error: "Password dan konfirmasi password tidak sama !!" });
+      return onRegister({
+        error: "Password dan konfirmasi password tidak sama !!",
+      });
     }
 
     onRegister(form); // kirim data ke parent
@@ -33,6 +42,7 @@ const RegisterForm = ({ onRegister, loading, error, message, goLogin }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
+      {/* Title */}
       <motion.div
         className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-center"
         initial={{ scale: 0.9 }}
@@ -42,6 +52,7 @@ const RegisterForm = ({ onRegister, loading, error, message, goLogin }) => {
         Sign Up
       </motion.div>
 
+      {/* Error Message */}
       {error && (
         <motion.div
           className="text-xs sm:text-sm text-red-500 bg-red-100 rounded p-2"
@@ -52,6 +63,7 @@ const RegisterForm = ({ onRegister, loading, error, message, goLogin }) => {
         </motion.div>
       )}
 
+      {/* Success Message */}
       {message && (
         <motion.div
           className="text-xs sm:text-sm text-green-700 bg-green-100 rounded p-2"
@@ -62,12 +74,54 @@ const RegisterForm = ({ onRegister, loading, error, message, goLogin }) => {
         </motion.div>
       )}
 
-      <LoginInput label="Email" type="email" name="email" value={form.email} onChange={handleChange} placeholder="Enter Email" size="small" />
-      <LoginInput label="Username" type="text" name="username" value={form.username} onChange={handleChange} placeholder="Create Username" size="small" />
-      <LoginInput label="Contact Number" type="text" name="contact" value={form.contact} onChange={handleChange} placeholder="Contact number" size="small" />
-      <LoginInput label="Password" type="password" name="password" value={form.password} onChange={handleChange} placeholder="Password" size="small" />
-      <LoginInput label="Confirm Password" type="password" name="confirmPassword" value={form.confirmPassword} onChange={handleChange} placeholder="Confirm Password" size="small" />
+      {/* Inputs */}
+      <LoginInput
+        label="Email"
+        type="email"
+        name="email"
+        value={form.email}
+        onChange={handleChange}
+        placeholder="Enter Email"
+        size="small"
+      />
+      <LoginInput
+        label="Username"
+        type="text"
+        name="username"
+        value={form.username}
+        onChange={handleChange}
+        placeholder="Create Username"
+        size="small"
+      />
+      <LoginInput
+        label="Contact Number"
+        type="text"
+        name="contact"
+        value={form.contact}
+        onChange={handleChange}
+        placeholder="Contact number"
+        size="small"
+      />
+      <LoginInput
+        label="Password"
+        type="password"
+        name="password"
+        value={form.password}
+        onChange={handleChange}
+        placeholder="Password"
+        size="small"
+      />
+      <LoginInput
+        label="Confirm Password"
+        type="password"
+        name="confirmPassword"
+        value={form.confirmPassword}
+        onChange={handleChange}
+        placeholder="Confirm Password"
+        size="small"
+      />
 
+      {/* Submit Button */}
       <motion.button
         onClick={handleSubmit}
         className="w-full py-2 sm:py-3 bg-indigo-600 text-white rounded-md shadow-lg hover:bg-indigo-700 transition disabled:opacity-50 text-sm sm:text-base"
@@ -77,7 +131,7 @@ const RegisterForm = ({ onRegister, loading, error, message, goLogin }) => {
       >
         {loading ? (
           <div className="flex items-center justify-center space-x-2">
-            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
             <span>Loading...</span>
           </div>
         ) : (
@@ -85,6 +139,7 @@ const RegisterForm = ({ onRegister, loading, error, message, goLogin }) => {
         )}
       </motion.button>
 
+      {/* Redirect to Login */}
       <div className="text-xs sm:text-sm text-center text-gray-500">
         Sudah punya akun?{" "}
         <span

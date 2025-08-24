@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom"; // <-- import
+import { useNavigate } from "react-router-dom";
 import LoginInput from "./LoginInput";
 
 const LoginForm = ({ onLogin, loading, error, goRegister }) => {
-  const navigate = useNavigate(); // <-- hook
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    if (!email || !password)
+    if (!email || !password) {
       return onLogin({ error: "Email dan password wajib diisi !!" });
+    }
     onLogin({ email, password });
   };
 
@@ -28,7 +29,7 @@ const LoginForm = ({ onLogin, loading, error, goRegister }) => {
         animate={{ scale: 1 }}
         transition={{ duration: 0.3 }}
       >
-        Sign in
+        Sign In
       </motion.div>
 
       {/* Error Message */}
@@ -64,7 +65,7 @@ const LoginForm = ({ onLogin, loading, error, goRegister }) => {
 
       {/* Forgot Password */}
       <div
-        onClick={() => navigate("/forgot-password")} // <-- arahkan ke halaman forgot password
+        onClick={() => navigate("/forgot-password")}
         className="text-xs sm:text-sm text-right text-blue-500 hover:underline cursor-pointer"
       >
         Forgot password?
@@ -73,7 +74,8 @@ const LoginForm = ({ onLogin, loading, error, goRegister }) => {
       {/* Login Button */}
       <motion.button
         onClick={handleLogin}
-        className="w-full py-2 sm:py-3 bg-indigo-600 text-white rounded-md shadow-lg hover:bg-indigo-700 transition disabled:opacity-50 text-sm sm:text-base"
+        className="w-full py-2 sm:py-3 bg-indigo-600 text-white rounded-md shadow-lg 
+                   hover:bg-indigo-700 transition disabled:opacity-50 text-sm sm:text-base"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.97 }}
         disabled={loading}

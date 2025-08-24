@@ -1,9 +1,10 @@
-// components/TableRowBK.jsx
+// components/TableRowBM.jsx
 import { Pencil, Trash2 } from "lucide-react";
 
 export default function TableRowBM({ item, onEdit, onDelete, editIcon }) {
   return (
     <tr className="border-b hover:bg-gray-50 transition-colors">
+      {/* Render setiap value dari item */}
       {Object.values(item).map((val, idx) => (
         <td
           key={idx}
@@ -17,6 +18,7 @@ export default function TableRowBM({ item, onEdit, onDelete, editIcon }) {
         </td>
       ))}
 
+      {/* Tombol aksi edit & delete */}
       {(onEdit || onDelete) && (
         <td className="p-3 flex gap-2">
           {onEdit && (
@@ -28,6 +30,7 @@ export default function TableRowBM({ item, onEdit, onDelete, editIcon }) {
               {editIcon || <Pencil size={16} />}
             </button>
           )}
+
           {onDelete && (
             <button
               onClick={onDelete}

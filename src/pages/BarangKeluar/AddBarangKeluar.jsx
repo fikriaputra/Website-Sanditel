@@ -1,3 +1,4 @@
+// src/pages/BarangKeluar/AddBarangKeluar.jsx
 import MainLayout from "../../layouts/MainLayout";
 import FormBarangKeluar from "../../components/BarangKeluar/FormBarangKeluar";
 
@@ -7,13 +8,17 @@ export default function AddBarangKeluar() {
     alert("Barang Keluar berhasil disimpan!");
   };
 
+  const handleCancel = () => {
+    window.history.back();
+  };
+
   return (
     <MainLayout>
       <div className="flex justify-center items-start p-6">
         <FormBarangKeluar
           type="keluar"
           onSubmit={handleSubmit}
-          onCancel={() => window.history.back()}
+          onCancel={handleCancel}
         />
       </div>
     </MainLayout>

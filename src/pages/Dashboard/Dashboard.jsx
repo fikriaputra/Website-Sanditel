@@ -8,6 +8,7 @@ import TableTransaksi from "../../components/Dashboard/TableTransaksi";
 import MainLayout from "../../layouts/MainLayout";
 
 export default function Dashboard() {
+  // Data stok minimum (contoh dummy)
   const stokMinimum = [
     { barang: "Barang A", stok: 0 },
     { barang: "Barang B", stok: 5 },
@@ -15,6 +16,7 @@ export default function Dashboard() {
     { barang: "Barang B", stok: 10 },
   ];
 
+  // Data transaksi terakhir (contoh dummy)
   const transaksiTerakhir = {
     masuk: [
       { barang: "Barang C", jumlah: 10, tanggal: "2025-08-01" },
@@ -33,41 +35,41 @@ export default function Dashboard() {
   return (
     <MainLayout>
       <div className="p-2 space-y-4">
-        {/* Cards grid */}
+        {/* Statistik / Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <StatsCard
             title="Total Data Barang"
             value="102"
-            bgColor="linear-gradient(135deg, #94F9F0 0%, #66E4D7 100%)"
             icon={Boxes}
+            bgColor="linear-gradient(135deg, #94F9F0 0%, #66E4D7 100%)"
           />
           <StatsCard
             title="Total Data Aset"
             value="70"
-            bgColor="linear-gradient(135deg, #C4D9F9 0%, #B3CBF8 100%)"
             icon={PackageCheck}
+            bgColor="linear-gradient(135deg, #C4D9F9 0%, #B3CBF8 100%)"
           />
           <StatsCard
             title="Total Stok Barang"
             value="100"
-            bgColor="linear-gradient(135deg, #FAD0D9 0%, #F5B6C3 100%)"
             icon={Warehouse}
+            bgColor="linear-gradient(135deg, #FAD0D9 0%, #F5B6C3 100%)"
           />
           <StatsCard
             title="Total Pengguna"
             value="17"
-            bgColor="linear-gradient(135deg, #CFC9F9 0%, #AFA8F9 100%)"
             icon={Users}
+            bgColor="linear-gradient(135deg, #CFC9F9 0%, #AFA8F9 100%)"
           />
         </div>
 
-        {/* Chart grid */}
+        {/* Grafik */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
           <LineChart />
           <PieChart />
         </div>
 
-        {/* Tables grid */}
+        {/* Tabel */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch w-full">
           <div className="overflow-x-auto">
             <TableTransaksi

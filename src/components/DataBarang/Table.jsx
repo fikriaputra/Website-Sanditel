@@ -8,6 +8,7 @@ export default function Table({ headers, children }) {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
 
+  // Sorting handler
   const handleSort = (index) => {
     let direction = "asc";
     if (sortConfig.key === index && sortConfig.direction === "asc") {
@@ -16,6 +17,7 @@ export default function Table({ headers, children }) {
     setSortConfig({ key: index, direction });
   };
 
+  // Filtering + Sorting
   const filteredRows = (Array.isArray(children) ? children : [children])
     .filter((child) => {
       if (!child?.props?.item) return true;
@@ -33,6 +35,7 @@ export default function Table({ headers, children }) {
       return 0;
     });
 
+  // Pagination logic
   const totalRows = filteredRows.length;
   const totalPages = Math.ceil(totalRows / rowsPerPage);
   const startIndex = (currentPage - 1) * rowsPerPage;
@@ -48,7 +51,7 @@ export default function Table({ headers, children }) {
     <div className="w-full px-2 sm:px-0">
       {/* Top Controls */}
       <div className="mb-4 flex flex-col md:flex-row justify-between items-center gap-3">
-        {/* Show Data Dropdown */}
+        {/* Rows per page dropdown */}
         <div className="flex items-center gap-2 text-sm">
           <span className="text-gray-700 font-medium">Show</span>
           <div className="relative">
@@ -58,7 +61,9 @@ export default function Table({ headers, children }) {
                 setRowsPerPage(Number(e.target.value));
                 setCurrentPage(1);
               }}
-              className="appearance-none bg-transparent border-b-2 border-gray-300 focus:border-blue-500 outline-none px-1 py-1 pr-6 text-gray-800 font-medium transition-all duration-200 text-sm"
+              className="appearance-none bg-transparent border-b-2 border-gray-300 
+                         focus:border-blue-500 outline-none px-1 py-1 pr-6 text-gray-800 
+                         font-medium transition-all duration-200 text-sm"
             >
               {[10, 25, 50, 100].map((num) => (
                 <option key={num} value={num}>
@@ -72,20 +77,26 @@ export default function Table({ headers, children }) {
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </div>
           <span className="text-gray-700 font-medium">data</span>
         </div>
 
-        {/* Search Bar */}
+        {/* Search bar */}
         <div className="relative w-full md:w-[25%]">
           <input
             type="text"
             placeholder="Cari data..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none transition text-sm"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm 
+                       focus:outline-none transition text-sm"
           />
           <svg
             className="absolute right-3 top-3 w-5 h-5 text-gray-400"
@@ -103,7 +114,7 @@ export default function Table({ headers, children }) {
         </div>
       </div>
 
-      {/* Table wrapper for horizontal scroll */}
+      {/* Table */}
       <div className="table-container rounded-lg border border-gray-200 overflow-x-auto">
         <table className="min-w-[700px] sm:min-w-full border-collapse bg-white">
           <thead>
@@ -135,12 +146,16 @@ export default function Table({ headers, children }) {
       </div>
 
       {/* Bottom Controls */}
-      <div className="flex flex-col md:flex-row justify-between items-center mt-3 text-xs sm:text-sm text-gray-600 gap-2">
+      <div className="flex flex-col md:flex-row justify-between items-center mt-3 
+                      text-xs sm:text-sm text-gray-600 gap-2"
+      >
+        {/* Info text */}
         <span>
           Show {totalRows === 0 ? 0 : startIndex + 1} to{" "}
           {Math.min(endIndex, totalRows)} from {totalRows} data
         </span>
 
+        {/* Pagination */}
         <div className="flex gap-1 sm:gap-2 mt-2 md:mt-0 overflow-x-auto">
           <button
             onClick={() => handlePageChange(1)}
@@ -156,6 +171,7 @@ export default function Table({ headers, children }) {
           >
             Previous
           </button>
+
           {[...Array(totalPages)].map((_, idx) => (
             <button
               key={idx}
@@ -169,6 +185,7 @@ export default function Table({ headers, children }) {
               {idx + 1}
             </button>
           ))}
+
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}

@@ -12,7 +12,10 @@ export default function FormPeminjamanAset({ onSubmit, onCancel }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleReset = () => {
@@ -40,7 +43,7 @@ export default function FormPeminjamanAset({ onSubmit, onCancel }) {
         Form Peminjaman Aset
       </h2>
 
-      {/* Barang */}
+      {/* Nama Barang */}
       <div className="mb-4">
         <label className="block font-medium mb-1 text-sm sm:text-base">
           Nama Barang
@@ -128,7 +131,7 @@ export default function FormPeminjamanAset({ onSubmit, onCancel }) {
         />
       </div>
 
-      {/* Tombol */}
+      {/* Tombol Aksi */}
       <div className="flex flex-col sm:flex-row sm:justify-between gap-2">
         <button
           type="button"

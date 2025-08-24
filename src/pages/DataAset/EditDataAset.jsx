@@ -7,6 +7,7 @@ export default function EditDataAset() {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  // Data dummy sementara, nanti bisa diganti dengan API / Context
   const dummyData = [
     {
       id: "1",
@@ -26,6 +27,7 @@ export default function EditDataAset() {
     },
   ];
 
+  // Cari data berdasarkan ID
   const selectedAsset =
     dummyData.find((item) => item.id === id) || {
       id,
@@ -39,11 +41,11 @@ export default function EditDataAset() {
   const handleSubmit = (updatedData) => {
     console.log("Data aset hasil edit:", updatedData);
     alert("Data Aset berhasil diperbarui!");
-    navigate("/data-aset");
+    navigate("/data-aset"); // kembali ke daftar aset
   };
 
   const handleCancel = () => {
-    navigate(-1);
+    navigate(-1); // kembali ke halaman sebelumnya
   };
 
   return (

@@ -6,6 +6,7 @@ export default function TableTransaksi({ title, data }) {
 
   return (
     <div className="bg-white p-4 rounded-lg shadow overflow-x-auto h-full flex flex-col">
+      {/* Judul */}
       <h3 className="mb-4 font-bold text-sm sm:text-base">{title}</h3>
 
       {/* Tabs */}
@@ -13,19 +14,19 @@ export default function TableTransaksi({ title, data }) {
         {["Masuk", "Keluar"].map((tab) => (
           <button
             key={tab}
-            className={`px-4 py-2 text-sm font-semibold ${
+            onClick={() => setActiveTab(tab)}
+            className={`px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
               activeTab === tab
                 ? "text-blue-500 border-b-2 border-blue-500"
-                : "text-gray-500"
+                : "text-gray-500 hover:text-gray-700"
             }`}
-            onClick={() => setActiveTab(tab)}
           >
             {tab}
           </button>
         ))}
       </div>
 
-      {/* Table */}
+      {/* Tabel */}
       <div className="flex-grow overflow-y-auto">
         <table className="w-full text-xs sm:text-sm border border-gray-200 rounded-lg overflow-hidden">
           <thead>
@@ -35,6 +36,7 @@ export default function TableTransaksi({ title, data }) {
               <th className="p-2 sm:p-3 text-left">Tanggal</th>
             </tr>
           </thead>
+
           <tbody>
             {filteredData.map((row, idx) => (
               <tr

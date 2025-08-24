@@ -1,10 +1,11 @@
 // src/pages/BarangKeluar.jsx
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import { Plus, Printer, Pencil, Trash2 } from "lucide-react";
+
 import MainLayout from "../../layouts/MainLayout";
 import Table from "../../components/DataBarang/Table";
 import TableRowBK from "../../components/BarangKeluar/TableRowBK";
-import { Plus, Printer, Pencil, Trash2 } from "lucide-react";
 
 export default function BarangKeluar() {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ export default function BarangKeluar() {
     },
   ]);
 
-  // filter berdasarkan pencarian
+  // Filter berdasarkan pencarian
   const filteredData = useMemo(() => {
     return barangKeluar.filter((item) =>
       Object.values(item)
@@ -53,7 +54,7 @@ export default function BarangKeluar() {
     );
   }, [barangKeluar, search]);
 
-  // fungsi hapus
+  // Hapus data
   const handleDelete = (no) => {
     const confirmDelete = window.confirm("Yakin ingin menghapus data ini?");
     if (confirmDelete) {
@@ -80,12 +81,13 @@ export default function BarangKeluar() {
               onClick={() => navigate("/add-barang-keluar")}
               className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded shadow transition-transform hover:scale-105"
             >
-              <Plus size={18} /> <span className="hidden sm:inline">Tambah</span>
+              <Plus size={18} />
+              <span className="hidden sm:inline">Tambah</span>
             </button>
           </div>
         </div>
 
-        {/* Search untuk Mobile */}
+        {/* Search (Mobile) */}
         <div className="sm:hidden mb-4 relative">
           <input
             type="text"
@@ -123,6 +125,7 @@ export default function BarangKeluar() {
                   </h3>
                   <span className="text-sm text-gray-500">#{item.no}</span>
                 </div>
+
                 <p className="text-sm text-gray-600">
                   No Transaksi:{" "}
                   <span className="font-medium">{item.noTransaksi}</span>

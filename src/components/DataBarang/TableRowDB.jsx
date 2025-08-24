@@ -3,40 +3,47 @@ import { Pencil, Trash2 } from "lucide-react";
 
 export default function TableRowDB({ item, onEdit, onDelete }) {
   const getStatusBadge = (status) => {
+    const baseStyle =
+      "text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium";
+
     switch (status?.toLowerCase()) {
       case "active":
       case "completed":
-        return "bg-green-500 text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium";
+        return `bg-green-500 ${baseStyle}`;
       case "pending":
-        return "bg-yellow-500 text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium";
+        return `bg-yellow-500 ${baseStyle}`;
       case "inactive":
       case "rejected":
-        return "bg-red-500 text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium";
+        return `bg-red-500 ${baseStyle}`;
       default:
-        return "bg-gray-400 text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium";
+        return `bg-gray-400 ${baseStyle}`;
     }
   };
 
   return (
     <tr className="border-b hover:bg-gray-50 transition-colors">
-      {Object.values(item).map((val, idx) => (
-        <td
-          key={idx}
-          className={`p-2 sm:p-3 text-xs sm:text-sm ${
-            idx === 0
-              ? "font-semibold text-gray-800"
-              : "text-gray-600 font-medium"
-          }`}
-        >
-          {["active", "pending", "inactive", "completed", "rejected"].includes(
-            String(val).toLowerCase()
-          ) ? (
-            <span className={getStatusBadge(val)}>{val}</span>
-          ) : (
-            val
-          )}
-        </td>
-      ))}
+      {Object.values(item).map((val, idx) => {
+        const isStatus = ["active", "pending", "inactive", "completed", "rejected"].includes(
+          String(val).toLowerCase()
+        );
+
+        return (
+          <td
+            key={idx}
+            className={`p-2 sm:p-3 text-xs sm:text-sm ${
+              idx === 0
+                ? "font-semibold text-gray-800"
+                : "text-gray-600 font-medium"
+            }`}
+          >
+            {isStatus ? (
+              <span className={getStatusBadge(val)}>{val}</span>
+            ) : (
+              val
+            )}
+          </td>
+        );
+      })}
 
       {(onEdit || onDelete) && (
         <td className="p-2 sm:p-3 flex gap-1 sm:gap-2">

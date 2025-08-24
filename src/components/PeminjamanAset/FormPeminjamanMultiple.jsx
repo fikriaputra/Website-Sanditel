@@ -6,18 +6,16 @@ export default function FormPeminjamanMultiple({ onSubmit, onCancel }) {
     peminjam: "",
     tanggalPinjam: "",
     tanggalKembali: "",
-    barang: [
-      { namaBarang: "", merkKode: "", jumlah: "", sisaStok: "" },
-    ],
+    barang: [{ namaBarang: "", merkKode: "", jumlah: "", sisaStok: "" }],
   });
 
-  // perubahan untuk field umum (di luar barang)
+  // Perubahan untuk field umum (di luar barang)
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // perubahan untuk field barang
+  // Perubahan untuk field barang
   const handleBarangChange = (index, e) => {
     const { name, value } = e.target;
     const updatedBarang = [...formData.barang];
@@ -50,11 +48,11 @@ export default function FormPeminjamanMultiple({ onSubmit, onCancel }) {
       onSubmit={handleSubmit}
       className="bg-white p-6 sm:p-8 rounded-lg shadow-md w-full max-w-2xl mx-auto space-y-4"
     >
-        <h2 className="text-xl sm:text-2xl font-bold mb-6">
+      <h2 className="text-xl sm:text-2xl font-bold mb-6">
         Form Peminjaman Multiple Aset
       </h2>
 
-      {/* Input umum */}
+      {/* Input Umum */}
       <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium mb-1">Peminjam</label>
@@ -175,7 +173,7 @@ export default function FormPeminjamanMultiple({ onSubmit, onCancel }) {
           <button
             type="button"
             onClick={handleAddBarang}
-             className="flex items-center justify-center gap-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
           >
             <Plus size={18} />
             Tambah Peminjaman

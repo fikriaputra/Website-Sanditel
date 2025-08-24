@@ -1,10 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom";
+
 import MainLayout from "../../layouts/MainLayout";
 import FormPersetujuanBarang from "../../components/PengajuanBarang/FormPersetujuanBarang";
 
 export default function PersetujuanBarang() {
   const { state } = useLocation();
   const navigate = useNavigate();
+
   const pengajuan = state?.data;
 
   const handleSubmit = (formData) => {

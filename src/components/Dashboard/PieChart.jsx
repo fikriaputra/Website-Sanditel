@@ -18,22 +18,23 @@ const pieData = {
   ],
 };
 
-const COLORS = ["#0062ffff", "#00ffeaff"]; // Masuk = biru, Keluar = merah
+const COLORS = ["#0062ff", "#00ffea"]; // Masuk = biru, Keluar = hijau-biru
 
 export default function PieChartComponent() {
-  const years = Object.keys(pieData).sort((a, b) => b - a); // urut terbaru dulu
+  const years = Object.keys(pieData).sort((a, b) => b - a); // urut tahun terbaru dulu
   const [year, setYear] = useState("2025");
   const data = pieData[year];
 
   return (
-  <div className="bg-white p-3 sm:p-4 rounded-lg shadow">
-  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
-    <h3 className="font-bold text-sm sm:text-base">Total Stok ({year})</h3>
-    <select
-      value={year}
-      onChange={(e) => setYear(e.target.value)}
-      className="border rounded px-2 py-1 text-xs sm:text-sm"
-    >
+    <div className="bg-white p-3 sm:p-4 rounded-lg shadow">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+        <h3 className="font-bold text-sm sm:text-base">Total Stok ({year})</h3>
+        <select
+          value={year}
+          onChange={(e) => setYear(e.target.value)}
+          className="border rounded px-2 py-1 text-xs sm:text-sm"
+        >
           {years.map((y) => (
             <option key={y} value={y}>
               {y}
@@ -43,7 +44,7 @@ export default function PieChartComponent() {
       </div>
 
       {/* Chart */}
-       <ResponsiveContainer width="100%" height={220}>
+      <ResponsiveContainer width="100%" height={220}>
         <PC>
           <Pie
             data={data}
@@ -55,11 +56,13 @@ export default function PieChartComponent() {
             nameKey="name"
           >
             {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
             ))}
           </Pie>
           <PieTooltip />
-          {/* Legend bawaan dihapus */}
         </PC>
       </ResponsiveContainer>
 

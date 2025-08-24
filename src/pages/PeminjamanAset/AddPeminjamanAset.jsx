@@ -4,15 +4,19 @@ import FormPeminjamanAset from "../../components/PeminjamanAset/FormPeminjamanAs
 export default function AddPeminjamanAset() {
   const handleSubmit = (data) => {
     console.log("Peminjaman Aset:", data);
-    alert("Data peminjaman aset berhasil disimpan!");
+    alert("Data peminjaman aset berhasil dikirim!");
+  };
+
+  const handleCancel = () => {
+    window.history.back();
   };
 
   return (
     <MainLayout>
       <div className="flex justify-center items-start p-4 sm:p-6">
-        <FormPeminjamanAset
-          onSubmit={handleSubmit}
-          onCancel={() => window.history.back()}
+        <FormPeminjamanAset 
+          onSubmit={handleSubmit} 
+          onCancel={handleCancel} 
         />
       </div>
     </MainLayout>

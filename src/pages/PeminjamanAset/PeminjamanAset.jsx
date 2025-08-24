@@ -1,9 +1,10 @@
 // pages/PeminjamanAset.jsx
-import MainLayout from "../../layouts/MainLayout";
-import Table from "../../components/DataBarang/Table";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Printer, Plus, CopyPlus } from "lucide-react";
+
+import MainLayout from "../../layouts/MainLayout";
+import Table from "../../components/DataBarang/Table";
 
 export default function PeminjamanAset() {
   const navigate = useNavigate();
@@ -82,7 +83,7 @@ export default function PeminjamanAset() {
     alert(`Barang dengan nomor ${peminjamanAset[index].number} dikembalikan`);
   };
 
-  // filter data berdasarkan search
+  // Filter data berdasarkan search
   const filteredData = peminjamanAset.filter(
     (item) =>
       item.barang.toLowerCase().includes(search.toLowerCase()) ||
@@ -94,7 +95,7 @@ export default function PeminjamanAset() {
       <div className="bg-white rounded-lg shadow p-4">
         {/* Header Halaman */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-3">
-          <h2 className="text-xl font-bold">Data Peminjaman Asset</h2>
+          <h2 className="text-xl font-bold">Data Peminjaman Aset</h2>
 
           {/* Tombol Aksi */}
           <div className="flex flex-wrap gap-2">
@@ -106,6 +107,7 @@ export default function PeminjamanAset() {
               <Printer size={18} />
               <span className="hidden sm:inline">Cetak</span>
             </button>
+
             <button
               onClick={handleTambah}
               className="flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded shadow transition w-10 h-10 sm:w-auto sm:h-auto"
@@ -113,6 +115,7 @@ export default function PeminjamanAset() {
               <Plus size={18} />
               <span className="hidden sm:inline">Tambah</span>
             </button>
+
             <button
               onClick={handleTambahMultiple}
               className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded shadow transition w-10 h-10 sm:w-auto sm:h-auto"
@@ -123,7 +126,7 @@ export default function PeminjamanAset() {
           </div>
         </div>
 
-        {/* 🔍 Search Mobile */}
+        {/* Search (Mobile) */}
         <div className="sm:hidden mb-4 relative">
           <input
             type="text"
@@ -147,14 +150,14 @@ export default function PeminjamanAset() {
           </svg>
         </div>
 
-        {/* 📱 Card View untuk HP */}
+        {/* Card View (Mobile) */}
         <div className="block sm:hidden space-y-3">
           {filteredData.map((item, idx) => (
             <div
               key={idx}
               className="border rounded-lg shadow-sm p-3 bg-gray-50"
             >
-              {/* Header Card: Nama Barang + Number di kanan */}
+              {/* Header Card */}
               <div className="flex justify-between items-center mb-1">
                 <div className="font-bold text-gray-800">{item.barang}</div>
                 <span className="text-sm text-gray-500">#{item.number}</span>
@@ -189,7 +192,7 @@ export default function PeminjamanAset() {
           ))}
         </div>
 
-        {/* 💻 Tabel View untuk Laptop */}
+        {/* Table View (Desktop) */}
         <div className="hidden sm:block overflow-x-auto">
           <Table
             headers={[

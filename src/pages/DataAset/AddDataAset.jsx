@@ -5,17 +5,18 @@ import FormDataAset from "../../components/DataAset/FormDataAset";
 export default function AddDataAset() {
   const handleSubmit = (data) => {
     console.log("Data Aset:", data);
-    alert("Data Aset berhasil disimpan!");
+    alert("Data Aset berhasil dikirim!");
+  };
+
+  const handleCancel = () => {
+    window.history.back(); // Kembali ke halaman sebelumnya
   };
 
   return (
     <MainLayout>
-      {/* Scrollable container untuk mobile */}
-      <div className="flex justify-center items-start p-4 sm:p-6 overflow-auto min-h-screen">
-        <FormDataAset
-          onSubmit={handleSubmit}
-          onCancel={() => window.history.back()}
-        />
+      {/* Container scrollable untuk mobile */}
+      <div className="flex justify-center items-start p-4 sm:p-6 min-h-screen overflow-auto">
+        <FormDataAset onSubmit={handleSubmit} onCancel={handleCancel} />
       </div>
     </MainLayout>
   );

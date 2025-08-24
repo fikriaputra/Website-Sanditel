@@ -25,13 +25,12 @@ export default function DataAset() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortCategory, setSortCategory] = useState(null);
 
-  const getStatusBadge = (status) => {
-    return status === "Active"
+  const getStatusBadge = (status) =>
+    status === "Active"
       ? "bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold"
       : "bg-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold";
-  };
 
-  // Filter & search
+  // Filter & Search
   const filteredAssets = useMemo(() => {
     let filtered = assets.filter(
       (item) =>
@@ -58,13 +57,13 @@ export default function DataAset() {
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-3">
           <h2 className="font-bold text-lg">Daftar Data Aset</h2>
 
-          {/* Buttons */}
+          {/* Action Buttons */}
           <div className="flex gap-2 flex-wrap">
             {/* Add Asset */}
             <button
               onClick={() => navigate("/add-data-aset")}
               className="flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white p-2 rounded"
-              title="Add Asset"
+              title="Tambah Aset"
             >
               <Plus size={18} />
               <span className="hidden sm:inline ml-1">Tambah</span>
@@ -74,7 +73,7 @@ export default function DataAset() {
             <button
               onClick={() => setSortCategory(sortCategory ? null : "Electronics")}
               className="flex items-center justify-center bg-gray-500 hover:bg-gray-600 text-white p-2 rounded"
-              title="Sort by Category"
+              title="Sortir berdasarkan kategori"
             >
               <Filter size={18} />
               <span className="hidden sm:inline ml-1">Sort By Kategori</span>
@@ -138,7 +137,7 @@ export default function DataAset() {
                   <span className="font-medium">Barcode Log:</span> {item.barcodeLog}
                 </p>
 
-                {/* Action buttons */}
+                {/* Action Buttons */}
                 <div className="flex gap-2 mt-2">
                   <button
                     onClick={() => navigate(`/edit-data-aset/${item.number}`)}

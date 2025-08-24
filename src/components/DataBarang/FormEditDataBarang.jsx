@@ -4,32 +4,52 @@ import MainLayout from "../../layouts/MainLayout";
 import FormDataBarang from "../components/FormDataBarang";
 
 export default function FormEditDataBarang() {
-  const { id } = useParams(); // ambil parameter id dari url
+  const { id } = useParams(); // Ambil parameter ID dari URL
   const navigate = useNavigate();
 
-  // sementara: data dummy, nanti bisa diganti fetch dari API atau context
+  // Data dummy sementara, bisa diganti fetch API atau context
   const dummyData = [
-    { idBarang: "B000001", namaBarang: "Laptop", jenisBarang: "Elektronik", satuanBarang: "Unit", stok: 98 },
-    { idBarang: "B000002", namaBarang: "Projector", jenisBarang: "Elektronik", satuanBarang: "Unit", stok: 12 },
-    { idBarang: "B000003", namaBarang: "Office Chair", jenisBarang: "Furniture", satuanBarang: "Pcs", stok: 21 },
+    {
+      idBarang: "B000001",
+      namaBarang: "Laptop",
+      jenisBarang: "Elektronik",
+      satuanBarang: "Unit",
+      stok: 98,
+    },
+    {
+      idBarang: "B000002",
+      namaBarang: "Projector",
+      jenisBarang: "Elektronik",
+      satuanBarang: "Unit",
+      stok: 12,
+    },
+    {
+      idBarang: "B000003",
+      namaBarang: "Office Chair",
+      jenisBarang: "Furniture",
+      satuanBarang: "Pcs",
+      stok: 21,
+    },
   ];
 
   const selectedBarang = dummyData.find((item) => item.idBarang === id);
 
+  // Submit handler
   const handleSubmit = (updatedData) => {
     console.log("Update Data:", updatedData);
-    // TODO: simpan ke backend / state global
-    navigate("/data-barang"); // kembali ke daftar setelah update
+    // TODO: Simpan ke backend atau state global
+    navigate("/data-barang"); // Kembali ke daftar setelah update
   };
 
+  // Cancel handler
   const handleCancel = () => {
-    navigate(-1); // kembali ke halaman sebelumnya
+    navigate(-1); // Kembali ke halaman sebelumnya
   };
 
-  // 🔹 Tambahkan handleReset supaya tombol reset di form bisa dipakai juga
+  // Reset handler (optional)
   const handleReset = () => {
     if (selectedBarang) {
-      return selectedBarang; // reset ke data awal edit
+      return selectedBarang; // Reset ke data awal edit
     }
     return {
       idBarang: "B000000",
@@ -47,8 +67,8 @@ export default function FormEditDataBarang() {
           <FormDataBarang
             onSubmit={handleSubmit}
             onCancel={handleCancel}
-            initialData={selectedBarang}   // data default
-            onReset={handleReset}          // 🔹 kirim fungsi reset
+            initialData={selectedBarang} // Data default untuk form
+            onReset={handleReset} // Fungsi reset dikirim ke form
           />
         ) : (
           <div className="bg-white p-6 rounded-lg shadow text-center w-full max-w-md sm:max-w-lg">

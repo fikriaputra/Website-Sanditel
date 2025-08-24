@@ -1,7 +1,7 @@
 import { Pencil, Trash2, QrCode } from "lucide-react";
 
 export default function TableRowDA({ item, onEdit, onDelete, onCheckBarcode }) {
-  // Badge warna status sama seperti TableRowPB
+  // Badge warna status
   const getStatusBadge = (status) => {
     switch (status?.toLowerCase()) {
       case "active":
@@ -19,33 +19,35 @@ export default function TableRowDA({ item, onEdit, onDelete, onCheckBarcode }) {
 
   return (
     <tr className="border-b hover:bg-gray-50 transition-colors">
-      {Object.values(item).map((val, idx) => (
-        <td
-          key={idx}
-          className={`p-3 text-sm ${
-            idx === 0
-              ? "font-semibold text-gray-800" // Kolom pertama tebal
-              : "text-gray-600 font-medium"   // Kolom lainnya
-          }`}
-        >
-          {String(val).toLowerCase() === "active" ||
-          String(val).toLowerCase() === "pending" ||
-          String(val).toLowerCase() === "inactive" ||
-          String(val).toLowerCase() === "completed" ||
-          String(val).toLowerCase() === "rejected" ? (
-            <span className={getStatusBadge(val)}>{val}</span>
-          ) : (
-            val
-          )}
-        </td>
-      ))}
+      {Object.values(item).map((val, idx) => {
+        const lowerVal = String(val).toLowerCase();
+        const isStatus =
+          ["active", "pending", "inactive", "completed", "rejected"].includes(lowerVal);
+
+        return (
+          <td
+            key={idx}
+            className={`p-3 text-sm ${
+              idx === 0
+                ? "font-semibold text-gray-800" // Kolom pertama tebal
+                : "text-gray-600 font-medium"   // Kolom lainnya
+            }`}
+          >
+            {isStatus ? (
+              <span className={getStatusBadge(val)}>{val}</span>
+            ) : (
+              val
+            )}
+          </td>
+        );
+      })}
 
       {(onEdit || onDelete || onCheckBarcode) && (
         <td className="p-3 flex gap-2">
           {onEdit && (
             <button
               onClick={onEdit}
-             className="p-1.5 rounded-full hover:bg-yellow-100 text-yellow-500 transition-colors"
+              className="p-1.5 rounded-full hover:bg-yellow-100 text-yellow-500 transition-colors"
               title="Edit"
             >
               <Pencil size={16} />

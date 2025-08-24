@@ -7,9 +7,10 @@ export default function FormPengajuanBarang({ onSubmit, onCancel }) {
     tanggalPengajuan: "",
     noPengajuan: "12082025/VIII/PAMBMD/2025",
     barang: [{ namaBarang: "", merkKode: "", jumlah: "", jenis: "" }],
-    suratPengajuan: null, // ⬅️ tambahkan di sini
+    suratPengajuan: null,
   });
 
+  // 🔹 Handler perubahan input barang
   const handleBarangChange = (index, e) => {
     const { name, value } = e.target;
     const updatedBarang = [...formData.barang];
@@ -17,6 +18,7 @@ export default function FormPengajuanBarang({ onSubmit, onCancel }) {
     setFormData((prev) => ({ ...prev, barang: updatedBarang }));
   };
 
+  // 🔹 Tambah barang baru
   const handleAddBarang = () => {
     setFormData((prev) => ({
       ...prev,
@@ -27,25 +29,26 @@ export default function FormPengajuanBarang({ onSubmit, onCancel }) {
     }));
   };
 
+  // 🔹 Hapus barang
   const handleRemoveBarang = (index) => {
     const updatedBarang = formData.barang.filter((_, i) => i !== index);
     setFormData((prev) => ({ ...prev, barang: updatedBarang }));
   };
 
+  // 🔹 Handler input umum & file
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-
     if (name === "suratPengajuan") {
-      setFormData((prev) => ({ ...prev, suratPengajuan: files[0] })); // ambil file pertama
+      setFormData((prev) => ({ ...prev, suratPengajuan: files[0] }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
+  // 🔹 Submit
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // kalau perlu upload via FormData ke API
     const payload = new FormData();
     payload.append("tanggalPengajuan", formData.tanggalPengajuan);
     payload.append("noPengajuan", formData.noPengajuan);
@@ -61,13 +64,13 @@ export default function FormPengajuanBarang({ onSubmit, onCancel }) {
     <form
       onSubmit={handleSubmit}
       className="bg-white p-6 sm:p-8 rounded-lg shadow-md w-full max-w-2xl mx-auto space-y-4"
-      encType="multipart/form-data" // ⬅️ wajib untuk file upload
+      encType="multipart/form-data"
     >
       <h2 className="text-xl sm:text-2xl font-bold">
         Form Tambah Pengajuan Barang
       </h2>
 
-      {/* Input Tanggal Pengajuan & Nomor Pengajuan */}
+      {/* 🔹 Input Tanggal & Nomor Pengajuan */}
       <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium mb-1">
@@ -96,7 +99,7 @@ export default function FormPengajuanBarang({ onSubmit, onCancel }) {
         </div>
       </div>
 
-      {/* Upload Surat Pengajuan */}
+      {/* 🔹 Upload Surat Pengajuan */}
       <div>
         <label className="block text-sm font-medium mb-1">
           Upload Surat Pengajuan
@@ -110,12 +113,13 @@ export default function FormPengajuanBarang({ onSubmit, onCancel }) {
         />
         {formData.suratPengajuan && (
           <p className="text-sm text-gray-600 mt-1">
-            File terpilih: <span className="font-medium">{formData.suratPengajuan.name}</span>
+            File terpilih:{" "}
+            <span className="font-medium">{formData.suratPengajuan.name}</span>
           </p>
         )}
       </div>
 
-      {/* Daftar Barang */}
+      {/* 🔹 Daftar Barang */}
       <div className="space-y-4">
         <h3 className="text-lg font-semibold">Daftar Barang</h3>
 
@@ -185,7 +189,7 @@ export default function FormPengajuanBarang({ onSubmit, onCancel }) {
         ))}
       </div>
 
-      {/* Tombol Aksi */}
+      {/* 🔹 Tombol Aksi */}
       <div className="flex flex-col sm:flex-row justify-between gap-3 pt-4">
         <button
           type="button"

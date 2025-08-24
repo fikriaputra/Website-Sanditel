@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+
 import MainLayout from "../../layouts/MainLayout";
 import FormPeminjamanMultiple from "../../components/PeminjamanAset/FormPeminjamanMultiple";
 
@@ -18,9 +19,9 @@ export default function PeminjamanMultiple() {
   return (
     <MainLayout>
       <div className="p-4 sm:p-6 md:p-8">
-        <FormPeminjamanMultiple
-          onSubmit={handleSubmit}
-          onCancel={handleCancel}
+        <FormPeminjamanMultiple 
+          onSubmit={handleSubmit} 
+          onCancel={handleCancel} 
         />
       </div>
     </MainLayout>

@@ -35,6 +35,7 @@ export default function FormPersetujuanBarang({ initialData, onSubmit, onCancel 
       onSubmit={handleSubmit}
       className="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-md w-full max-w-2xl mx-auto space-y-4"
     >
+      {/* Title */}
       <h2 className="text-lg sm:text-2xl font-bold mb-4 text-center sm:text-left">
         Form Persetujuan Pengajuan Barang
       </h2>
@@ -46,7 +47,9 @@ export default function FormPersetujuanBarang({ initialData, onSubmit, onCancel 
         { label: "Jumlah Diajukan", name: "jumlahDiajukan", type: "number", readOnly: true },
       ].map((field) => (
         <div key={field.name} className="flex flex-col">
-          <label className="text-xs sm:text-sm font-medium mb-1">{field.label}</label>
+          <label className="text-xs sm:text-sm font-medium mb-1">
+            {field.label}
+          </label>
           <input
             type={field.type}
             name={field.name}
@@ -63,7 +66,9 @@ export default function FormPersetujuanBarang({ initialData, onSubmit, onCancel 
 
       {/* Status Persetujuan */}
       <div className="flex flex-col">
-        <label className="text-xs sm:text-sm font-medium mb-1">Status Persetujuan</label>
+        <label className="text-xs sm:text-sm font-medium mb-1">
+          Status Persetujuan
+        </label>
         <select
           name="statusPersetujuan"
           value={formData.statusPersetujuan}
