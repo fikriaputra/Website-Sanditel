@@ -10,23 +10,23 @@ export default function DataAset() {
   const navigate = useNavigate();
 
   const [assets, setAssets] = useState([
-    { number: 1, name: "Laptop Dell", brandCode: "Dell-LT-001", category: "Electronics", status: "Active", barcodeLog: "2025-08-01" },
-    { number: 2, name: "Projector Epson", brandCode: "Epson-PR-002", category: "Electronics", status: "Inactive", barcodeLog: "2025-07-25" },
-    { number: 3, name: "Office Chair Ergo", brandCode: "Ergo-CH-003", category: "Furniture", status: "Active", barcodeLog: "2025-07-20" },
-    { number: 4, name: "Meeting Desk", brandCode: "IKEA-DS-004", category: "Furniture", status: "Active", barcodeLog: "2025-08-02" },
-    { number: 5, name: "Printer HP", brandCode: "HP-PR-005", category: "Electronics", status: "Active", barcodeLog: "2025-07-15" },
-    { number: 6, name: "Scanner Canon", brandCode: "Canon-SC-006", category: "Electronics", status: "Inactive", barcodeLog: "2025-07-10" },
-    { number: 7, name: "Conference Table", brandCode: "IKEA-TB-007", category: "Furniture", status: "Active", barcodeLog: "2025-08-05" },
-    { number: 8, name: "Whiteboard", brandCode: "WB-008", category: "Furniture", status: "Active", barcodeLog: "2025-08-03" },
-    { number: 9, name: "Air Conditioner", brandCode: "LG-AC-009", category: "Electronics", status: "Inactive", barcodeLog: "2025-07-30" },
-    { number: 10, name: "CCTV Camera", brandCode: "Hikvision-CC-010", category: "Electronics", status: "Active", barcodeLog: "2025-08-04" },
+    { number: 1, name: "Laptop Dell", brandCode: "Dell-LT-001", category: "Elektronik", status: "Aktif", barcodeLog: "2025-08-01" },
+    { number: 2, name: "Projector Epson", brandCode: "Epson-PR-002", category: "Elektronik", status: "Tidak Aktif", barcodeLog: "2025-07-25" },
+    { number: 3, name: "Kursi Kantor Ergo", brandCode: "Ergo-CH-003", category: "Furnitur", status: "Aktif", barcodeLog: "2025-07-20" },
+    { number: 4, name: "Meja Rapat", brandCode: "IKEA-DS-004", category: "Furnitur", status: "Aktif", barcodeLog: "2025-08-02" },
+    { number: 5, name: "Printer HP", brandCode: "HP-PR-005", category: "Elektronik", status: "Aktif", barcodeLog: "2025-07-15" },
+    { number: 6, name: "Scanner Canon", brandCode: "Canon-SC-006", category: "Elektronik", status: "Tidak Aktif", barcodeLog: "2025-07-10" },
+    { number: 7, name: "Meja Konferensi", brandCode: "IKEA-TB-007", category: "Furnitur", status: "Aktif", barcodeLog: "2025-08-05" },
+    { number: 8, name: "Papan Tulis", brandCode: "WB-008", category: "Furnitur", status: "Aktif", barcodeLog: "2025-08-03" },
+    { number: 9, name: "AC", brandCode: "LG-AC-009", category: "Elektronik", status: "Tidak Aktif", barcodeLog: "2025-07-30" },
+    { number: 10, name: "Kamera CCTV", brandCode: "Hikvision-CC-010", category: "Elektronik", status: "Aktif", barcodeLog: "2025-08-04" },
   ]);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [sortCategory, setSortCategory] = useState(null);
 
   const getStatusBadge = (status) =>
-    status === "Active"
+    status === "Aktif"
       ? "bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold"
       : "bg-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold";
 
@@ -71,12 +71,12 @@ export default function DataAset() {
 
             {/* Sort */}
             <button
-              onClick={() => setSortCategory(sortCategory ? null : "Electronics")}
+              onClick={() => setSortCategory(sortCategory ? null : "Elektronik")}
               className="flex items-center justify-center bg-gray-500 hover:bg-gray-600 text-white p-2 rounded"
               title="Sortir berdasarkan kategori"
             >
               <Filter size={18} />
-              <span className="hidden sm:inline ml-1">Sort By Kategori</span>
+              <span className="hidden sm:inline ml-1">Sortir Kategori</span>
             </button>
 
             {/* Scan Barcode */}

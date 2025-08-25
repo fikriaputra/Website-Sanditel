@@ -8,7 +8,7 @@ export default function FormBarangKeluar({ initialData, onSubmit, onCancel }) {
       tglKeluar: "",
       namaBarang: "",
       namaPenerima: "",
-      divisi: "",
+      bagian: "",
       totalKeluar: "",
       petugas: "",
     }
@@ -30,7 +30,7 @@ export default function FormBarangKeluar({ initialData, onSubmit, onCancel }) {
       tglKeluar: "",
       namaBarang: "",
       namaPenerima: "",
-      divisi: "",
+      bagian: "",
       totalKeluar: "",
       petugas: "",
     });
@@ -105,17 +105,17 @@ export default function FormBarangKeluar({ initialData, onSubmit, onCancel }) {
           />
         </div>
 
-        {/* Divisi */}
+        {/* Bagian */}
         <div>
           <label className="block text-sm font-medium mb-1">
-            Divisi
+            Bagian
           </label>
           <input
             type="text"
-            name="divisi"
-            value={formData.divisi}
+            name="bagian"
+            value={formData.bagian}
             onChange={handleChange}
-            placeholder="Masukkan divisi penerima"
+            placeholder="Masukkan bagian penerima"
             className="w-full border rounded-lg px-3 py-2"
           />
         </div>

@@ -28,11 +28,11 @@ export default function TableStok({ title, data }) {
                 <td className="p-3 border-t border-gray-200">
                   {row.stok > 0 ? (
                     <span className="bg-green-500 text-white px-2 py-1 rounded-full text-xs">
-                      In Stock
+                      Stok Tersedia
                     </span>
                   ) : (
                     <span className="bg-red-500 text-white px-2 py-1 rounded-full text-xs">
-                      Out of Stock
+                      Stok Habis
                     </span>
                   )}
                 </td>

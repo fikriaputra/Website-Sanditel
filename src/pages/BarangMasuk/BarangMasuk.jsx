@@ -15,7 +15,7 @@ export default function BarangMasuk() {
       no: 1,
       noTransaksi: "T-BK-2508010001",
       tglMasuk: "2025-08-01",
-      supplier: "PT Asia",
+      kategori: "Elektronik",   // 🔹 diganti dari supplier
       namaBarang: "AC",
       jumlahMasuk: "20",
       user: "Kevin",
@@ -24,7 +24,7 @@ export default function BarangMasuk() {
       no: 2,
       noTransaksi: "T-BK-2508010002",
       tglMasuk: "2025-08-01",
-      supplier: "PT Indo",
+      kategori: "Komputer",
       namaBarang: "Laptop",
       jumlahMasuk: "15",
       user: "Sarah",
@@ -33,7 +33,7 @@ export default function BarangMasuk() {
       no: 3,
       noTransaksi: "T-BK-2508020003",
       tglMasuk: "2025-08-02",
-      supplier: "PT Sinar Jaya",
+      kategori: "Elektronik",
       namaBarang: "Printer",
       jumlahMasuk: "10",
       user: "Andi",
@@ -42,7 +42,7 @@ export default function BarangMasuk() {
       no: 4,
       noTransaksi: "T-BK-2508020004",
       tglMasuk: "2025-08-02",
-      supplier: "PT Maju Mundur",
+      kategori: "Aksesoris",
       namaBarang: "Mouse Wireless",
       jumlahMasuk: "50",
       user: "Dewi",
@@ -51,7 +51,7 @@ export default function BarangMasuk() {
       no: 5,
       noTransaksi: "T-BK-2508030005",
       tglMasuk: "2025-08-02",
-      supplier: "PT Cahaya",
+      kategori: "Furniture",
       namaBarang: "Meja Kantor",
       jumlahMasuk: "8",
       user: "Rudi",
@@ -60,7 +60,7 @@ export default function BarangMasuk() {
       no: 6,
       noTransaksi: "T-BK-2508030006",
       tglMasuk: "2025-08-03",
-      supplier: "PT Teknologi Nusantara",
+      kategori: "Elektronik",
       namaBarang: "Proyektor",
       jumlahMasuk: "5",
       user: "Budi",
@@ -69,7 +69,7 @@ export default function BarangMasuk() {
       no: 7,
       noTransaksi: "T-BK-2508040007",
       tglMasuk: "2025-08-04",
-      supplier: "PT Elektronik Jaya",
+      kategori: "Elektronik",
       namaBarang: "TV LED",
       jumlahMasuk: "12",
       user: "Sinta",
@@ -166,8 +166,8 @@ export default function BarangMasuk() {
                   <span className="font-medium">{item.tglMasuk}</span>
                 </p>
                 <p className="text-sm text-gray-600">
-                  Supplier:{" "}
-                  <span className="font-medium">{item.supplier}</span>
+                  Kategori:{" "}   {/* 🔹 Supplier diganti Kategori */}
+                  <span className="font-medium">{item.kategori}</span>
                 </p>
                 <p className="text-sm text-gray-600">
                   Jumlah:{" "}
@@ -207,7 +207,7 @@ export default function BarangMasuk() {
               "No",
               "No Transaksi",
               "Tgl Masuk",
-              "Supplier",
+              "Kategori",      // 🔹 Supplier → Kategori
               "Nama Barang",
               "Jumlah Masuk",
               "User",

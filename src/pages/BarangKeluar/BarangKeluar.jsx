@@ -18,7 +18,7 @@ export default function BarangKeluar() {
       tglKeluar: "2025-08-01",
       namaBarang: "Laptop",
       namaPenerima: "Advin",
-      divisi: "IT",
+      bagian: "IT", 
       totalKeluar: "5 Unit",
       petugas: "Administrator",
     },
@@ -28,7 +28,7 @@ export default function BarangKeluar() {
       tglKeluar: "2025-08-01",
       namaBarang: "Printer",
       namaPenerima: "Budi",
-      divisi: "Keuangan",
+      bagian: "Keuangan",
       totalKeluar: "2 Unit",
       petugas: "Dewi",
     },
@@ -38,7 +38,7 @@ export default function BarangKeluar() {
       tglKeluar: "2025-08-02",
       namaBarang: "Kursi Kantor",
       namaPenerima: "Citra",
-      divisi: "HRD",
+      bagian: "HRD",
       totalKeluar: "10 Pcs",
       petugas: "Rudi",
     },
@@ -139,7 +139,8 @@ export default function BarangKeluar() {
                   <span className="font-medium">{item.namaPenerima}</span>
                 </p>
                 <p className="text-sm text-gray-600">
-                  Divisi: <span className="font-medium">{item.divisi}</span>
+                  Bagian: {" "}
+                  <span className="font-medium">{item.bagian}</span>
                 </p>
                 <p className="text-sm text-gray-600">
                   Total Keluar:{" "}
@@ -181,7 +182,7 @@ export default function BarangKeluar() {
               "Tgl Keluar",
               "Nama Barang",
               "Nama Penerima",
-              "Divisi",
+              "Bagian", 
               "Total Keluar",
               "Petugas",
               "Aksi",

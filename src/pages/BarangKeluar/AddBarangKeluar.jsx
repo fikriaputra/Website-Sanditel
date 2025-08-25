@@ -5,7 +5,7 @@ import FormBarangKeluar from "../../components/BarangKeluar/FormBarangKeluar";
 export default function AddBarangKeluar() {
   const handleSubmit = (data) => {
     console.log("Barang Keluar:", data);
-    alert("Barang Keluar berhasil disimpan!");
+    alert("Barang Keluar berhasil dikirim!");
   };
 
   const handleCancel = () => {

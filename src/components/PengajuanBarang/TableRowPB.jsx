@@ -4,11 +4,11 @@ export default function TableRowPB({ item, onView, onDelete, onApprove }) {
   // Badge warna status
   const getSubmissionBadge = (status) => {
     switch (status.toLowerCase()) {
-      case "completed":
+      case "diterima":
         return "bg-green-500 text-white px-3 py-1 rounded-full text-xs font-medium";
-      case "pending":
+      case "menunggu":
         return "bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-medium";
-      case "rejected":
+      case "ditolak":
         return "bg-red-500 text-white px-3 py-1 rounded-full text-xs font-medium";
       default:
         return "bg-gray-400 text-white px-3 py-1 rounded-full text-xs font-medium";
@@ -59,7 +59,7 @@ export default function TableRowPB({ item, onView, onDelete, onApprove }) {
         )}
 
         {/* Approve (hanya muncul jika status Pending) */}
-        {item.status.toLowerCase() === "pending" && onApprove && (
+        {item.status.toLowerCase() === "menunggu" && onApprove && (
           <button
             onClick={onApprove}
             className="p-1.5 rounded-full hover:bg-green-100 text-green-500 transition-colors"

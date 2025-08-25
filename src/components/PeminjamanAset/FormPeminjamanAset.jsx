@@ -4,6 +4,7 @@ export default function FormPeminjamanAset({ onSubmit, onCancel }) {
   const [formData, setFormData] = useState({
     barang: "",
     peminjam: "",
+    bagian: "",       // ✅ Tambahan field Bagian
     tanggalPinjam: "",
     tanggalKembali: "",
     jumlah: "",
@@ -22,6 +23,7 @@ export default function FormPeminjamanAset({ onSubmit, onCancel }) {
     setFormData({
       barang: "",
       peminjam: "",
+      bagian: "",       // ✅ Reset juga
       tanggalPinjam: "",
       tanggalKembali: "",
       jumlah: "",
@@ -69,6 +71,21 @@ export default function FormPeminjamanAset({ onSubmit, onCancel }) {
           value={formData.peminjam}
           onChange={handleChange}
           placeholder="Nama peminjam..."
+          className="w-full border rounded-lg px-3 py-2 text-sm sm:text-base"
+        />
+      </div>
+
+      {/* ✅ Bagian */}
+      <div className="mb-4">
+        <label className="block font-medium mb-1 text-sm sm:text-base">
+          Bagian
+        </label>
+        <input
+          type="text"
+          name="bagian"
+          value={formData.bagian}
+          onChange={handleChange}
+          placeholder="Bagian / Divisi..."
           className="w-full border rounded-lg px-3 py-2 text-sm sm:text-base"
         />
       </div>

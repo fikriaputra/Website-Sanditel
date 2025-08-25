@@ -29,10 +29,10 @@ export default function FormEditBarangMasuk({ onSubmit, onCancel, initialData })
       placeholder: "Pilih tanggal masuk",
     },
     {
-      label: "Supplier",
-      name: "supplier",
+      label: "Kategori",
+      name: "kategori",
       type: "text",
-      placeholder: "Masukkan nama supplier",
+      placeholder: "Masukkan nama kategori",
     },
     {
       label: "Nama Barang",

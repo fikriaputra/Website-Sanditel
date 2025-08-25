@@ -41,10 +41,10 @@ export default function FormEditBarangKeluar({ onSubmit, onCancel, initialData }
       placeholder: "Masukkan nama penerima",
     },
     {
-      label: "Divisi",
-      name: "divisi",
+      label: "Bagian",
+      name: "bagian",
       type: "text",
-      placeholder: "Masukkan divisi penerima",
+      placeholder: "Masukkan bagian penerima",
     },
     {
       label: "Total Keluar",

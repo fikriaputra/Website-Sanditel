@@ -14,7 +14,8 @@ export default function PeminjamanAset() {
     {
       number: 1,
       barang: "TL-SG1024D / TP-LINK ()",
-      pamina: "Biro Bia / BKD",
+      peminjam: "Biro Bia",
+      bagian: "BKD",
       tglPinjam: "10-07-2025",
       tglKembali: "31-07-2025",
       jumlah: 1,
@@ -23,7 +24,8 @@ export default function PeminjamanAset() {
     {
       number: 2,
       barang: "Dell Laptop Latitude 3420",
-      pamina: "Bagian IT",
+      peminjam: "Budi",
+      bagian: "Bagian IT",
       tglPinjam: "12-07-2025",
       tglKembali: "25-07-2025",
       jumlah: 2,
@@ -32,7 +34,8 @@ export default function PeminjamanAset() {
     {
       number: 3,
       barang: "Proyektor Epson X500",
-      pamina: "Biro Umum",
+      peminjam: "Sinta",
+      bagian: "Biro Umum",
       tglPinjam: "15-07-2025",
       tglKembali: "30-07-2025",
       jumlah: 1,
@@ -41,7 +44,8 @@ export default function PeminjamanAset() {
     {
       number: 4,
       barang: "Kursi Kantor Ergonomic",
-      pamina: "Divisi HRD",
+      peminjam: "Andi",
+      bagian: "Divisi HRD",
       tglPinjam: "18-07-2025",
       tglKembali: "01-08-2025",
       jumlah: 5,
@@ -50,7 +54,8 @@ export default function PeminjamanAset() {
     {
       number: 5,
       barang: "Meja Rapat Kayu Jati",
-      pamina: "Divisi Keuangan",
+      peminjam: "Rina",
+      bagian: "Divisi Keuangan",
       tglPinjam: "20-07-2025",
       tglKembali: "05-08-2025",
       jumlah: 3,
@@ -59,7 +64,8 @@ export default function PeminjamanAset() {
     {
       number: 6,
       barang: "Printer Laser HP MFP",
-      pamina: "Divisi Pemasaran",
+      peminjam: "Dewi",
+      bagian: "Divisi Pemasaran",
       tglPinjam: "22-07-2025",
       tglKembali: "06-08-2025",
       jumlah: 1,
@@ -68,7 +74,8 @@ export default function PeminjamanAset() {
     {
       number: 7,
       barang: "Whiteboard Magnetik",
-      pamina: "Divisi Riset",
+      peminjam: "Agus",
+      bagian: "Divisi Riset",
       tglPinjam: "25-07-2025",
       tglKembali: "10-08-2025",
       jumlah: 2,
@@ -87,7 +94,8 @@ export default function PeminjamanAset() {
   const filteredData = peminjamanAset.filter(
     (item) =>
       item.barang.toLowerCase().includes(search.toLowerCase()) ||
-      item.pamina.toLowerCase().includes(search.toLowerCase())
+      item.peminjam.toLowerCase().includes(search.toLowerCase()) ||
+      item.bagian.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -163,9 +171,16 @@ export default function PeminjamanAset() {
                 <span className="text-sm text-gray-500">#{item.number}</span>
               </div>
 
-              <div className="text-sm text-gray-600">Peminjam: {item.pamina}</div>
-              <div className="text-sm text-gray-600">Tgl Pinjam: {item.tglPinjam}</div>
-              <div className="text-sm text-gray-600">Tgl Kembali: {item.tglKembali}</div>
+              <div className="text-sm text-gray-600">
+                Peminjam: {item.peminjam}
+              </div>
+              <div className="text-sm text-gray-600">Bagian: {item.bagian}</div>
+              <div className="text-sm text-gray-600">
+                Tgl Pinjam: {item.tglPinjam}
+              </div>
+              <div className="text-sm text-gray-600">
+                Tgl Kembali: {item.tglKembali}
+              </div>
               <div className="text-sm text-gray-600">Jumlah: {item.jumlah}</div>
               <div className="text-sm text-gray-600">
                 Sisa Stok:{" "}
@@ -199,6 +214,7 @@ export default function PeminjamanAset() {
               "No",
               "Nama Barang",
               "Peminjam",
+              "Bagian",
               "Tanggal Pinjam",
               "Tanggal Kembali",
               "Jumlah",
@@ -218,7 +234,10 @@ export default function PeminjamanAset() {
                   {item.barang}
                 </td>
                 <td className="p-3 text-sm text-gray-600 font-medium">
-                  {item.pamina}
+                  {item.peminjam}
+                </td>
+                <td className="p-3 text-sm text-gray-600 font-medium">
+                  {item.bagian}
                 </td>
                 <td className="p-3 text-sm text-gray-600 font-medium whitespace-nowrap">
                   {item.tglPinjam}

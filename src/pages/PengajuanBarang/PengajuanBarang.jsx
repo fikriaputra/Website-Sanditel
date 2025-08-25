@@ -12,11 +12,12 @@ export default function PengajuanBarang() {
 
   const [search, setSearch] = useState("");
   const [data, setData] = useState([
-    { date: "2025-08-10", number: "SUB-20250810-001", status: "Pending" },
-    { date: "2025-08-09", number: "SUB-20250809-002", status: "Completed" },
-    { date: "2025-08-08", number: "SUB-20250808-003", status: "Rejected" },
-    { date: "2025-08-07", number: "SUB-20250807-004", status: "Pending" },
+    { date: "2025-08-10", number: "SUB-20250810-001", status: "Menunggu" },
+    { date: "2025-08-09", number: "SUB-20250809-002", status: "Diterima" },
+    { date: "2025-08-08", number: "SUB-20250808-003", status: "Ditolak" },
+    { date: "2025-08-07", number: "SUB-20250807-004", status: "Menunggu" },
   ]);
+
 
   const filteredData = useMemo(() => {
     return data.filter((item) =>
@@ -104,17 +105,20 @@ export default function PengajuanBarang() {
 
                 <p className="text-sm">
                   Status:{" "}
-                  <span
-                    className={`px-2 py-1 rounded-full text-xs font-medium ${
-                      item.status === "Pending"
-                        ? "bg-yellow-500 text-white"
-                        : item.status === "Completed"
-                        ? "bg-green-500 text-white"
-                        : "bg-red-500 text-white"
-                    }`}
-                  >
-                    {item.status}
-                  </span>
+                 <span
+  className={`px-2 py-1 rounded-full text-xs font-medium ${
+    item.status.toLowerCase() === "menunggu"
+      ? "bg-yellow-500 text-white"
+      : item.status.toLowerCase() === "diterima"
+      ? "bg-green-500 text-white"
+      : item.status.toLowerCase() === "ditolak"
+      ? "bg-red-500 text-white"
+      : "bg-gray-400 text-white"
+  }`}
+>
+  {item.status}
+</span>
+
                 </p>
 
                 {/* Actions (Mobile) */}

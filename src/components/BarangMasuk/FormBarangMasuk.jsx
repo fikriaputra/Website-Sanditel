@@ -5,7 +5,7 @@ export default function FormBarangMasuk({ initialData, onSubmit, onCancel }) {
   const [formData, setFormData] = useState({
     noTransaksi: "T-BK-2508010001",
     tglMasuk: "",
-    supplier: "",
+    kategori: "",
     namaBarang: "",
     jumlahMasuk: "",
     user: "",
@@ -28,7 +28,7 @@ export default function FormBarangMasuk({ initialData, onSubmit, onCancel }) {
       setFormData({
         noTransaksi: "T-BK-2508010001",
         tglMasuk: "",
-        supplier: "",
+        kategori: "",
         namaBarang: "",
         jumlahMasuk: "",
         user: "",
@@ -56,10 +56,10 @@ export default function FormBarangMasuk({ initialData, onSubmit, onCancel }) {
       placeholder: "Pilih tanggal masuk",
     },
     {
-      label: "Supplier",
-      name: "supplier",
+      label: "Kategori",
+      name: "kategori",
       type: "text",
-      placeholder: "Masukkan nama supplier",
+      placeholder: "Masukkan nama kategori",
     },
     {
       label: "Nama Barang",

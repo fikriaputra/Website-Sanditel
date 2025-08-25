@@ -1,16 +1,16 @@
 import { Pencil, Trash2, QrCode } from "lucide-react";
 
 export default function TableRowDA({ item, onEdit, onDelete, onCheckBarcode }) {
-  // Badge warna status
+  // Badge warna status (Bahasa Indonesia)
   const getStatusBadge = (status) => {
     switch (status?.toLowerCase()) {
-      case "active":
-      case "completed":
+      case "aktif":
+      case "selesai":
         return "bg-green-500 text-white px-3 py-1 rounded-full text-xs font-medium";
-      case "pending":
+      case "menunggu":
         return "bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-medium";
-      case "inactive":
-      case "rejected":
+      case "tidak aktif":
+      case "ditolak":
         return "bg-red-500 text-white px-3 py-1 rounded-full text-xs font-medium";
       default:
         return "bg-gray-400 text-white px-3 py-1 rounded-full text-xs font-medium";
@@ -21,8 +21,13 @@ export default function TableRowDA({ item, onEdit, onDelete, onCheckBarcode }) {
     <tr className="border-b hover:bg-gray-50 transition-colors">
       {Object.values(item).map((val, idx) => {
         const lowerVal = String(val).toLowerCase();
-        const isStatus =
-          ["active", "pending", "inactive", "completed", "rejected"].includes(lowerVal);
+        const isStatus = [
+          "aktif",
+          "menunggu",
+          "tidak aktif",
+          "selesai",
+          "ditolak",
+        ].includes(lowerVal);
 
         return (
           <td

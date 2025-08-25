@@ -4,6 +4,7 @@ import { Plus } from "lucide-react";
 export default function FormPeminjamanMultiple({ onSubmit, onCancel }) {
   const [formData, setFormData] = useState({
     peminjam: "",
+    bagian: "", // 🔹 field baru
     tanggalPinjam: "",
     tanggalKembali: "",
     barang: [{ namaBarang: "", merkKode: "", jumlah: "", sisaStok: "" }],
@@ -63,6 +64,19 @@ export default function FormPeminjamanMultiple({ onSubmit, onCancel }) {
             onChange={handleChange}
             className="w-full border rounded-lg px-3 py-2"
             placeholder="Nama peminjam..."
+          />
+        </div>
+
+        {/* 🔹 Field baru: Bagian */}
+        <div>
+          <label className="block text-sm font-medium mb-1">Bagian</label>
+          <input
+            type="text"
+            name="bagian"
+            value={formData.bagian}
+            onChange={handleChange}
+            className="w-full border rounded-lg px-3 py-2"
+            placeholder="Masukkan bagian / unit kerja..."
           />
         </div>
 
