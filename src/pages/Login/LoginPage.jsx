@@ -23,8 +23,8 @@ export default function LoginPage() {
       setLoading(false);
       console.log("Login data:", data);
 
-      // Navigasi ke dashboard
-      navigate("/dashboard");
+      // Navigasi ke Menu
+      navigate("/Menu");
     }, 1500);
   };
 
