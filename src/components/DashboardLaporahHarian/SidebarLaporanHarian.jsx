@@ -43,7 +43,7 @@ export default function SidebarLaporanHarian({ isOpen, setIsOpen }) {
         {/* Header Logo */}
         <div className="p-4 text-lg font-bold border-b flex items-center gap-2">
           <img
-            src="/Biro Umum Setda Jabar.png"
+            src="/Biro-Umum-Setda-Jabar.png"
             alt="Logo"
             className="w-8 h-8 object-contain"
           />

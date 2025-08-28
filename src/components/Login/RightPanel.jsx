@@ -9,7 +9,7 @@ const RightPanel = () => {
       {/* Konten utama */}
       <div className="text-center">
         <img
-          src="/Biro Umum Setda Jabar.png" // pastikan ada di public/
+          src="/Biro-Umum-Setda-Jabar.png" // pastikan ada di public/
           alt="Illustration"
           className="mx-auto w-full max-w-[250px] lg:max-w-sm mb-4"
         />

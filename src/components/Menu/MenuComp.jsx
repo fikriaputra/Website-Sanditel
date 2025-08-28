@@ -67,7 +67,7 @@ export default function MenuComp({ variant = "default", backgroundImage }) {
   <div className="flex items-center justify-center gap-4">
     {/* Logo */}
     <img
-      src="/Biro Umum Setda Jabar.png" // ganti dengan logo kamu, misal "/Gedung_Sandi.jpg"
+      src="/Biro-Umum-Setda-Jabar.png" // ganti dengan logo kamu, misal "/Gedung_Sandi.jpg"
       alt="Logo"
       className="w-20 h-20 md:w-16 md:h-16"
     />
