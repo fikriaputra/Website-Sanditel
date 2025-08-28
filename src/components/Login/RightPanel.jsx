@@ -9,19 +9,19 @@ const RightPanel = () => {
       {/* Konten utama */}
       <div className="text-center">
         <img
-          src="/Key_Advantages_Of_Inventory_Management_Systems_in_Ecommerce_Management-removebg-preview.png" // pastikan ada di public/
+          src="/Biro Umum Setda Jabar.png" // pastikan ada di public/
           alt="Illustration"
           className="mx-auto w-full max-w-[250px] lg:max-w-sm mb-4"
         />
 
         <h1 className="text-xl lg:text-2xl font-bold">
-          Manajemen Inventory Barang
+          SANDITEL APPS
         </h1>
 
         <p className="mt-3 text-xs lg:text-sm text-gray-300">
-          Kelola, pantau, dan kontrol inventory barang{" "}
+          Teknologi cerdas untuk operasional yang tertata{" "}
           <br className="hidden lg:block" />
-          Anda secara real-time di satu tempat.
+          Satu sistem. Banyak solusi.
         </p>
       </div>
     </div>

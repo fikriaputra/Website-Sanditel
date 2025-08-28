@@ -67,7 +67,7 @@ export default function MenuComp({ variant = "default", backgroundImage }) {
   <div className="flex items-center justify-center gap-4">
     {/* Logo */}
     <img
-      src="public\ChatGPT_Image_8_Agu_2025__23.59.29-removebg-preview (1).png" // ganti dengan logo kamu, misal "/Gedung_Sandi.jpg"
+      src="/Biro Umum Setda Jabar.png" // ganti dengan logo kamu, misal "/Gedung_Sandi.jpg"
       alt="Logo"
       className="w-20 h-20 md:w-16 md:h-16"
     />

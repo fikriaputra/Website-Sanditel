@@ -53,7 +53,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
         {/* Header Logo */}
         <div className="p-4 text-lg font-bold border-b flex items-center gap-2">
           <img
-            src="/ChatGPT_Image_8_Agu_2025__23.59.29-removebg-preview (1).png"
+            src="/Biro Umum Setda Jabar.png"
             alt="Logo"
             className="w-8 h-8 object-contain"
           />
