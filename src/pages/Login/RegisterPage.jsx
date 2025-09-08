@@ -29,7 +29,7 @@ export default function RegisterPage() {
       console.log("Registered data:", data);
 
       // Pesan sukses muncul setelah loading selesai
-      setMessage("Akun sudah terdaftar!");
+      setMessage("Akun sudah berhasil di daftarkan!");
       // Jangan navigasi otomatis, user klik Sign In sendiri
     }, 1500);
   };

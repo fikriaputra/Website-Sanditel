@@ -8,12 +8,12 @@ import Table from "../../components/DataBarang/Table";
 
 export default function PeminjamanAset() {
   const navigate = useNavigate();
-  const [search, setSearch] = useState("");
+  const [searchTerm, setSearchTerm] = useState(""); // 🔹 khusus mobile
 
-  const [peminjamanAset, setPeminjamanAset] = useState([
+  const [peminjamanAset] = useState([
     {
       number: 1,
-      barang: "TL-SG1024D / TP-LINK ()",
+      aset: "TL-SG1024D / TP-LINK ()",
       peminjam: "Biro Bia",
       bagian: "BKD",
       tglPinjam: "10-07-2025",
@@ -23,7 +23,7 @@ export default function PeminjamanAset() {
     },
     {
       number: 2,
-      barang: "Dell Laptop Latitude 3420",
+      aset: "Dell Laptop Latitude 3420",
       peminjam: "Budi",
       bagian: "Bagian IT",
       tglPinjam: "12-07-2025",
@@ -33,7 +33,7 @@ export default function PeminjamanAset() {
     },
     {
       number: 3,
-      barang: "Proyektor Epson X500",
+      aset: "Proyektor Epson X500",
       peminjam: "Sinta",
       bagian: "Biro Umum",
       tglPinjam: "15-07-2025",
@@ -43,7 +43,7 @@ export default function PeminjamanAset() {
     },
     {
       number: 4,
-      barang: "Kursi Kantor Ergonomic",
+      aset: "Kursi Kantor Ergonomic",
       peminjam: "Andi",
       bagian: "Divisi HRD",
       tglPinjam: "18-07-2025",
@@ -53,7 +53,7 @@ export default function PeminjamanAset() {
     },
     {
       number: 5,
-      barang: "Meja Rapat Kayu Jati",
+      aset: "Meja Rapat Kayu Jati",
       peminjam: "Rina",
       bagian: "Divisi Keuangan",
       tglPinjam: "20-07-2025",
@@ -63,7 +63,7 @@ export default function PeminjamanAset() {
     },
     {
       number: 6,
-      barang: "Printer Laser HP MFP",
+      aset: "Printer Laser HP MFP",
       peminjam: "Dewi",
       bagian: "Divisi Pemasaran",
       tglPinjam: "22-07-2025",
@@ -73,7 +73,7 @@ export default function PeminjamanAset() {
     },
     {
       number: 7,
-      barang: "Whiteboard Magnetik",
+      aset: "Whiteboard Magnetik",
       peminjam: "Agus",
       bagian: "Divisi Riset",
       tglPinjam: "25-07-2025",
@@ -87,15 +87,15 @@ export default function PeminjamanAset() {
   const handleTambahMultiple = () => navigate("/peminjaman-multiple");
   const handlePrint = () => window.print();
   const handleKembalikan = (index) => {
-    alert(`Barang dengan nomor ${peminjamanAset[index].number} dikembalikan`);
+    alert(`Aset dengan nomor ${peminjamanAset[index].number} dikembalikan`);
   };
 
-  // Filter data berdasarkan search
-  const filteredData = peminjamanAset.filter(
+  // 🔹 Filter hanya untuk MOBILE
+  const filteredMobile = peminjamanAset.filter(
     (item) =>
-      item.barang.toLowerCase().includes(search.toLowerCase()) ||
-      item.peminjam.toLowerCase().includes(search.toLowerCase()) ||
-      item.bagian.toLowerCase().includes(search.toLowerCase())
+      item.aset.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.peminjam.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.bagian.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -138,9 +138,9 @@ export default function PeminjamanAset() {
         <div className="sm:hidden mb-4 relative">
           <input
             type="text"
-            placeholder="Cari barang..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Cari aset..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg shadow-sm focus:outline-none text-sm"
           />
           <svg
@@ -160,14 +160,13 @@ export default function PeminjamanAset() {
 
         {/* Card View (Mobile) */}
         <div className="block sm:hidden space-y-3">
-          {filteredData.map((item, idx) => (
+          {filteredMobile.map((item, idx) => (
             <div
               key={idx}
               className="border rounded-lg shadow-sm p-3 bg-gray-50"
             >
-              {/* Header Card */}
               <div className="flex justify-between items-center mb-1">
-                <div className="font-bold text-gray-800">{item.barang}</div>
+                <div className="font-bold text-gray-800">{item.aset}</div>
                 <span className="text-sm text-gray-500">#{item.number}</span>
               </div>
 
@@ -212,7 +211,7 @@ export default function PeminjamanAset() {
           <Table
             headers={[
               "No",
-              "Nama Barang",
+              "Nama Aset",
               "Peminjam",
               "Bagian",
               "Tanggal Pinjam",
@@ -222,7 +221,7 @@ export default function PeminjamanAset() {
               "Aksi",
             ]}
           >
-            {filteredData.map((item, idx) => (
+            {peminjamanAset.map((item, idx) => (
               <tr
                 key={idx}
                 className="border-b hover:bg-gray-50 transition-colors"
@@ -231,7 +230,7 @@ export default function PeminjamanAset() {
                   {item.number}
                 </td>
                 <td className="p-3 text-sm text-gray-600 font-medium">
-                  {item.barang}
+                  {item.aset}
                 </td>
                 <td className="p-3 text-sm text-gray-600 font-medium">
                   {item.peminjam}

@@ -1,20 +1,24 @@
-// components/PengajuanBarang/FormPersetujuanBarang.jsx
+// components/Pekerjaan/FormPersetujuanPekerjaan.jsx
 import { useState, useEffect } from "react";
 
-export default function FormPersetujuanBarang({ initialData, onSubmit, onCancel }) {
+export default function FormPersetujuanPekerjaan({ initialData, onSubmit, onCancel }) {
   const [formData, setFormData] = useState({
-    noPengajuan: "",
-    namaBarang: "",
-    jumlahDiajukan: "",
+    no: "",
+    jenisPekerjaan: "",
+    bagian: "",
+    petugas: "",
+    status: "",
     statusPersetujuan: "",
   });
 
   useEffect(() => {
     if (initialData) {
       setFormData({
-        noPengajuan: initialData.noPengajuan || "",
-        namaBarang: initialData.namaBarang || "",
-        jumlahDiajukan: initialData.jumlah || "",
+        no: initialData.No || "",
+        jenisPekerjaan: initialData.JenisPekerjaan || "",
+        bagian: initialData.Bagian || "",
+        petugas: initialData.Petugas || "",
+        status: initialData.Status || "",
         statusPersetujuan: "",
       });
     }
@@ -37,14 +41,16 @@ export default function FormPersetujuanBarang({ initialData, onSubmit, onCancel 
     >
       {/* Title */}
       <h2 className="text-lg sm:text-2xl font-bold mb-4 text-center sm:text-left">
-        Form Persetujuan Pengajuan Barang
+        Form Persetujuan Pekerjaan
       </h2>
 
       {/* Input Fields */}
       {[
-        { label: "No Pengajuan", name: "noPengajuan", type: "text", readOnly: true },
-        { label: "Nama Barang", name: "namaBarang", type: "text", readOnly: true },
-        { label: "Jumlah Diajukan", name: "jumlahDiajukan", type: "number", readOnly: true },
+        { label: "No", name: "no", type: "text", readOnly: true },
+        { label: "Jenis Pekerjaan", name: "jenisPekerjaan", type: "text", readOnly: true },
+        { label: "Bagian", name: "bagian", type: "text", readOnly: true },
+        { label: "Petugas", name: "petugas", type: "text", readOnly: true },
+        { label: "Status Saat Ini", name: "status", type: "text", readOnly: true },
       ].map((field) => (
         <div key={field.name} className="flex flex-col">
           <label className="text-xs sm:text-sm font-medium mb-1">
@@ -67,7 +73,7 @@ export default function FormPersetujuanBarang({ initialData, onSubmit, onCancel 
       {/* Status Persetujuan */}
       <div className="flex flex-col">
         <label className="text-xs sm:text-sm font-medium mb-1">
-          Status Persetujuan
+          Ubah Status Pekerjaan
         </label>
         <select
           name="statusPersetujuan"
@@ -77,8 +83,8 @@ export default function FormPersetujuanBarang({ initialData, onSubmit, onCancel 
           className="w-full border rounded-lg px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="">-- Pilih Status --</option>
-          <option value="Disetujui">Diterima</option>
-          <option value="Ditolak">Ditolak</option>
+          <option value="Selesai">Selesai</option>
+          <option value="Tidak Dikerjakan">Tidak Dikerjakan</option>
         </select>
       </div>
 

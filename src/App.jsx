@@ -29,6 +29,11 @@ import PeminjamanMultiple from "./pages/PeminjamanAset/PeminjamanMultiple";
 import StokOpname from "./pages/StokOpname/StokOpname";
 import Pekerjaan from "./pages/Pekerjaan/Pekerjaan";
 import AddPekerjaan from "./pages/Pekerjaan/AddPekerjaan";
+import PersetujuanPekerjaan from "./pages/Pekerjaan/PersetujuanPekerjaan";
+import Laporan from "./pages/Laporan/Laporan";
+import Kategori from "./pages/DataAset/Kategori";
+import KategoriDetail from "./pages/DataAset/KategoriDetail";
+import DetailPengajuanBarang from "./pages/PengajuanBarang/DetailPengajuanBarang";
 
 
 // 🔹 Animated wrapper
@@ -87,11 +92,14 @@ function AnimatedRoutes() {
         <Route path="/pengajuan-barang" element={<PengajuanBarang />} />
         <Route path="/add-pengajuan-barang" element={<AddPengajuanBarang />} />
         <Route path="/persetujuan-barang" element={<PersetujuanBarang />} />
+        <Route path="/detail-pengajuan-barang/:id" element={<DetailPengajuanBarang />} />
 
         {/* Data Aset */}
         <Route path="/data-aset" element={<DataAset />} />
         <Route path="/add-data-aset" element={<AddDataAset />} />
         <Route path="/edit-data-aset/:id" element={<EditDataAset />} />
+        <Route path="/kategori" element={<Kategori />} />
+        <Route path="/kategori/:id" element={<KategoriDetail />} />
 
         {/* Data Barang */}
         <Route path="/data-barang" element={<DataBarang />} />
@@ -117,7 +125,11 @@ function AnimatedRoutes() {
         <Route path="/stok-opname" element={<StokOpname />} />
 
         {/* Pekerjaan */}
-        <Route path="/add-pekerjaan" element={<AddPekerjaan />} />        
+        <Route path="/add-pekerjaan" element={<AddPekerjaan />} />
+        <Route path="/persetujuan-pekerjaan" element={<PersetujuanPekerjaan />} />
+
+        {/* Laporan */}
+        <Route path="/laporan" element={<Laporan />} />        
       </Routes>
     </AnimatePresence>
   );

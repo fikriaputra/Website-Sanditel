@@ -109,8 +109,8 @@ export default function FormEditDataAset({ initialData, onSubmit, onCancel }) {
                      focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="">-- Pilih Status --</option>
-          <option value="Baik">Baik</option>
-          <option value="Rusak">Rusak</option>
+          <option value="Baik">Aktif</option>
+          <option value="Rusak">Tidak Aktif</option>
         </select>
       </div>
 

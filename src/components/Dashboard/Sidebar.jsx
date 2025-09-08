@@ -1,4 +1,3 @@
-// Sidebar.jsx
 import { useNavigate } from "react-router-dom";
 import {
   FaBars,
@@ -10,6 +9,7 @@ import {
   FaExchangeAlt,
   FaBoxes,
   FaChartPie,
+  FaArrowLeft,
 } from "react-icons/fa";
 
 export default function Sidebar({ isOpen, setIsOpen }) {
@@ -51,7 +51,13 @@ export default function Sidebar({ isOpen, setIsOpen }) {
           lg:translate-x-0 lg:opacity-100 lg:w-64`}
       >
         {/* Header Logo */}
-        <div className="p-4 text-lg font-bold border-b flex items-center gap-2">
+        <div
+          className="p-4 text-lg font-bold border-b flex items-center gap-2 cursor-pointer"
+          onClick={() => {
+            setIsOpen(false);
+            navigate("/menu");
+          }}
+        >
           <img
             src="/Biro-Umum-Setda-Jabar.png"
             alt="Logo"
@@ -60,14 +66,30 @@ export default function Sidebar({ isOpen, setIsOpen }) {
           SANDITEL App
         </div>
 
+        {/* Tombol Kembali Mobile */}
+        {isOpen && (
+          <div className="lg:hidden p-4 border-b">
+            <button
+              className="flex items-center gap-2 text-gray-700 font-medium hover:text-blue-600"
+              onClick={() => {
+                setIsOpen(false);
+                navigate("/menu");
+              }}
+            >
+              <FaArrowLeft className="w-4 h-4" />
+              <span>Kembali ke Menu</span>
+            </button>
+          </div>
+        )}
+
         {/* Menu List */}
         <ul className="p-4 space-y-4 overflow-y-auto max-h-[calc(100vh-60px)]">
           {menus.map((menu) => (
             <li
               key={menu.path}
-              className="flex items-center gap-3 p-2 rounded-md hover:bg-blue-50 cursor-pointer"
+              className="flex items-center gap-3 p-2 rounded-md hover:bg-blue-100 cursor-pointer transition-colors"
               onClick={() => {
-                setIsOpen(false); // Tutup sidebar saat pilih menu (mobile)
+                setIsOpen(false);
                 navigate(menu.path);
               }}
             >

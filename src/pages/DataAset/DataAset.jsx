@@ -23,7 +23,7 @@ export default function DataAset() {
   ]);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortCategory, setSortCategory] = useState(null);
+  const [sortCategory] = useState(null);
 
   const getStatusBadge = (status) =>
     status === "Aktif"
@@ -62,7 +62,7 @@ export default function DataAset() {
             {/* Add Asset */}
             <button
               onClick={() => navigate("/add-data-aset")}
-              className="flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white p-2 rounded"
+              className="flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded shadow transition w-10 h-10 sm:w-auto sm:h-auto"
               title="Tambah Aset"
             >
               <Plus size={18} />
@@ -71,8 +71,8 @@ export default function DataAset() {
 
             {/* Sort */}
             <button
-              onClick={() => setSortCategory(sortCategory ? null : "Elektronik")}
-              className="flex items-center justify-center bg-gray-500 hover:bg-gray-600 text-white p-2 rounded"
+              onClick={() => navigate("/kategori")}
+              className="flex items-center justify-center bg-gray-500 hover:bg-gray-600 text-white px-3 py-2 rounded shadow transition w-10 h-10 sm:w-auto sm:h-auto"
               title="Sortir berdasarkan kategori"
             >
               <Filter size={18} />
@@ -82,7 +82,7 @@ export default function DataAset() {
             {/* Scan Barcode */}
             <button
               onClick={() => navigate("/stok-opname")}
-              className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white p-2 rounded"
+              className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded shadow transition w-10 h-10 sm:w-auto sm:h-auto"
               title="Scan Barcode"
             >
               <Barcode size={18} />

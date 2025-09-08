@@ -12,11 +12,12 @@ export default function PengajuanBarang() {
 
   const [search, setSearch] = useState("");
   const [data, setData] = useState([
-    { date: "2025-08-10", number: "SUB-20250810-001", status: "Menunggu" },
-    { date: "2025-08-09", number: "SUB-20250809-002", status: "Diterima" },
-    { date: "2025-08-08", number: "SUB-20250808-003", status: "Ditolak" },
-    { date: "2025-08-07", number: "SUB-20250807-004", status: "Menunggu" },
+    { id: 1, date: "2025-08-10", number: "SUB-20250810-001", status: "Menunggu" },
+    { id: 2, date: "2025-08-09", number: "SUB-20250809-002", status: "Diterima" },
+    { id: 3, date: "2025-08-08", number: "SUB-20250808-003", status: "Ditolak" },
+    { id: 4, date: "2025-08-07", number: "SUB-20250807-004", status: "Menunggu" },
   ]);
+
 
 
   const filteredData = useMemo(() => {
@@ -124,7 +125,7 @@ export default function PengajuanBarang() {
                 {/* Actions (Mobile) */}
                 <div className="flex gap-2 mt-2">
                   <button
-                    onClick={() => alert(`Lihat detail ${item.number}`)}
+                    onClick={() => navigate(`/detail-pengajuan-barang/${item.id}`)}
                     className="flex items-center gap-1 px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded text-sm"
                   >
                     <Eye size={14} /> <span>Lihat</span>
@@ -177,23 +178,24 @@ export default function PengajuanBarang() {
           >
             {filteredData.length > 0 ? (
               filteredData.map((item, idx) => (
-                <TableRowPB
-                  key={item.number}
-                  item={item}
-                  onView={() => alert(`Lihat detail ${item.number}`)}
-                  onDelete={() => handleDelete(idx)}
-                  onApprove={() =>
-                    navigate("/persetujuan-barang", {
-                      state: {
-                        data: {
-                          noPengajuan: item.number,
-                          namaBarang: `Barang ${idx + 1}`, // dummy
-                          jumlah: Math.floor(Math.random() * 10) + 1, // dummy
-                        },
-                      },
-                    })
-                  }
-                />
+<TableRowPB
+  key={item.number}
+  item={item}
+  onView={() => navigate(`/detail-pengajuan-barang/${item.id}`)}
+  onDelete={() => handleDelete(idx)}
+  onApprove={() =>
+    navigate("/persetujuan-barang", {
+      state: {
+        data: {
+          noPengajuan: item.number,
+          namaBarang: `Barang ${idx + 1}`, // dummy
+          jumlah: Math.floor(Math.random() * 10) + 1, // dummy
+        },
+      },
+    })
+  }
+/>
+
               ))
             ) : (
               <tr>

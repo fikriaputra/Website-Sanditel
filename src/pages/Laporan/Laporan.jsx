@@ -1,25 +1,24 @@
-// src/pages/Pekerjaan.jsx
+// src/pages/Laporan.jsx
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import MainLayout2 from "../../layouts/MainLayout2";
 import Table from "../../components/DataBarang/Table";
-import TableRowPK from "../../components/Pekerjaan/TableRowPK";
-import { Plus, Pencil, Trash2, Check } from "lucide-react";
+import TableRowLP from "../../components/Laporan/TableRowLP";
+import { Pencil, Trash2 } from "lucide-react";
 import "../../index.css";
 
-export default function Pekerjaan() {
+export default function Laporan() {
   const navigate = useNavigate();
 
   // State
   const [search, setSearch] = useState("");
-  const [dataPekerjaan, setDataPekerjaan] = useState([
+  const [dataLaporan, setDataLaporan] = useState([
     {
       No: 1,
       HariTanggal: "2025-08-25",
       JenisPekerjaan: "Instalasi",
       Bagian: "CCTV",
       Petugas: "Budi",
-      Status: "Selesai",
       Keterangan: "Pemasangan CCTV di ruang rapat",
     },
     {
@@ -28,7 +27,6 @@ export default function Pekerjaan() {
       JenisPekerjaan: "Maintenance",
       Bagian: "Internet",
       Petugas: "Andi",
-      Status: "Dikerjakan",
       Keterangan: "Pengecekan jaringan lantai 2",
     },
     {
@@ -37,7 +35,6 @@ export default function Pekerjaan() {
       JenisPekerjaan: "Troubleshooting",
       Bagian: "Telepon",
       Petugas: "Sari",
-      Status: "Tidak Dikerjakan",
       Keterangan: "Gangguan telepon di lantai 3",
     },
   ]);
@@ -48,35 +45,28 @@ export default function Pekerjaan() {
     "Jenis Pekerjaan",
     "Bagian",
     "Petugas",
-    "Status",
     "Keterangan",
     "Aksi",
   ];
 
   // Filter pencarian
   const filteredData = useMemo(() => {
-    return dataPekerjaan.filter((pekerjaan) =>
-      Object.values(pekerjaan)
+    return dataLaporan.filter((laporan) =>
+      Object.values(laporan)
         .join(" ")
         .toLowerCase()
         .includes(search.toLowerCase())
     );
-  }, [dataPekerjaan, search]);
+  }, [dataLaporan, search]);
 
   // Handlers
-  const handleTambah = () => navigate("/add-pekerjaan");
-  const handleEdit = (item) => navigate(`/edit-pekerjaan/${item.No}`);
+  const handleEdit = (item) => navigate(`/edit-laporan/${item.No}`);
   const handleDelete = (item) => {
     if (
-      window.confirm(`Yakin ingin menghapus pekerjaan: ${item.JenisPekerjaan}?`)
+      window.confirm(`Yakin ingin menghapus laporan: ${item.JenisPekerjaan}?`)
     ) {
-      setDataPekerjaan((prev) => prev.filter((pk) => pk.No !== item.No));
+      setDataLaporan((prev) => prev.filter((lp) => lp.No !== item.No));
     }
-  };
-
-  // 👉 ubah handleApprove agar pindah ke halaman PersetujuanPekerjaan
-  const handleApprove = (item) => {
-    navigate("/persetujuan-pekerjaan", { state: { data: item } });
   };
 
   return (
@@ -84,25 +74,14 @@ export default function Pekerjaan() {
       <div className="bg-white p-3 sm:p-6 rounded-lg shadow">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-3">
-          <h2 className="font-bold text-lg sm:text-xl">Daftar Pekerjaan</h2>
-          <div className="flex items-center gap-2 flex-wrap">
-
-            {/* Tombol Tambah */}
-            <button
-              onClick={handleTambah}
-              className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded shadow transition-transform"
-            >
-              <Plus size={18} />
-              <span className="hidden sm:inline">Tambah</span>
-            </button>
-          </div>
+          <h2 className="font-bold text-lg sm:text-xl">Daftar Laporan</h2>
         </div>
 
         {/* Search (Mobile) */}
         <div className="sm:hidden mb-4 relative">
           <input
             type="text"
-            placeholder="Cari pekerjaan..."
+            placeholder="Cari laporan..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg shadow-sm focus:outline-none text-sm"
@@ -148,9 +127,6 @@ export default function Pekerjaan() {
                   Petugas: <span className="font-medium">{item.Petugas}</span>
                 </p>
                 <p className="text-sm text-gray-600">
-                  Status: <span className="font-medium">{item.Status}</span>
-                </p>
-                <p className="text-sm text-gray-600">
                   Keterangan:{" "}
                   <span className="font-medium">{item.Keterangan}</span>
                 </p>
@@ -168,14 +144,6 @@ export default function Pekerjaan() {
                   >
                     <Trash2 size={14} /> Hapus
                   </button>
-                  {item.Status.toLowerCase() === "dikerjakan" && (
-                    <button
-                      onClick={() => handleApprove(item)}
-                      className="flex items-center gap-1 px-3 py-1 bg-green-100 hover:bg-green-200 text-green-700 rounded text-sm"
-                    >
-                      <Check size={14} /> Approve
-                    </button>
-                  )}
                 </div>
               </div>
             ))
@@ -191,11 +159,10 @@ export default function Pekerjaan() {
           <Table headers={headers} search={search} setSearch={setSearch}>
             {filteredData.length > 0 ? (
               filteredData.map((item) => (
-                <TableRowPK
+                <TableRowLP
                   key={item.No}
                   item={item}
-                  onDelete={() => handleDelete(item)}
-                  onApprove={() => handleApprove(item)}
+                  onView={() => handleEdit(item)} // pakai view untuk edit
                 />
               ))
             ) : (

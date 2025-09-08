@@ -135,8 +135,8 @@ export default function FormPekerjaan({ onSubmit, onCancel, initialData, hideRes
           className="w-full border rounded-lg px-3 py-2 text-sm sm:text-base"
         >
           <option value="">-- Pilih Status --</option>
-          <option value="Pending">Pending</option>
-          <option value="Proses">Proses</option>
+          <option value="Pending">Tidak Dikerjakan</option>
+          <option value="Proses">Dikerjakan</option>
           <option value="Selesai">Selesai</option>
         </select>
       </div>

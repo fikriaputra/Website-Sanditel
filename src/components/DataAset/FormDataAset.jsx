@@ -6,7 +6,7 @@ export default function FormDataAset({ onSubmit, onCancel }) {
     assetName: "",
     brandCode: "",
     category: "",
-    status: "Active",
+    status: "",
     barcodeUpdateLog: "",
   });
 
@@ -23,7 +23,7 @@ export default function FormDataAset({ onSubmit, onCancel }) {
       assetName: "",
       brandCode: "",
       category: "",
-      status: "Active",
+      status: "",
       barcodeUpdateLog: "",
     });
   };
@@ -80,7 +80,7 @@ export default function FormDataAset({ onSubmit, onCancel }) {
           className="w-full border rounded-lg px-3 py-2 
                      focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
-          <option value="">Pilih kategori...</option>
+          <option value="">-- Pilih Kategori --</option>
           <option value="Electronics">Electronics</option>
           <option value="Furniture">Furniture</option>
           <option value="Other">Other</option>
@@ -97,8 +97,9 @@ export default function FormDataAset({ onSubmit, onCancel }) {
           className="w-full border rounded-lg px-3 py-2 
                      focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
-          <option value="Active">Active</option>
-          <option value="Inactive">Inactive</option>
+          <option value="">-- Pilih Status --</option>
+          <option value="Active">Aktif</option>
+          <option value="Inactive">Tidak Aktif</option>
         </select>
       </div>
 
