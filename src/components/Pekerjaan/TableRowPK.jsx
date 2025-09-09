@@ -56,13 +56,6 @@ export default function TableRowPK({ item, onView, onDelete, onApprove }) {
         </span>
       </td>
 
-      {/* Keterangan */}
-      {item.Keterangan && (
-        <td className="p-3 text-sm text-gray-600 font-medium">
-          {item.Keterangan}
-        </td>
-      )}
-
       {/* Actions */}
       <td className="p-3 flex gap-2">
         {/* View */}

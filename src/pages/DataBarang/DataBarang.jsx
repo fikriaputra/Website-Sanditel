@@ -56,7 +56,7 @@ export default function DataBarang() {
               onClick={handlePrint}
               className="flex items-center gap-2 px-3 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-700 shadow-sm transition-colors justify-center"
             >
-              <Printer size={20} />
+              <Printer size={18} />
               <span className="hidden sm:inline">Cetak</span>
             </button>
 

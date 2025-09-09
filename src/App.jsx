@@ -34,6 +34,7 @@ import Laporan from "./pages/Laporan/Laporan";
 import Kategori from "./pages/DataAset/Kategori";
 import KategoriDetail from "./pages/DataAset/KategoriDetail";
 import DetailPengajuanBarang from "./pages/PengajuanBarang/DetailPengajuanBarang";
+import DetailLaporan from "./pages/Laporan/DetailLaporan";
 
 
 // 🔹 Animated wrapper
@@ -129,7 +130,8 @@ function AnimatedRoutes() {
         <Route path="/persetujuan-pekerjaan" element={<PersetujuanPekerjaan />} />
 
         {/* Laporan */}
-        <Route path="/laporan" element={<Laporan />} />        
+        <Route path="/laporan" element={<Laporan />} />
+        <Route path="/detail-laporan/:id" element={<DetailLaporan />} />     
       </Routes>
     </AnimatePresence>
   );

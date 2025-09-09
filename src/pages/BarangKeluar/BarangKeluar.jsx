@@ -62,6 +62,8 @@ export default function BarangKeluar() {
     }
   };
 
+  const handlePrint = () => window.print();
+
   return (
     <MainLayout>
       <div className="bg-white rounded-lg shadow p-4">
@@ -70,7 +72,7 @@ export default function BarangKeluar() {
           <h2 className="font-bold text-lg">Riwayat Barang Keluar</h2>
           <div className="flex gap-2 flex-wrap">
             <button
-              onClick={() => alert("Cetak data")}
+              onClick={handlePrint}
               className="flex items-center gap-2 px-3 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-700 shadow-sm transition-colors justify-center"
               title="Print Data"
             >

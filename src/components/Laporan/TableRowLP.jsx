@@ -35,13 +35,6 @@ export default function TableRowLP({ item, onView }) {
         </td>
       )}
 
-      {/* Keterangan */}
-      {item.Keterangan && (
-        <td className="p-3 text-sm text-gray-600 font-medium">
-          {item.Keterangan}
-        </td>
-      )}
-
       {/* Action (hanya View) */}
       <td className="p-3 flex gap-2">
         {onView && (

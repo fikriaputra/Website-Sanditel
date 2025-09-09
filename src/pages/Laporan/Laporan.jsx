@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import MainLayout2 from "../../layouts/MainLayout2";
 import Table from "../../components/DataBarang/Table";
 import TableRowLP from "../../components/Laporan/TableRowLP";
-import { Pencil, Trash2 } from "lucide-react";
+import { Eye } from "lucide-react";
 import "../../index.css";
 
 export default function Laporan() {
@@ -19,7 +19,6 @@ export default function Laporan() {
       JenisPekerjaan: "Instalasi",
       Bagian: "CCTV",
       Petugas: "Budi",
-      Keterangan: "Pemasangan CCTV di ruang rapat",
     },
     {
       No: 2,
@@ -27,7 +26,6 @@ export default function Laporan() {
       JenisPekerjaan: "Maintenance",
       Bagian: "Internet",
       Petugas: "Andi",
-      Keterangan: "Pengecekan jaringan lantai 2",
     },
     {
       No: 3,
@@ -35,7 +33,6 @@ export default function Laporan() {
       JenisPekerjaan: "Troubleshooting",
       Bagian: "Telepon",
       Petugas: "Sari",
-      Keterangan: "Gangguan telepon di lantai 3",
     },
   ]);
 
@@ -45,7 +42,6 @@ export default function Laporan() {
     "Jenis Pekerjaan",
     "Bagian",
     "Petugas",
-    "Keterangan",
     "Aksi",
   ];
 
@@ -59,15 +55,8 @@ export default function Laporan() {
     );
   }, [dataLaporan, search]);
 
-  // Handlers
-  const handleEdit = (item) => navigate(`/edit-laporan/${item.No}`);
-  const handleDelete = (item) => {
-    if (
-      window.confirm(`Yakin ingin menghapus laporan: ${item.JenisPekerjaan}?`)
-    ) {
-      setDataLaporan((prev) => prev.filter((lp) => lp.No !== item.No));
-    }
-  };
+  // Handler untuk navigasi ke detail laporan
+  const handleView = (item) => navigate(`/detail-laporan/${item.No}`);
 
   return (
     <MainLayout2>
@@ -117,8 +106,7 @@ export default function Laporan() {
                 </div>
 
                 <p className="text-sm text-gray-600">
-                  Tanggal:{" "}
-                  <span className="font-medium">{item.HariTanggal}</span>
+                  Tanggal: <span className="font-medium">{item.HariTanggal}</span>
                 </p>
                 <p className="text-sm text-gray-600">
                   Bagian: <span className="font-medium">{item.Bagian}</span>
@@ -126,23 +114,13 @@ export default function Laporan() {
                 <p className="text-sm text-gray-600">
                   Petugas: <span className="font-medium">{item.Petugas}</span>
                 </p>
-                <p className="text-sm text-gray-600">
-                  Keterangan:{" "}
-                  <span className="font-medium">{item.Keterangan}</span>
-                </p>
 
                 <div className="flex gap-2 mt-2">
                   <button
-                    onClick={() => handleEdit(item)}
-                    className="flex items-center gap-1 px-3 py-1 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 rounded text-sm"
+                    onClick={() => handleView(item)}
+                    className="flex items-center gap-1 px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded text-sm"
                   >
-                    <Pencil size={14} /> Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(item)}
-                    className="flex items-center gap-1 px-3 py-1 bg-red-100 hover:bg-red-200 text-red-700 rounded text-sm"
-                  >
-                    <Trash2 size={14} /> Hapus
+                    <Eye size={14} /> Lihat
                   </button>
                 </div>
               </div>
@@ -162,7 +140,7 @@ export default function Laporan() {
                 <TableRowLP
                   key={item.No}
                   item={item}
-                  onView={() => handleEdit(item)} // pakai view untuk edit
+                  onView={() => handleView(item)} // navigasi ke detail
                 />
               ))
             ) : (

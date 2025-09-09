@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import MainLayout2 from "../../layouts/MainLayout2";
 import Table from "../../components/DataBarang/Table";
 import TableRowPK from "../../components/Pekerjaan/TableRowPK";
-import { Plus, Pencil, Trash2, Check } from "lucide-react";
+import { Plus, Trash2, Check } from "lucide-react";
 import "../../index.css";
 
 export default function Pekerjaan() {
@@ -20,7 +20,6 @@ export default function Pekerjaan() {
       Bagian: "CCTV",
       Petugas: "Budi",
       Status: "Selesai",
-      Keterangan: "Pemasangan CCTV di ruang rapat",
     },
     {
       No: 2,
@@ -29,7 +28,6 @@ export default function Pekerjaan() {
       Bagian: "Internet",
       Petugas: "Andi",
       Status: "Dikerjakan",
-      Keterangan: "Pengecekan jaringan lantai 2",
     },
     {
       No: 3,
@@ -38,7 +36,6 @@ export default function Pekerjaan() {
       Bagian: "Telepon",
       Petugas: "Sari",
       Status: "Tidak Dikerjakan",
-      Keterangan: "Gangguan telepon di lantai 3",
     },
   ]);
 
@@ -49,7 +46,6 @@ export default function Pekerjaan() {
     "Bagian",
     "Petugas",
     "Status",
-    "Keterangan",
     "Aksi",
   ];
 
@@ -63,9 +59,22 @@ export default function Pekerjaan() {
     );
   }, [dataPekerjaan, search]);
 
+  // 👉 fungsi badge untuk status (sama dengan di TableRowPK)
+  const getSubmissionBadge = (status) => {
+    switch (status.toLowerCase()) {
+      case "selesai":
+        return "bg-green-500 text-white px-3 py-1 rounded-full text-xs font-medium";
+      case "dikerjakan":
+        return "bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-medium";
+      case "tidak dikerjakan":
+        return "bg-red-500 text-white px-3 py-1 rounded-full text-xs font-medium";
+      default:
+        return "bg-gray-400 text-white px-3 py-1 rounded-full text-xs font-medium";
+    }
+  };
+
   // Handlers
   const handleTambah = () => navigate("/add-pekerjaan");
-  const handleEdit = (item) => navigate(`/edit-pekerjaan/${item.No}`);
   const handleDelete = (item) => {
     if (
       window.confirm(`Yakin ingin menghapus pekerjaan: ${item.JenisPekerjaan}?`)
@@ -73,8 +82,6 @@ export default function Pekerjaan() {
       setDataPekerjaan((prev) => prev.filter((pk) => pk.No !== item.No));
     }
   };
-
-  // 👉 ubah handleApprove agar pindah ke halaman PersetujuanPekerjaan
   const handleApprove = (item) => {
     navigate("/persetujuan-pekerjaan", { state: { data: item } });
   };
@@ -86,8 +93,6 @@ export default function Pekerjaan() {
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-3">
           <h2 className="font-bold text-lg sm:text-xl">Daftar Pekerjaan</h2>
           <div className="flex items-center gap-2 flex-wrap">
-
-            {/* Tombol Tambah */}
             <button
               onClick={handleTambah}
               className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded shadow transition-transform"
@@ -147,21 +152,15 @@ export default function Pekerjaan() {
                 <p className="text-sm text-gray-600">
                   Petugas: <span className="font-medium">{item.Petugas}</span>
                 </p>
-                <p className="text-sm text-gray-600">
-                  Status: <span className="font-medium">{item.Status}</span>
-                </p>
-                <p className="text-sm text-gray-600">
-                  Keterangan:{" "}
-                  <span className="font-medium">{item.Keterangan}</span>
+                {/* Status dengan badge warna */}
+                <p className="text-sm text-gray-600 flex items-center gap-2">
+                  Status:{" "}
+                  <span className={getSubmissionBadge(item.Status)}>
+                    {item.Status}
+                  </span>
                 </p>
 
                 <div className="flex gap-2 mt-2">
-                  <button
-                    onClick={() => handleEdit(item)}
-                    className="flex items-center gap-1 px-3 py-1 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 rounded text-sm"
-                  >
-                    <Pencil size={14} /> Edit
-                  </button>
                   <button
                     onClick={() => handleDelete(item)}
                     className="flex items-center gap-1 px-3 py-1 bg-red-100 hover:bg-red-200 text-red-700 rounded text-sm"
@@ -211,26 +210,6 @@ export default function Pekerjaan() {
           </Table>
         </div>
       </div>
-
-      {/* Print CSS */}
-      <style>
-        {`
-          @media print {
-            body * {
-              visibility: hidden;
-            }
-            #printArea, #printArea * {
-              visibility: visible;
-            }
-            #printArea {
-              position: absolute;
-              left: 0;
-              top: 0;
-              width: 100%;
-            }
-          }
-        `}
-      </style>
     </MainLayout2>
   );
 }
