@@ -19,7 +19,7 @@ export default function Pekerjaan() {
       JenisPekerjaan: "Instalasi",
       Bagian: "CCTV",
       Petugas: "Budi",
-      Status: "Selesai",
+      Status: "Dikerjakan",
     },
     {
       No: 2,
@@ -35,7 +35,7 @@ export default function Pekerjaan() {
       JenisPekerjaan: "Troubleshooting",
       Bagian: "Telepon",
       Petugas: "Sari",
-      Status: "Tidak Dikerjakan",
+      Status: "Dikerjakan",
     },
   ]);
 

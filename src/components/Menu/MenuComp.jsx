@@ -19,7 +19,7 @@ export default function MenuComp({ variant = "default", backgroundImage }) {
       icon: BarChart2,
       color: "from-blue-400 to-indigo-500",
       hoverColor: "from-blue-300 to-indigo-400",
-      path: "/pekerjaan",
+      path: "/dashboard-laporan",
     },
     {
       title: "Monitoring Perangkat",

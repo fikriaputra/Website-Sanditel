@@ -35,6 +35,7 @@ import Kategori from "./pages/DataAset/Kategori";
 import KategoriDetail from "./pages/DataAset/KategoriDetail";
 import DetailPengajuanBarang from "./pages/PengajuanBarang/DetailPengajuanBarang";
 import DetailLaporan from "./pages/Laporan/DetailLaporan";
+import DashboardLaporan from "./pages/DashboardLaporanHarian/DashboardLaporan";
 
 
 // 🔹 Animated wrapper
@@ -88,6 +89,7 @@ function AnimatedRoutes() {
 
         {/* Dashboard */}
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard-laporan" element={<DashboardLaporan />} />"
 
         {/* Pengajuan Barang */}
         <Route path="/pengajuan-barang" element={<PengajuanBarang />} />

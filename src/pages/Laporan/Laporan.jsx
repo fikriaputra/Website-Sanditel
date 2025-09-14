@@ -19,6 +19,7 @@ export default function Laporan() {
       JenisPekerjaan: "Instalasi",
       Bagian: "CCTV",
       Petugas: "Budi",
+      Status: "Selesai",
     },
     {
       No: 2,
@@ -26,6 +27,7 @@ export default function Laporan() {
       JenisPekerjaan: "Maintenance",
       Bagian: "Internet",
       Petugas: "Andi",
+      Status: "Tidak Dikerjakan",
     },
     {
       No: 3,
@@ -33,6 +35,7 @@ export default function Laporan() {
       JenisPekerjaan: "Troubleshooting",
       Bagian: "Telepon",
       Petugas: "Sari",
+      Status: "Selesai",
     },
   ]);
 
@@ -42,6 +45,7 @@ export default function Laporan() {
     "Jenis Pekerjaan",
     "Bagian",
     "Petugas",
+    "Status",
     "Aksi",
   ];
 
@@ -57,6 +61,31 @@ export default function Laporan() {
 
   // Handler untuk navigasi ke detail laporan
   const handleView = (item) => navigate(`/detail-laporan/${item.No}`);
+
+  // Badge status (sama dengan TableRowPK/LP style tegas)
+  const getStatusBadge = (status) => {
+    if (!status) return null;
+    switch (status.toLowerCase()) {
+      case "selesai":
+        return (
+          <span className="px-3 py-1 rounded-full bg-green-500 text-white text-xs font-semibold">
+            Selesai
+          </span>
+        );
+      case "tidak dikerjakan":
+        return (
+          <span className="px-3 py-1 rounded-full bg-red-500 text-white text-xs font-semibold">
+            Tidak Dikerjakan
+          </span>
+        );
+      default:
+        return (
+          <span className="px-3 py-1 rounded-full bg-gray-500 text-white text-xs font-semibold">
+            {status}
+          </span>
+        );
+    }
+  };
 
   return (
     <MainLayout2>
@@ -106,13 +135,17 @@ export default function Laporan() {
                 </div>
 
                 <p className="text-sm text-gray-600">
-                  Tanggal: <span className="font-medium">{item.HariTanggal}</span>
+                  Tanggal:{" "}
+                  <span className="font-medium">{item.HariTanggal}</span>
                 </p>
                 <p className="text-sm text-gray-600">
                   Bagian: <span className="font-medium">{item.Bagian}</span>
                 </p>
                 <p className="text-sm text-gray-600">
                   Petugas: <span className="font-medium">{item.Petugas}</span>
+                </p>
+                <p className="text-sm text-gray-600 flex items-center gap-1">
+                  Status: {getStatusBadge(item.Status)}
                 </p>
 
                 <div className="flex gap-2 mt-2">

@@ -14,7 +14,7 @@ export default function SidebarLaporanHarian() {
   const [isOpen, setIsOpen] = useState(false); // state sidebar untuk mobile
 
   const menus = [
-    { name: "Dashboard", icon: <FaChartPie />, path: "/dashboard" },
+    { name: "Dashboard", icon: <FaChartPie />, path: "/dashboard-laporan" },
     { name: "Pekerjaan", icon: <FaTasks />, path: "/pekerjaan" },
     { name: "Laporan", icon: <FaFileAlt />, path: "/laporan" },
   ];

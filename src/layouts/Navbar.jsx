@@ -11,7 +11,7 @@ export default function Navbar({ toggleSidebar }) {
 
   // Mapping route ke judul halaman
   const pageTitles = {
-    "/": "Dashboard",
+    "/dashboard": "Dashboard",
     "/data-barang": "Data Barang",
     "/barang-masuk": "Barang Masuk",
     "/barang-keluar": "Barang Keluar",
@@ -19,6 +19,10 @@ export default function Navbar({ toggleSidebar }) {
     "/data-aset": "Data Aset",
     "/peminjaman-aset": "Peminjaman Aset",
     "/stok-opname": "Stok Opname",
+    "/dashboard-laporan": "Dashboard",
+    "/pekerjaan": "Pekerjaan",
+    "/laporan": "Laporan",
+    
   };
 
   const currentTitle = pageTitles[location.pathname] || "Dashboard";

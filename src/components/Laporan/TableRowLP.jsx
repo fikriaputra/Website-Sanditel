@@ -2,6 +2,38 @@
 import { Eye } from "lucide-react";
 
 export default function TableRowLP({ item, onView }) {
+  // Badge warna status (hanya "Selesai" & "Tidak Dikerjakan")
+  const getStatusBadge = (status) => {
+    if (!status) {
+      return (
+        <span className="px-3 py-1 rounded-full bg-gray-400 text-white text-xs font-medium">
+          -
+        </span>
+      );
+    }
+
+    switch (status.toLowerCase()) {
+      case "selesai":
+        return (
+          <span className="px-3 py-1 rounded-full bg-green-500 text-white text-xs font-medium">
+            Selesai
+          </span>
+        );
+      case "tidak dikerjakan":
+        return (
+          <span className="px-3 py-1 rounded-full bg-red-500 text-white text-xs font-medium">
+            Tidak Dikerjakan
+          </span>
+        );
+      default:
+        return (
+          <span className="px-3 py-1 rounded-full bg-gray-400 text-white text-xs font-medium">
+            {status}
+          </span>
+        );
+    }
+  };
+
   return (
     <tr className="border-b hover:bg-gray-50 transition-colors">
       {/* Nomor / ID */}
@@ -34,6 +66,11 @@ export default function TableRowLP({ item, onView }) {
           {item.Petugas}
         </td>
       )}
+
+      {/* Status */}
+      <td className="p-3 text-sm">
+        {getStatusBadge(item.Status || item.status)}
+      </td>
 
       {/* Action (hanya View) */}
       <td className="p-3 flex gap-2">
